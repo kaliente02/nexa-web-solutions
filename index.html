@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nexa Digital Studio</title>
+
+  <!-- SEO Meta Tags -->
+  <title>Nexa Web Solutions | Website Design for Davao Businesses</title>
+  <meta name="description" content="Nexa Web Solutions builds professional, affordable websites for businesses in Davao City. Get a modern website that grows your customers online."/>
+  <meta name="keywords" content="web design Davao, website Davao City, affordable website Philippines, Nexa Web Solutions"/>
+  <meta name="author" content="Nexa Web Solutions"/>
 
   <link rel="stylesheet" href="/css/style.css"/>
 </head>
@@ -24,13 +29,13 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <button id="menuBtn" class="menu-btn">☰</button>
+    <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
   </header>
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <div class="hero-content">
-      <span class="badge">PREMIUM WEB SOLUTIONS</span>
+    <div class="hero-content reveal">
+      <span class="badge">DAVAO CITY WEB SOLUTIONS</span>
 
       <h1>
         We Build
@@ -39,17 +44,17 @@
       </h1>
 
       <p>
-        Premium websites, ordering systems, and digital experiences
-        designed for modern brands and businesses.
+        Professional websites for Davao businesses — from restaurants and clinics
+        to real estate and retail. No Facebook page can replace a real website.
       </p>
 
       <div class="hero-buttons">
-        <button class="primary-btn">Get Started</button>
-        <button class="secondary-btn">View Portfolio</button>
+        <a href="#contact"><button class="primary-btn">Get a Free Quote</button></a>
+        <a href="#portfolio"><button class="secondary-btn">View Portfolio</button></a>
       </div>
     </div>
 
-    <div class="hero-card">
+    <div class="hero-card reveal">
       <div class="card-glow"></div>
 
       <div class="dashboard">
@@ -70,13 +75,13 @@
 
         <div class="stats">
           <div class="stat-box">
-            <h3>120+</h3>
-            <p>Projects</p>
+            <h3>100%</h3>
+            <p>Mobile Ready</p>
           </div>
 
           <div class="stat-box">
-            <h3>98%</h3>
-            <p>Satisfaction</p>
+            <h3>Fast</h3>
+            <p>Delivery</p>
           </div>
         </div>
       </div>
@@ -85,90 +90,142 @@
 
   <!-- SERVICES -->
   <section class="services" id="services">
-
-    <div class="section-title">
+    <div class="section-title reveal">
       <span>OUR SERVICES</span>
-      <h2>Digital Solutions</h2>
+      <h2>What We Offer</h2>
     </div>
 
     <div class="service-grid">
-
-      <div class="service-card">
+      <div class="service-card reveal">
+        <div class="service-icon">🌐</div>
         <h3>Business Websites</h3>
-        <p>Professional responsive websites for modern businesses.</p>
+        <p>Professional, mobile-ready websites for clinics, restaurants, shops, and more. Starting at ₱8,000.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal">
+        <div class="service-icon">🛒</div>
         <h3>Ordering Systems</h3>
-        <p>Smart systems for cafes, restaurants, and stores.</p>
+        <p>Smart online ordering for cafes, restaurants, and retail stores. Let customers order anytime.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal">
+        <div class="service-icon">📄</div>
         <h3>Landing Pages</h3>
-        <p>High-converting pages for promotions and campaigns.</p>
+        <p>High-converting single pages for promotions, events, and campaigns. Quick turnaround.</p>
       </div>
-
     </div>
   </section>
 
   <!-- PORTFOLIO -->
   <section class="portfolio" id="portfolio">
-
-    <div class="section-title">
+    <div class="section-title reveal">
       <span>FEATURED WORK</span>
       <h2>Recent Projects</h2>
     </div>
 
     <div class="portfolio-grid">
 
-      <div class="portfolio-card">
-        <div class="portfolio-overlay">
-          <h3>Cafe Ordering System</h3>
+      <!-- Project 1: ABC Van Rentals -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-preview">
+          <iframe
+            src="https://van-rental-website.vercel.app/"
+            title="ABC Van Rentals Davao"
+            loading="lazy"
+            scrolling="no"
+            tabindex="-1">
+          </iframe>
+          <div class="iframe-overlay"></div>
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Transportation · Davao</span>
+          <h3>ABC Van Rentals</h3>
+          <p>Full business website with fleet showcase, booking form, and WhatsApp integration for a Davao-based van rental service.</p>
+          <a href="https://van-rental-website.vercel.app/" target="_blank" class="portfolio-link">View Live Site →</a>
         </div>
       </div>
 
-      <div class="portfolio-card">
-        <div class="portfolio-overlay">
-          <h3>Restaurant Website</h3>
+      <!-- Project 2: Find Me -->
+      <div class="portfolio-card reveal">
+        <div class="portfolio-preview">
+          <iframe
+            src="https://findmewebsite.vercel.app/"
+            title="Find Me — Lost and Found App"
+            loading="lazy"
+            scrolling="no"
+            tabindex="-1">
+          </iframe>
+          <div class="iframe-overlay"></div>
         </div>
-      </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-overlay">
-          <h3>Creative Agency</h3>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Web App · Campus</span>
+          <h3>Find Me</h3>
+          <p>A lost and found web application for campus use — users can report, search, and claim lost items online.</p>
+          <a href="https://findmewebsite.vercel.app/" target="_blank" class="portfolio-link">View Live Site →</a>
         </div>
       </div>
 
     </div>
+
+    <p class="portfolio-note reveal">More projects coming soon. <a href="#contact">Get in touch</a> to work with us.</p>
 
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-
-    <div class="section-title">
+    <div class="section-title reveal">
       <span>CONTACT</span>
       <h2>Let's Work Together</h2>
+      <p class="section-subtitle">Based in Davao City · Serving local businesses across Mindanao</p>
     </div>
 
-    <form class="contact-form" id="contactForm">
+    <!-- Web3Forms: replace YOUR_ACCESS_KEY below with your key from web3forms.com -->
+    <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY"/>
+      <input type="hidden" name="subject" value="New Inquiry from Nexa Website"/>
+      <input type="hidden" name="redirect" value="false"/>
 
-      <input type="text" placeholder="Your Name" required/>
-      <input type="email" placeholder="Your Email" required/>
-      <textarea placeholder="Tell us about your project"></textarea>
+      <input type="text" name="name" placeholder="Your Name" required/>
+      <input type="email" name="email" placeholder="Your Email" required/>
+      <input type="tel" name="phone" placeholder="Your Phone / WhatsApp (optional)"/>
+      <textarea name="message" placeholder="Tell us about your project — what kind of website do you need?" required></textarea>
 
-      <button type="submit" class="primary-btn">
+      <button type="submit" class="primary-btn" id="submitBtn">
         Send Message
       </button>
-
+      <p id="formStatus" class="form-status"></p>
     </form>
+  </section>
 
+  <!-- FOUNDER -->
+  <section class="founder-section">
+    <div class="founder-card reveal">
+      <div class="founder-avatar">KM</div>
+      <div class="founder-info">
+        <span class="founder-label">FOUNDER</span>
+        <h3 class="founder-name">Engr. Kims Cyra Rayel M. Moring</h3>
+        <p class="founder-title">Computer Engineer</p>
+        <p class="founder-desc">Davao-based founder of NEXA. — building professional websites that help local businesses grow beyond Facebook.</p>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2026 Nexa Digital Studio. All rights reserved.</p>
+    <p>© 2026 Nexa Web Solutions · Davao City, Philippines</p>
+    <p class="footer-sub">Building websites for local businesses that deserve to be found online.</p>
   </footer>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <!-- Replace 639XXXXXXXXX with your actual WhatsApp number -->
+  <a href="https://wa.me/639XXXXXXXXX?text=Hi%20Nexa!%20I'm%20interested%20in%20getting%20a%20website%20for%20my%20business."
+     class="whatsapp-btn"
+     target="_blank"
+     aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="white">
+      <path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.476-2.004A15.93 15.93 0 0 0 16 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.762-1.843l-.485-.288-5.03 1.189 1.234-4.9-.317-.503A13.226 13.226 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.161-2.719-1.294-.365-.133-.631-.199-.897.2-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.619-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.697.199-.233.265-.399.398-.665.133-.265.066-.498-.033-.697-.1-.2-.897-2.162-1.229-2.96-.324-.778-.653-.672-.897-.685l-.765-.013c-.265 0-.697.1-1.062.498-.365.398-1.394 1.362-1.394 3.322s1.428 3.854 1.627 4.12c.199.265 2.81 4.29 6.808 6.017.952.411 1.695.657 2.274.841.955.304 1.824.261 2.511.158.766-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.892-.099-.164-.365-.265-.763-.464z"/>
+    </svg>
+  </a>
 
   <script src="/js/script.js"></script>
 </body>
