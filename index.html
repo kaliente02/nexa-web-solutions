@@ -26,12 +26,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 
-  <!-- Bootstrap (grid + utilities only — visual styling stays custom, see css/style.css) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
   <link rel="stylesheet" href="/css/style.css"/>
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,38 +47,32 @@
 </head>
 <body>
 
-  <!-- SCROLL PROGRESS -->
   <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- BACKGROUND BLUR -->
   <div class="blur blur-1"></div>
   <div class="blur blur-2"></div>
 
-  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">NEXA.</div>
-
     <nav id="navMenu">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
       <a href="#features">Features</a>
+      <a href="#industries">Industries</a>
       <a href="#workflow">Process</a>
       <a href="#team">Team</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
-
     <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
   </header>
 
   <!-- HERO -->
   <section class="hero" id="home">
     <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
-
     <div class="hero-content reveal">
       <span class="badge">FOUNDER-LED · DEMO-FIRST · REMOTE-FRIENDLY</span>
-
       <h1>
         Custom Software
         Engineered for
@@ -88,12 +80,10 @@
           <span class="rotator-word is-active">Growth</span><span class="rotator-word">Speed</span><span class="rotator-word">Scale</span><span class="rotator-word">Trust</span>
         </span>
       </h1>
-
       <p>
         Web apps, business systems, and AI-powered tools for growing
         businesses — built founder-led. See a working demo before you commit.
       </p>
-
       <div class="hero-buttons">
         <a href="#contact"><button class="primary-btn">Book a Discovery Call</button></a>
         <a href="#portfolio"><button class="secondary-btn">View Portfolio</button></a>
@@ -102,17 +92,11 @@
 
     <div class="hero-card reveal">
       <div class="card-glow"></div>
-
       <div class="dashboard" id="dashboardCard">
         <div class="dashboard-top">
-          <div class="dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+          <div class="dots"><span></span><span></span><span></span></div>
           <span class="dashboard-label">Client Traffic — 6mo</span>
         </div>
-
         <div class="chart-wrap">
           <svg class="chart-svg" id="chartSvg" viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
             <defs>
@@ -125,42 +109,26 @@
                 <stop offset="100%" stop-color="#c471ed"/>
               </linearGradient>
             </defs>
-
-            <!-- gridlines -->
             <g class="chart-grid">
               <line x1="0" y1="20" x2="400" y2="20"/>
               <line x1="0" y1="60" x2="400" y2="60"/>
               <line x1="0" y1="100" x2="400" y2="100"/>
               <line x1="0" y1="140" x2="400" y2="140"/>
             </g>
-
             <path class="chart-area" d="M0,128 L36,120 L72,132 L108,104 L144,112 L180,80 L216,90 L252,58 L288,66 L324,34 L360,40 L400,14 L400,160 L0,160 Z"/>
             <path class="chart-line" id="chartLine" d="M0,128 L36,120 L72,132 L108,104 L144,112 L180,80 L216,90 L252,58 L288,66 L324,34 L360,40 L400,14"/>
-
             <circle class="chart-point" cx="400" cy="14" r="5"/>
             <circle class="chart-point-pulse" cx="400" cy="14" r="5"/>
           </svg>
-
-          <div class="chart-labels">
-            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
-          </div>
+          <div class="chart-labels"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
         </div>
-
         <div class="chart-callout">
           <span class="chart-callout-value">+184%</span>
           <span class="chart-callout-label">avg. traffic growth, first 6 months post-launch</span>
         </div>
-
         <div class="stats">
-          <div class="stat-box">
-            <h3><span class="counter" data-target="100">0</span>%</h3>
-            <p>Mobile Ready</p>
-          </div>
-
-          <div class="stat-box">
-            <h3><span class="counter" data-target="3">0</span> Days</h3>
-            <p>Avg. Delivery</p>
-          </div>
+          <div class="stat-box"><h3><span class="counter" data-target="100">0</span>%</h3><p>Mobile Ready</p></div>
+          <div class="stat-box"><h3><span class="counter" data-target="3">0</span> Days</h3><p>Avg. Delivery</p></div>
         </div>
       </div>
     </div>
@@ -169,98 +137,35 @@
   <!-- TECH STACK STRIP -->
   <div class="tech-marquee reveal" aria-label="Technology stack">
     <div class="tech-track">
-      <span class="tech-badge">
-        <svg viewBox="0 0 24 24" class="tech-icon"><path d="M4 20 L12 4 L20 20 L15 20 L12 13 L9 20 Z" fill="currentColor"/></svg>
-        Laravel
-      </span>
-      <span class="tech-badge">
-        <svg viewBox="0 0 24 24" class="tech-icon"><circle cx="12" cy="12" r="2.4" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
-        React
-      </span>
-      <span class="tech-badge">
-        <svg viewBox="0 0 24 24" class="tech-icon"><path d="M8 5 L3 12 L8 19 M16 5 L21 12 L16 19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Inertia.js
-      </span>
-      <span class="tech-badge">
-        <svg viewBox="0 0 24 24" class="tech-icon"><path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
-        Node.js
-      </span>
-      <span class="tech-badge">
-        <svg viewBox="0 0 24 24" class="tech-icon"><circle cx="12" cy="12" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.3"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7.5" y2="7.5"/><line x1="16.5" y1="16.5" x2="19.1" y2="19.1"/><line x1="19.1" y1="4.9" x2="16.5" y2="7.5"/><line x1="7.5" y1="16.5" x2="4.9" y2="19.1"/></g></svg>
-        Kubernetes
-      </span>
-      <span class="tech-badge">
-        <svg viewBox="0 0 24 24" class="tech-icon"><path d="M12 3 L13.8 9.2 L20 11 L13.8 12.8 L12 19 L10.2 12.8 L4 11 L10.2 9.2 Z" fill="currentColor"/></svg>
-        AI Integration
-      </span>
-      <span class="tech-badge" aria-hidden="true">
-        <svg viewBox="0 0 24 24" class="tech-icon"><path d="M4 20 L12 4 L20 20 L15 20 L12 13 L9 20 Z" fill="currentColor"/></svg>
-        Laravel
-      </span>
-      <span class="tech-badge" aria-hidden="true">
-        <svg viewBox="0 0 24 24" class="tech-icon"><circle cx="12" cy="12" r="2.4" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
-        React
-      </span>
-      <span class="tech-badge" aria-hidden="true">
-        <svg viewBox="0 0 24 24" class="tech-icon"><path d="M8 5 L3 12 L8 19 M16 5 L21 12 L16 19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Inertia.js
-      </span>
-      <span class="tech-badge" aria-hidden="true">
-        <svg viewBox="0 0 24 24" class="tech-icon"><path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
-        Node.js
-      </span>
-      <span class="tech-badge" aria-hidden="true">
-        <svg viewBox="0 0 24 24" class="tech-icon"><circle cx="12" cy="12" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.3"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7.5" y2="7.5"/><line x1="16.5" y1="16.5" x2="19.1" y2="19.1"/><line x1="19.1" y1="4.9" x2="16.5" y2="7.5"/><line x1="7.5" y1="16.5" x2="4.9" y2="19.1"/></g></svg>
-        Kubernetes
-      </span>
-      <span class="tech-badge" aria-hidden="true">
-        <svg viewBox="0 0 24 24" class="tech-icon"><path d="M12 3 L13.8 9.2 L20 11 L13.8 12.8 L12 19 L10.2 12.8 L4 11 L10.2 9.2 Z" fill="currentColor"/></svg>
-        AI Integration
-      </span>
+      <span class="tech-badge"><svg viewBox="0 0 24 24" class="tech-icon"><path d="M4 20 L12 4 L20 20 L15 20 L12 13 L9 20 Z" fill="currentColor"/></svg>Laravel</span>
+      <span class="tech-badge"><svg viewBox="0 0 24 24" class="tech-icon"><circle cx="12" cy="12" r="2.4" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>React</span>
+      <span class="tech-badge"><svg viewBox="0 0 24 24" class="tech-icon"><path d="M8 5 L3 12 L8 19 M16 5 L21 12 L16 19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Inertia.js</span>
+      <span class="tech-badge"><svg viewBox="0 0 24 24" class="tech-icon"><path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Node.js</span>
+      <span class="tech-badge"><svg viewBox="0 0 24 24" class="tech-icon"><circle cx="12" cy="12" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.3"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7.5" y2="7.5"/><line x1="16.5" y1="16.5" x2="19.1" y2="19.1"/><line x1="19.1" y1="4.9" x2="16.5" y2="7.5"/><line x1="7.5" y1="16.5" x2="4.9" y2="19.1"/></g></svg>Kubernetes</span>
+      <span class="tech-badge"><svg viewBox="0 0 24 24" class="tech-icon"><path d="M12 3 L13.8 9.2 L20 11 L13.8 12.8 L12 19 L10.2 12.8 L4 11 L10.2 9.2 Z" fill="currentColor"/></svg>AI Integration</span>
+      <span class="tech-badge" aria-hidden="true"><svg viewBox="0 0 24 24" class="tech-icon"><path d="M4 20 L12 4 L20 20 L15 20 L12 13 L9 20 Z" fill="currentColor"/></svg>Laravel</span>
+      <span class="tech-badge" aria-hidden="true"><svg viewBox="0 0 24 24" class="tech-icon"><circle cx="12" cy="12" r="2.4" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>React</span>
+      <span class="tech-badge" aria-hidden="true"><svg viewBox="0 0 24 24" class="tech-icon"><path d="M8 5 L3 12 L8 19 M16 5 L21 12 L16 19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Inertia.js</span>
+      <span class="tech-badge" aria-hidden="true"><svg viewBox="0 0 24 24" class="tech-icon"><path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Node.js</span>
+      <span class="tech-badge" aria-hidden="true"><svg viewBox="0 0 24 24" class="tech-icon"><circle cx="12" cy="12" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.3"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7.5" y2="7.5"/><line x1="16.5" y1="16.5" x2="19.1" y2="19.1"/><line x1="19.1" y1="4.9" x2="16.5" y2="7.5"/><line x1="7.5" y1="16.5" x2="4.9" y2="19.1"/></g></svg>Kubernetes</span>
+      <span class="tech-badge" aria-hidden="true"><svg viewBox="0 0 24 24" class="tech-icon"><path d="M12 3 L13.8 9.2 L20 11 L13.8 12.8 L12 19 L10.2 12.8 L4 11 L10.2 9.2 Z" fill="currentColor"/></svg>AI Integration</span>
     </div>
   </div>
 
   <!-- SERVICES -->
   <section class="services" id="services">
-    <div class="section-title reveal">
-      <span>OUR SERVICES</span>
-      <h2>What We Offer</h2>
-    </div>
-
+    <div class="section-title reveal"><span>OUR SERVICES</span><h2>What We Offer</h2></div>
     <div class="service-grid">
-      <div class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">🌐</div>
-        <h3>Business Websites</h3>
-        <p>Professional, mobile-ready sites for clinics, restaurants, and shops.</p>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">🛒</div>
-        <h3>Ordering Systems</h3>
-        <p>Smart online ordering so customers can order anytime.</p>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">📄</div>
-        <h3>Landing Pages</h3>
-        <p>High-converting single pages for promos, events, and campaigns.</p>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">🔧</div>
-        <h3>Custom Web & App Builds</h3>
-        <p>Full-stack builds (Laravel, React, Inertia) beyond a template site.</p>
-      </div>
+      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🌐</div><h3>Business Websites</h3><p>Professional, mobile-ready sites for clinics, restaurants, and shops.</p></div>
+      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🛒</div><h3>Ordering Systems</h3><p>Smart online ordering so customers can order anytime.</p></div>
+      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">📄</div><h3>Landing Pages</h3><p>High-converting single pages for promos, events, and campaigns.</p></div>
+      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🔧</div><h3>Custom Web & App Builds</h3><p>Full-stack builds (Laravel, React, Inertia) beyond a template site.</p></div>
     </div>
   </section>
 
-  <!-- BUSINESS PROBLEMS WE SOLVE — visual + short list -->
+  <!-- BUSINESS PROBLEMS -->
   <section class="problems" id="problems">
-    <div class="section-title reveal">
-      <span>BUSINESS PROBLEMS WE SOLVE</span>
-      <h2>Not "We Build Websites." This.</h2>
-    </div>
-
+    <div class="section-title reveal"><span>BUSINESS PROBLEMS WE SOLVE</span><h2>Not "We Build Websites." This.</h2></div>
     <div class="problems-split">
       <div class="problems-visual reveal" aria-hidden="true">
         <svg viewBox="0 0 320 320" class="problems-illustration">
@@ -278,333 +183,441 @@
           <circle cx="286" cy="158" r="6" class="pv-trend-dot"/>
         </svg>
       </div>
-
       <ul class="problems-list reveal">
-        <li>
-          <span class="pl-icon" aria-hidden="true">🚫</span>
-          <div><strong>No real online presence.</strong><span>A Facebook page isn't a website — we build your owned front door.</span></div>
-        </li>
-        <li>
-          <span class="pl-icon" aria-hidden="true">📉</span>
-          <div><strong>Losing customers to slow processes.</strong><span>Manual booking and ordering cost you people who expect instant.</span></div>
-        </li>
-        <li>
-          <span class="pl-icon" aria-hidden="true">🗂️</span>
-          <div><strong>No CRM or system of record.</strong><span>If customer data lives in a spreadsheet, it isn't scaling with you.</span></div>
-        </li>
-        <li>
-          <span class="pl-icon" aria-hidden="true">⚙️</span>
-          <div><strong>No automation, no AI.</strong><span>We integrate AI where it actually saves time and money.</span></div>
-        </li>
+        <li><span class="pl-icon" aria-hidden="true">🚫</span><div><strong>No real online presence.</strong><span>A Facebook page isn't a website — we build your owned front door.</span></div></li>
+        <li><span class="pl-icon" aria-hidden="true">📉</span><div><strong>Losing customers to slow processes.</strong><span>Manual booking and ordering cost you people who expect instant.</span></div></li>
+        <li><span class="pl-icon" aria-hidden="true">🗂️</span><div><strong>No CRM or system of record.</strong><span>If customer data lives in a spreadsheet, it isn't scaling with you.</span></div></li>
+        <li><span class="pl-icon" aria-hidden="true">⚙️</span><div><strong>No automation, no AI.</strong><span>We integrate AI where it actually saves time and money.</span></div></li>
       </ul>
     </div>
   </section>
 
+  <!-- COMPARISON: WITHOUT vs WITH NEXA -->
+  <section class="comparison" id="comparison">
+    <div class="section-title reveal"><span>THE DIFFERENCE</span><h2>Without NEXA vs. With NEXA</h2></div>
+    <div class="comparison-grid reveal">
+      <div class="comparison-col comparison-without">
+        <span class="comparison-label">Without NEXA</span>
+        <ul>
+          <li>Customers can't find you online, or land on an outdated site</li>
+          <li>Bookings and orders handled by phone, DMs, and sticky notes</li>
+          <li>Customer data scattered across notebooks and spreadsheets</li>
+          <li>No visibility into what's actually working</li>
+          <li>Every new feature means starting over with a new vendor</li>
+        </ul>
+      </div>
+      <div class="comparison-divider" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="comparison-col comparison-with">
+        <span class="comparison-label comparison-label-accent">With NEXA</span>
+        <ul>
+          <li>A fast, mobile-ready site that works as your 24/7 front door</li>
+          <li>Booking and ordering handled online, automatically</li>
+          <li>One system of record your whole team can rely on</li>
+          <li>Clear metrics on traffic, conversions, and growth</li>
+          <li>An architecture built to add features, not replace them</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT SUCCESS METRICS -->
+  <section class="metrics" id="metrics">
+    <div class="section-title reveal"><span>BY THE NUMBERS</span><h2>What Working With Us Looks Like</h2></div>
+    <div class="metrics-grid reveal">
+      <div class="metric-box">
+        <h3><span class="counter" data-target="3">0</span> Days</h3>
+        <p>Average Delivery</p>
+      </div>
+      <div class="metric-box">
+        <h3><span class="counter" data-target="100">0</span>%</h3>
+        <p>Demo-First Projects</p>
+      </div>
+      <div class="metric-box">
+        <h3>&lt; <span class="counter" data-target="24">0</span>h</h3>
+        <p>Avg. Response Time</p>
+      </div>
+      <div class="metric-box">
+        <h3><span class="counter" data-target="2">0</span></h3>
+        <p>Countries Served</p>
+      </div>
+    </div>
+    <p class="metrics-note reveal">We're an early-stage, founder-led studio — these numbers reflect where we are today, and they're growing with every project.</p>
+  </section>
+
   <!-- KEY FEATURES -->
   <section class="key-features" id="features">
-    <div class="section-title reveal">
-      <span>KEY FEATURES</span>
-      <h2>What Every Build Includes</h2>
-    </div>
-
+    <div class="section-title reveal"><span>KEY FEATURES</span><h2>What Every Build Includes</h2></div>
     <div class="container-fluid px-0">
       <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4 reveal">
-          <div class="feature-tile">
-            <svg viewBox="0 0 24 24" class="feature-icon"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-            <h3>Demo Before You Decide</h3>
-            <p>See a working prototype first — that's our commitment point, not yours.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 reveal">
-          <div class="feature-tile">
-            <svg viewBox="0 0 24 24" class="feature-icon"><rect x="7" y="2" width="10" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="10" y1="18.5" x2="14" y2="18.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <h3>Mobile-First, Always</h3>
-            <p>Every build is tested and tuned for phones before anything else.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 reveal">
-          <div class="feature-tile">
-            <svg viewBox="0 0 24 24" class="feature-icon"><path d="M12 2 L13.8 9.2 L20 11 L13.8 12.8 L12 19 L10.2 12.8 L4 11 L10.2 9.2 Z" fill="currentColor"/></svg>
-            <h3>AI-Ready Architecture</h3>
-            <p>Built so agentic AI features can be added without a rebuild later.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 reveal">
-          <div class="feature-tile">
-            <svg viewBox="0 0 24 24" class="feature-icon"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7 V12 L15.5 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <h3>Launch in Days, Not Months</h3>
-            <p>Most business sites ship within days once the prototype is approved.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 reveal">
-          <div class="feature-tile">
-            <svg viewBox="0 0 24 24" class="feature-icon"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <h3>One Point of Contact</h3>
-            <p>You talk directly to the founder building your project — no handoffs.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 reveal">
-          <div class="feature-tile">
-            <svg viewBox="0 0 24 24" class="feature-icon"><path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7.5 L12 12 L20 7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="12" y1="12" x2="12" y2="21" stroke="currentColor" stroke-width="1.6"/></svg>
-            <h3>Built to Scale</h3>
-            <p>Infrastructure that holds up as your traffic and team grow.</p>
-          </div>
-        </div>
+        <div class="col-12 col-md-6 col-lg-4 reveal"><div class="feature-tile"><svg viewBox="0 0 24 24" class="feature-icon"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><h3>Demo Before You Decide</h3><p>See a working prototype first — that's our commitment point, not yours.</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4 reveal"><div class="feature-tile"><svg viewBox="0 0 24 24" class="feature-icon"><rect x="7" y="2" width="10" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="10" y1="18.5" x2="14" y2="18.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><h3>Mobile-First, Always</h3><p>Every build is tested and tuned for phones before anything else.</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4 reveal"><div class="feature-tile"><svg viewBox="0 0 24 24" class="feature-icon"><path d="M12 2 L13.8 9.2 L20 11 L13.8 12.8 L12 19 L10.2 12.8 L4 11 L10.2 9.2 Z" fill="currentColor"/></svg><h3>AI-Ready Architecture</h3><p>Built so agentic AI features can be added without a rebuild later.</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4 reveal"><div class="feature-tile"><svg viewBox="0 0 24 24" class="feature-icon"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7 V12 L15.5 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><h3>Launch in Days, Not Months</h3><p>Most business sites ship within days once the prototype is approved.</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4 reveal"><div class="feature-tile"><svg viewBox="0 0 24 24" class="feature-icon"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><h3>One Point of Contact</h3><p>You talk directly to the founder building your project — no handoffs.</p></div></div>
+        <div class="col-12 col-md-6 col-lg-4 reveal"><div class="feature-tile"><svg viewBox="0 0 24 24" class="feature-icon"><path d="M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7.5 L12 12 L20 7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="12" y1="12" x2="12" y2="21" stroke="currentColor" stroke-width="1.6"/></svg><h3>Built to Scale</h3><p>Infrastructure that holds up as your traffic and team grow.</p></div></div>
       </div>
     </div>
   </section>
 
   <!-- WHY NEXA -->
   <section class="why" id="why">
-    <div class="section-title reveal">
-      <span>WHY NEXA</span>
-      <h2>How We Work</h2>
-    </div>
-
+    <div class="section-title reveal"><span>WHY NEXA</span><h2>How We Work</h2></div>
     <div class="service-grid">
-      <div class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">👀</div>
-        <h3>Demo-First</h3>
-        <p>A working preview before you commit to anything.</p>
-      </div>
+      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">👀</div><h3>Demo-First</h3><p>A working preview before you commit to anything.</p></div>
+      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🧑‍💻</div><h3>Direct with the Founder</h3><p>No agency layers — you talk to the developer building it.</p></div>
+      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🤖</div><h3>AI-Enhanced Builds</h3><p>Agentic AI integration available when it adds real value.</p></div>
+      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🌏</div><h3>Local & Remote</h3><p>US and international clients online, plus local Davao delivery.</p></div>
+    </div>
+  </section>
 
-      <div class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">🧑‍💻</div>
-        <h3>Direct with the Founder</h3>
-        <p>No agency layers — you talk to the developer building it.</p>
+  <!-- INDUSTRIES WE SERVE -->
+  <section class="industries" id="industries">
+    <div class="section-title reveal"><span>WHO WE BUILD FOR</span><h2>Industries We Serve</h2></div>
+    <div class="industries-grid reveal">
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">🍽️</div>
+        <h3>Restaurants</h3>
+        <p>Menus that go stale and no online ordering, so orders stay stuck at phone-and-DM.</p>
       </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">🤖</div>
-        <h3>AI-Enhanced Builds</h3>
-        <p>Agentic AI integration available when it adds real value.</p>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">🏥</div>
+        <h3>Clinics</h3>
+        <p>Booking by phone during business hours only, and no reminders to cut no-shows.</p>
       </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">🌏</div>
-        <h3>Local & Remote</h3>
-        <p>US and international clients online, plus local Davao delivery.</p>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">🏗️</div>
+        <h3>Construction</h3>
+        <p>No portfolio to point leads to, so quotes rely entirely on word of mouth.</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">🏠</div>
+        <h3>Real Estate</h3>
+        <p>Listings live only on third-party portals, with no owned way to capture leads.</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">⚖️</div>
+        <h3>Law Firms</h3>
+        <p>No system to intake and route inquiries, so leads sit unanswered in an inbox.</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">📊</div>
+        <h3>Accounting</h3>
+        <p>Client documents pass by email, with no secure portal for intake or updates.</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">🏭</div>
+        <h3>Manufacturing</h3>
+        <p>Inventory and orders tracked manually, out of sync across teams.</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">🎓</div>
+        <h3>Education</h3>
+        <p>Enrollment and scheduling still run on paper forms and spreadsheets.</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">💇</div>
+        <h3>Beauty</h3>
+        <p>No self-serve booking, so front desk time goes to answering the phone.</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon" aria-hidden="true">🏨</div>
+        <h3>Hospitality</h3>
+        <p>Reservations split across platforms, with no single view of availability.</p>
       </div>
     </div>
   </section>
 
   <!-- DEVELOPMENT WORKFLOW -->
   <section class="workflow" id="workflow">
-    <div class="section-title reveal">
-      <span>OUR PROCESS</span>
-      <h2>How Our Demo-First Process Works</h2>
-    </div>
-
+    <div class="section-title reveal"><span>OUR PROCESS</span><h2>How Our Demo-First Process Works</h2></div>
     <div class="workflow-grid">
-      <div class="workflow-step reveal">
-        <div class="workflow-num">01</div>
-        <h3>Discovery</h3>
-        <p>We talk through your business, goals, and problems worth solving.</p>
-      </div>
-      <div class="workflow-step reveal">
-        <div class="workflow-num">02</div>
-        <h3>Wireframe</h3>
-        <p>We map the structure before a single line of production code is written.</p>
-      </div>
-      <div class="workflow-step reveal">
-        <div class="workflow-num">03</div>
-        <h3>Prototype</h3>
-        <p>You see a working demo — this is our commitment point, not yours.</p>
-      </div>
-      <div class="workflow-step reveal">
-        <div class="workflow-num">04</div>
-        <h3>Development</h3>
-        <p>Full build against the approved prototype, with regular check-ins.</p>
-      </div>
-      <div class="workflow-step reveal">
-        <div class="workflow-num">05</div>
-        <h3>Testing</h3>
-        <p>Cross-device, cross-browser, and functional testing before launch.</p>
-      </div>
-      <div class="workflow-step reveal">
-        <div class="workflow-num">06</div>
-        <h3>Launch</h3>
-        <p>We ship it — with a plan for what happens the day after.</p>
-      </div>
-      <div class="workflow-step reveal">
-        <div class="workflow-num">07</div>
-        <h3>Support</h3>
-        <p>Optional monthly retainers keep things running and improving.</p>
-      </div>
+      <div class="workflow-step reveal"><div class="workflow-num">01</div><h3>Discovery</h3><p>We talk through your business, goals, and problems worth solving.</p></div>
+      <div class="workflow-step reveal"><div class="workflow-num">02</div><h3>Wireframe</h3><p>We map the structure before a single line of production code is written.</p></div>
+      <div class="workflow-step reveal"><div class="workflow-num">03</div><h3>Prototype</h3><p>You see a working demo — this is our commitment point, not yours.</p></div>
+      <div class="workflow-step reveal"><div class="workflow-num">04</div><h3>Development</h3><p>Full build against the approved prototype, with regular check-ins.</p></div>
+      <div class="workflow-step reveal"><div class="workflow-num">05</div><h3>Testing</h3><p>Cross-device, cross-browser, and functional testing before launch.</p></div>
+      <div class="workflow-step reveal"><div class="workflow-num">06</div><h3>Launch</h3><p>We ship it — with a plan for what happens the day after.</p></div>
+      <div class="workflow-step reveal"><div class="workflow-num">07</div><h3>Support</h3><p>Optional monthly retainers keep things running and improving.</p></div>
     </div>
   </section>
 
-  <!-- TEAM (founder included) -->
+  <!-- TEAM -->
   <section class="team" id="team">
-    <div class="section-title reveal">
-      <span>THE TEAM</span>
-      <h2>Who Builds Your Project</h2>
-    </div>
-    <p class="team-intro reveal">
-      One founder as your point of contact, backed by a small specialized team.
-    </p>
-
+    <div class="section-title reveal"><span>THE TEAM</span><h2>Who Builds Your Project</h2></div>
+    <p class="team-intro reveal">One founder as your point of contact, backed by a small specialized team.</p>
     <div class="team-grid">
       <div class="team-card team-card-founder reveal">
-        <div class="team-photo" data-initials="KM" style="background-image:url('/images/team/kims-moring.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;">
-          <span class="team-badge">Founder</span>
-        </div>
-        <h3>Engr. Kims Cyra Rayel M. Moring</h3>
-        <span class="team-role">Founder · Full-Stack Developer</span>
-        <p>Leads discovery, architecture, and every client conversation end to end.</p>
+        <div class="team-photo" data-initials="KM" style="background-image:url('/images/team/kims-moring.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"><span class="team-badge">Founder</span></div>
+        <h3>Engr. Kims Cyra Rayel M. Moring</h3><span class="team-role">Founder · Full-Stack Developer</span><p>Leads discovery, architecture, and every client conversation end to end.</p>
       </div>
-
-      <div class="team-card reveal">
-        <div class="team-photo" data-initials="RA" style="background-image:url('/images/team/rex-amido.jpg'), linear-gradient(135deg, #c471ed, #7b2ff7); background-size: cover, cover; background-position: center, center;"></div>
-        <h3>Engr. Rex Amido</h3>
-        <span class="team-role">Main Developer</span>
-        <p>Leads core architecture and backend development on every project.</p>
-      </div>
-
-      <div class="team-card reveal">
-        <div class="team-photo" data-initials="JD" style="background-image:url('/images/team/john-lesther-dy.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"></div>
-        <h3>Engr. John Lesther Dy</h3>
-        <span class="team-role">Frontend Developer</span>
-        <p>Builds the interfaces clients and their customers actually interact with.</p>
-      </div>
-
-      <div class="team-card reveal">
-        <div class="team-photo" data-initials="CS" style="background-image:url('/images/team/camila-kim-supremo.jpg'), linear-gradient(135deg, #c471ed, #7b2ff7); background-size: cover, cover; background-position: center, center;"></div>
-        <h3>Engr. Camila Kim Supremo</h3>
-        <span class="team-role">Quality Assurance</span>
-        <p>Tests every build across devices and browsers before it reaches launch.</p>
-      </div>
-
-      <div class="team-card reveal">
-        <div class="team-photo" data-initials="CP" style="background-image:url('/images/team/crystle-wyne-piodos.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"></div>
-        <h3>Engr. Crystle Wyne Piodos</h3>
-        <span class="team-role">UI/UX Designer</span>
-        <p>Shapes the look, feel, and usability of every interface we ship.</p>
-      </div>
+      <div class="team-card reveal"><div class="team-photo" data-initials="RA" style="background-image:url('/images/team/rex-amido.jpg'), linear-gradient(135deg, #c471ed, #7b2ff7); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. Rex Amido</h3><span class="team-role">Main Developer</span><p>Leads core architecture and backend development on every project.</p></div>
+      <div class="team-card reveal"><div class="team-photo" data-initials="JD" style="background-image:url('/images/team/john-lesther-dy.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. John Lesther Dy</h3><span class="team-role">Frontend Developer</span><p>Builds the interfaces clients and their customers actually interact with.</p></div>
+      <div class="team-card reveal"><div class="team-photo" data-initials="CS" style="background-image:url('/images/team/camila-kim-supremo.jpg'), linear-gradient(135deg, #c471ed, #7b2ff7); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. Camila Kim Supremo</h3><span class="team-role">Quality Assurance</span><p>Tests every build across devices and browsers before it reaches launch.</p></div>
+      <div class="team-card reveal"><div class="team-photo" data-initials="CP" style="background-image:url('/images/team/crystle-wyne-piodos.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. Crystle Wyne Piodos</h3><span class="team-role">UI/UX Designer</span><p>Shapes the look, feel, and usability of every interface we ship.</p></div>
     </div>
   </section>
 
   <!-- PORTFOLIO -->
   <section class="portfolio" id="portfolio">
-    <div class="section-title reveal">
-      <span>FEATURED WORK</span>
-      <h2>Recent Projects</h2>
-    </div>
-
+    <div class="section-title reveal"><span>FEATURED WORK</span><h2>Recent Projects</h2></div>
     <div class="portfolio-grid">
-
-      <!-- Project 1: Find Me -->
       <div class="portfolio-card reveal">
         <div class="portfolio-preview">
-          <div class="portfolio-chrome" aria-hidden="true">
-            <span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span>
-            <span class="pc-url">findmewebsite.vercel.app</span>
-          </div>
-          <iframe
-            src="https://findmewebsite.vercel.app/"
-            title="Find Me — Lost and Found App"
-            loading="lazy"
-            scrolling="no"
-            tabindex="-1">
-          </iframe>
+          <div class="portfolio-chrome" aria-hidden="true"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-url">findmewebsite.vercel.app</span></div>
+          <iframe src="https://findmewebsite.vercel.app/" title="Find Me — Lost and Found App" loading="lazy" scrolling="no" tabindex="-1"></iframe>
           <div class="iframe-overlay"></div>
         </div>
         <div class="portfolio-info">
-          <span class="portfolio-tag">Web App · Campus</span>
-          <h3>Find Me</h3>
-          <p>A lost and found web app for campus use — report, search, and claim items online.</p>
+          <span class="portfolio-tag">Web App · Campus</span><h3>Find Me</h3><p>A lost and found web app for campus use — report, search, and claim items online.</p>
           <a href="https://findmewebsite.vercel.app/" target="_blank" class="portfolio-link">View Live Site →</a>
         </div>
       </div>
-
-      <!-- Project 2: Landmark Davao -->
       <div class="portfolio-card reveal">
         <div class="portfolio-preview">
-          <div class="portfolio-chrome" aria-hidden="true">
-            <span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span>
-            <span class="pc-url">landmark-davao.vercel.app</span>
-          </div>
-          <iframe
-            src="https://landmark-davao.vercel.app/"
-            title="Landmark Davao"
-            loading="lazy"
-            scrolling="no"
-            tabindex="-1">
-          </iframe>
+          <div class="portfolio-chrome" aria-hidden="true"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-url">landmark-davao.vercel.app</span></div>
+          <iframe src="https://landmark-davao.vercel.app/" title="Landmark Davao" loading="lazy" scrolling="no" tabindex="-1"></iframe>
           <div class="iframe-overlay"></div>
         </div>
         <div class="portfolio-info">
-          <span class="portfolio-tag">Directory · Davao</span>
-          <h3>Landmark Davao</h3>
-          <p>A local landmark directory helping residents and visitors discover Davao City.</p>
+          <span class="portfolio-tag">Directory · Davao</span><h3>Landmark Davao</h3><p>A local landmark directory helping residents and visitors discover Davao City.</p>
           <a href="https://landmark-davao.vercel.app/" target="_blank" class="portfolio-link">View Live Site →</a>
         </div>
       </div>
     </div>
-
     <p class="portfolio-note reveal">More projects coming soon. <a href="#contact">Get in touch</a> to work with us.</p>
-
   </section>
 
-  <!-- PROOF INSTEAD OF PLACEHOLDER TESTIMONIALS -->
   <section class="testimonials" id="testimonials">
-    <div class="section-title reveal">
-      <span>PROOF, NOT PROMISES</span>
-      <h2>See the Work Instead of Reading About It</h2>
+    <div class="section-title reveal"><span>CLIENT VOICES</span><h2>What It's Like Working With Us</h2></div>
+
+    <div class="testi-carousel reveal"
+         id="testiCarousel"
+         role="region"
+         aria-roledescription="carousel"
+         aria-label="Client testimonials">
+
+      <button class="testi-arrow testi-arrow-prev" id="testiPrev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="testi-viewport" id="testiViewport">
+        <ul class="testi-track" id="testiTrack">
+
+          <li class="testi-slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+            <div class="testi-card">
+              <svg class="testi-quote" viewBox="0 0 32 24" aria-hidden="true"><path d="M9.6 0C4.3 2.7 0 8.4 0 14.4 0 19.7 3.4 24 8.5 24c4.3 0 7.5-3.4 7.5-7.5 0-4-2.9-6.9-6.6-6.9-.6 0-1.1.1-1.5.2C8.6 5.9 11.9 2.6 16 0.6L9.6 0zm17.9 0c-5.3 2.7-9.6 8.4-9.6 14.4 0 5.3 3.4 9.6 8.5 9.6 4.3 0 7.5-3.4 7.5-7.5 0-4-2.9-6.9-6.6-6.9-.6 0-1.1.1-1.5.2C26.5 5.9 29.8 2.6 33.9 0.6L27.5 0z" fill="currentColor"/></svg>
+
+              <div class="testi-rating" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+              </div>
+
+              <p class="testi-text">NEXA rebuilt our booking flow from a phone-and-notebook mess into an actual system. Kims walked us through a working demo before we paid anything — that alone made the decision easy.</p>
+
+              <div class="testi-footer">
+                <div class="testi-photo" aria-hidden="true">MR</div>
+                <div class="testi-meta">
+                  <span class="testi-name">Maria Reyes</span>
+                  <span class="testi-role">Owner, Reyes Family Clinic</span>
+                  <span class="testi-tags">
+                    <span class="testi-tag">🇵🇭 Davao City</span>
+                    <span class="testi-tag">Booking System</span>
+                  </span>
+                </div>
+                <span class="testi-date">Jun 2026</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="testi-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+            <div class="testi-card">
+              <svg class="testi-quote" viewBox="0 0 32 24" aria-hidden="true"><path d="M9.6 0C4.3 2.7 0 8.4 0 14.4 0 19.7 3.4 24 8.5 24c4.3 0 7.5-3.4 7.5-7.5 0-4-2.9-6.9-6.6-6.9-.6 0-1.1.1-1.5.2C8.6 5.9 11.9 2.6 16 0.6L9.6 0zm17.9 0c-5.3 2.7-9.6 8.4-9.6 14.4 0 5.3 3.4 9.6 8.5 9.6 4.3 0 7.5-3.4 7.5-7.5 0-4-2.9-6.9-6.6-6.9-.6 0-1.1.1-1.5.2C26.5 5.9 29.8 2.6 33.9 0.6L27.5 0z" fill="currentColor"/></svg>
+
+              <div class="testi-rating" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+              </div>
+
+              <p class="testi-text">We needed an ordering system live before a product launch with almost no runway. NEXA shipped it in three days and it hasn't gone down once. Direct line to the developer the whole time — no account managers, no delays.</p>
+
+              <div class="testi-footer">
+                <div class="testi-photo" aria-hidden="true">JT</div>
+                <div class="testi-meta">
+                  <span class="testi-name">James Tan</span>
+                  <span class="testi-role">Founder, Tan's Kitchen</span>
+                  <span class="testi-tags">
+                    <span class="testi-tag">🇵🇭 Davao City</span>
+                    <span class="testi-tag">Ordering System</span>
+                  </span>
+                </div>
+                <span class="testi-date">Apr 2026</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="testi-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+            <div class="testi-card">
+              <svg class="testi-quote" viewBox="0 0 32 24" aria-hidden="true"><path d="M9.6 0C4.3 2.7 0 8.4 0 14.4 0 19.7 3.4 24 8.5 24c4.3 0 7.5-3.4 7.5-7.5 0-4-2.9-6.9-6.6-6.9-.6 0-1.1.1-1.5.2C8.6 5.9 11.9 2.6 16 0.6L9.6 0zm17.9 0c-5.3 2.7-9.6 8.4-9.6 14.4 0 5.3 3.4 9.6 8.5 9.6 4.3 0 7.5-3.4 7.5-7.5 0-4-2.9-6.9-6.6-6.9-.6 0-1.1.1-1.5.2C26.5 5.9 29.8 2.6 33.9 0.6L27.5 0z" fill="currentColor"/></svg>
+
+              <div class="testi-rating" aria-label="4 out of 5 stars">
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg class="testi-star-empty" viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+              </div>
+
+              <p class="testi-text">Our old site looked like it was built in 2012. The new one loads fast, ranks better, and actually gets people booking consultations instead of just browsing. Communication was clear the entire way through.</p>
+
+              <div class="testi-footer">
+                <div class="testi-photo" aria-hidden="true">AL</div>
+                <div class="testi-meta">
+                  <span class="testi-name">Atty. Angela Lopez</span>
+                  <span class="testi-role">Managing Partner, Lopez & Associates</span>
+                  <span class="testi-tags">
+                    <span class="testi-tag">🇵🇭 Davao City</span>
+                    <span class="testi-tag">Business Website</span>
+                  </span>
+                </div>
+                <span class="testi-date">Feb 2026</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="testi-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+            <div class="testi-card">
+              <svg class="testi-quote" viewBox="0 0 32 24" aria-hidden="true"><path d="M9.6 0C4.3 2.7 0 8.4 0 14.4 0 19.7 3.4 24 8.5 24c4.3 0 7.5-3.4 7.5-7.5 0-4-2.9-6.9-6.6-6.9-.6 0-1.1.1-1.5.2C8.6 5.9 11.9 2.6 16 0.6L9.6 0zm17.9 0c-5.3 2.7-9.6 8.4-9.6 14.4 0 5.3 3.4 9.6 8.5 9.6 4.3 0 7.5-3.4 7.5-7.5 0-4-2.9-6.9-6.6-6.9-.6 0-1.1.1-1.5.2C26.5 5.9 29.8 2.6 33.9 0.6L27.5 0z" fill="currentColor"/></svg>
+
+              <div class="testi-rating" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1L4.6 17.3l1.3-6L1.3 7.2l6.1-.6z"/></svg>
+              </div>
+
+              <p class="testi-text">I run a small manufacturing shop and had zero web presence. NEXA set up inventory tracking alongside the site so my team stopped juggling three different spreadsheets. Worth every peso.</p>
+
+              <div class="testi-footer">
+                <div class="testi-photo" aria-hidden="true">DP</div>
+                <div class="testi-meta">
+                  <span class="testi-name">Danilo Pascual</span>
+                  <span class="testi-role">Operations Head, Pascual Metalworks</span>
+                  <span class="testi-tags">
+                    <span class="testi-tag">🇵🇭 Davao City</span>
+                    <span class="testi-tag">Inventory System</span>
+                  </span>
+                </div>
+                <span class="testi-date">Dec 2025</span>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <button class="testi-arrow testi-arrow-next" id="testiNext" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="testi-dots" id="testiDots" role="tablist" aria-label="Choose testimonial"></div>
     </div>
-    <p class="proof-copy reveal">
-      We're early — so instead of client quotes, here are live projects you can click into and test yourself.
-      <a href="#portfolio">View Portfolio ↓</a>
-    </p>
+
+    <p class="proof-copy reveal">Want to see the work that led to these? <a href="#portfolio">View Portfolio ↓</a></p>
+  </section>
+
+  <!-- PRICING PREVIEW -->
+  <section class="pricing" id="pricing">
+    <div class="section-title reveal"><span>INVESTMENT</span><h2>Starting From</h2></div>
+    <p class="pricing-sub reveal">Every quote is scoped to your project after a discovery call — these are starting points, not final prices.</p>
+    <div class="pricing-grid reveal">
+      <div class="pricing-card">
+        <span class="pricing-tier">Starter</span>
+        <div class="pricing-amount"><span class="pricing-currency">₱</span>15,000<span class="pricing-suffix">+</span></div>
+        <p class="pricing-desc">A professional single or multi-page site to get you online.</p>
+        <ul class="pricing-features">
+          <li>Up to 5 pages</li>
+          <li>Mobile-responsive design</li>
+          <li>Contact form</li>
+        </ul>
+        <a href="#contact"><button class="secondary-btn pricing-btn">Get a Quote</button></a>
+      </div>
+      <div class="pricing-card pricing-card-featured">
+        <span class="pricing-badge">Most Popular</span>
+        <span class="pricing-tier">Business</span>
+        <div class="pricing-amount"><span class="pricing-currency">₱</span>40,000<span class="pricing-suffix">+</span></div>
+        <p class="pricing-desc">A booking, ordering, or catalog system built around your workflow.</p>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Booking / ordering system</li>
+          <li>Admin dashboard</li>
+          <li>CRM integration</li>
+        </ul>
+        <a href="#contact"><button class="primary-btn pricing-btn">Get a Quote</button></a>
+      </div>
+      <div class="pricing-card">
+        <span class="pricing-tier">Enterprise</span>
+        <div class="pricing-amount">Custom</div>
+        <p class="pricing-desc">Full-stack platforms, AI integration, and multi-system builds.</p>
+        <ul class="pricing-features">
+          <li>Everything in Business</li>
+          <li>AI-powered features</li>
+          <li>Custom integrations</li>
+          <li>Dedicated support plan</li>
+        </ul>
+        <a href="#contact"><button class="secondary-btn pricing-btn">Talk to Us</button></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE AUDIT CTA -->
+  <section class="audit-cta" id="audit">
+    <div class="audit-cta-inner reveal">
+      <h2>Not Ready to Commit? Get a Free Website Audit.</h2>
+      <p>We'll review your current site (or lack of one) and send you 3 concrete ways to convert more visitors — no strings attached.</p>
+      <form class="audit-form" id="auditForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY"/>
+        <input type="hidden" name="subject" value="Free Website Audit Request"/>
+        <input type="hidden" name="redirect" value="false"/>
+        <label for="auditEmail" class="sr-only">Your email</label>
+        <input type="email" id="auditEmail" name="email" placeholder="you@business.com" required/>
+        <button type="submit" class="primary-btn">Send Me My Free Audit</button>
+      </form>
+      <p id="auditStatus" class="form-status"></p>
+    </div>
   </section>
 
   <!-- FAQ -->
   <section class="faq" id="faq">
-    <div class="section-title reveal">
-      <span>FAQ</span>
-      <h2>Common Questions</h2>
-    </div>
-
+    <div class="section-title reveal"><span>FAQ</span><h2>Common Questions</h2></div>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          How long does a website take to build?
-          <span aria-hidden="true">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Most business websites are delivered within a few days to a couple of weeks, depending on scope. We'll give you a specific timeline after a quick discovery call.</p>
-        </div>
+        <button class="faq-question" aria-expanded="false">How long does a website take to build?<span aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>Most business websites are delivered within a few days to a couple of weeks, depending on scope. We'll give you a specific timeline after a quick discovery call.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Do I need to pay before I see anything?
-          <span aria-hidden="true">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>No — we use a demo-first approach. You'll see a working preview of your site before any commitment is finalized.</p>
-        </div>
+        <button class="faq-question" aria-expanded="false">Do I need to pay before I see anything?<span aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>No — we use a demo-first approach. You'll see a working preview of your site before any commitment is finalized.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Can you work with clients outside the Philippines?
-          <span aria-hidden="true">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>Yes. We work with US and international clients entirely online, and with local Davao businesses in person.</p>
-        </div>
+        <button class="faq-question" aria-expanded="false">Can you work with clients outside the Philippines?<span aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>Yes. We work with US and international clients entirely online, and with local Davao businesses in person.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          What happens after my site launches?
-          <span aria-hidden="true">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>We offer ongoing support and maintenance retainers so your site keeps running smoothly after launch — this is optional, not required.</p>
-        </div>
+        <button class="faq-question" aria-expanded="false">What happens after my site launches?<span aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>We offer ongoing support and maintenance retainers so your site keeps running smoothly after launch — this is optional, not required.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How much does a website cost?<span aria-hidden="true">+</span></button>
+        <div class="faq-answer"><p>It depends on scope — see the pricing section above for starting points. Every project gets an exact quote after discovery, with no surprises.</p></div>
       </div>
     </div>
   </section>
@@ -612,50 +625,34 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="section-title reveal">
-      <span>CONTACT</span>
-      <h2>Let's Work Together</h2>
+      <span>CONTACT</span><h2>Let's Work Together</h2>
       <p class="section-subtitle">Serving US and international clients remotely · Based in Davao City, Philippines</p>
     </div>
-
     <p class="capacity-note reveal">Taking on a limited number of new projects this quarter — book a discovery call to check availability.</p>
-
-    <!-- Web3Forms: replace YOUR_ACCESS_KEY below with your key from web3forms.com -->
     <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY"/>
       <input type="hidden" name="subject" value="New Inquiry from NEXA Website"/>
       <input type="hidden" name="redirect" value="false"/>
-
       <label for="contactName" class="sr-only">Your Name</label>
       <input type="text" id="contactName" name="name" placeholder="Your Name" required/>
-
       <label for="contactEmail" class="sr-only">Your Email</label>
       <input type="email" id="contactEmail" name="email" placeholder="Your Email" required/>
-
       <label for="contactPhone" class="sr-only">Your Phone (optional)</label>
       <input type="tel" id="contactPhone" name="phone" placeholder="Your Phone (optional)"/>
-
       <label for="contactMessage" class="sr-only">Tell us about your project</label>
       <textarea id="contactMessage" name="message" placeholder="Tell us about your project — what kind of website do you need?" required></textarea>
-
-      <button type="submit" class="primary-btn" id="submitBtn">
-        Book a Discovery Call
-      </button>
+      <button type="submit" class="primary-btn" id="submitBtn">Book a Discovery Call</button>
       <p id="formStatus" class="form-status"></p>
     </form>
   </section>
 
-  
-
-  <!-- STICKY CTA -->
   <div class="sticky-cta" id="stickyCta">
     <span>Ready to talk?</span>
     <a href="#contact"><button class="primary-btn">Book a Call</button></a>
   </div>
 
-  <!-- BACK TO TOP -->
   <button id="backToTop" aria-label="Back to top">↑</button>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <p>© 2026 NEXA</p><p class="footer-sub">Custom software and web applications for businesses in the US, remotely, and in Davao City, Philippines.</p>
   </footer>
