@@ -60,7 +60,7 @@ revealElements.forEach(el => revealObserver.observe(el));
 
 // ── GENERIC WEB3FORMS SUBMIT HANDLER ──
 // Wires up any form on the page that posts to Web3Forms, so the
-// main contact form and the free-audit form share one code path.
+// discovery-call booking form (and any future form) share one code path.
 function wireWeb3Form(formEl, statusEl, sendingLabel = "Sending...") {
   if (!formEl || !statusEl) return;
   const submitBtn = formEl.querySelector('button[type="submit"]');
@@ -86,7 +86,7 @@ function wireWeb3Form(formEl, statusEl, sendingLabel = "Sending...") {
       const data = await response.json();
 
       if (data.success) {
-        statusEl.textContent = "✅ Sent! We'll get back to you soon.";
+        statusEl.textContent = "✅ Sent! We'll follow up by email to confirm your discovery call.";
         statusEl.className = "form-status success";
         formEl.reset();
       } else {
@@ -110,12 +110,6 @@ wireWeb3Form(
   "Sending..."
 );
 
-wireWeb3Form(
-  document.getElementById("auditForm"),
-  document.getElementById("auditStatus"),
-  "Sending..."
-);
-
 // ── SCROLL PROGRESS BAR ──
 const scrollProgress = document.getElementById("scrollProgress");
 
@@ -125,35 +119,6 @@ window.addEventListener("scroll", throttle(() => {
   const pct = scrollableHeight > 0 ? (doc.scrollTop / scrollableHeight) * 100 : 0;
   scrollProgress.style.width = pct + "%";
 }, 30));
-
-// ── ANIMATED STAT COUNTERS ──
-const counters = document.querySelectorAll(".counter");
-
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = +el.dataset.target;
-    const duration = 1200;
-    const startTime = performance.now();
-
-    const tick = (now) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const value = Math.ceil(progress * target);
-      el.textContent = value;
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        el.textContent = target;
-      }
-    };
-
-    requestAnimationFrame(tick);
-    counterObserver.unobserve(el);
-  });
-}, { threshold: 0.5 });
-
-counters.forEach(counter => counterObserver.observe(counter));
 
 // ── FAQ ACCORDION ──
 document.querySelectorAll(".faq-item").forEach(item => {
@@ -256,142 +221,6 @@ if (chartLine) {
   }
 }
 
-// ── TESTIMONIALS CAROUSEL ──
-// Vanilla carousel: autoplay, arrows, dots, swipe/drag, keyboard, and
-// pause-on-hover/focus. No external carousel library needed for one slider.
-function initTestimonialCarousel() {
-  const root = document.getElementById("testiCarousel");
-  if (!root) return;
-
-  const viewport = document.getElementById("testiViewport");
-  const track = document.getElementById("testiTrack");
-  const slides = Array.from(track.children);
-  const prevBtn = document.getElementById("testiPrev");
-  const nextBtn = document.getElementById("testiNext");
-  const dotsWrap = document.getElementById("testiDots");
-
-  if (slides.length === 0) return;
-
-  let index = 0;
-  let autoplayId = null;
-  const AUTOPLAY_MS = 6000;
-
-  // Build pagination dots
-  const dots = slides.map((_, i) => {
-    const dot = document.createElement("button");
-    dot.className = "testi-dot";
-    dot.type = "button";
-    dot.setAttribute("role", "tab");
-    dot.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
-    dot.addEventListener("click", () => goTo(i, true));
-    dotsWrap.appendChild(dot);
-    return dot;
-  });
-
-  function render() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((d, i) => {
-      d.classList.toggle("is-active", i === index);
-      d.setAttribute("aria-selected", i === index ? "true" : "false");
-    });
-  }
-
-  function goTo(i, userInitiated) {
-    index = (i + slides.length) % slides.length;
-    render();
-    if (userInitiated) restartAutoplay();
-  }
-
-  function next(userInitiated) { goTo(index + 1, userInitiated); }
-  function prev(userInitiated) { goTo(index - 1, userInitiated); }
-
-  function startAutoplay() {
-    if (prefersReducedMotion || slides.length < 2) return;
-    stopAutoplay();
-    autoplayId = setInterval(() => next(false), AUTOPLAY_MS);
-  }
-
-  function stopAutoplay() {
-    if (autoplayId) {
-      clearInterval(autoplayId);
-      autoplayId = null;
-    }
-  }
-
-  function restartAutoplay() {
-    stopAutoplay();
-    startAutoplay();
-  }
-
-  prevBtn.addEventListener("click", () => prev(true));
-  nextBtn.addEventListener("click", () => next(true));
-
-  // Pause on hover / keyboard focus, resume on leave / blur
-  root.addEventListener("mouseenter", stopAutoplay);
-  root.addEventListener("mouseleave", startAutoplay);
-  root.addEventListener("focusin", stopAutoplay);
-  root.addEventListener("focusout", startAutoplay);
-
-  // Keyboard navigation (left/right arrows while carousel has focus)
-  root.setAttribute("tabindex", "0");
-  root.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") { e.preventDefault(); prev(true); }
-    if (e.key === "ArrowRight") { e.preventDefault(); next(true); }
-  });
-
-  // Touch / pointer swipe
-  let dragging = false;
-  let startX = 0;
-  let deltaX = 0;
-  const SWIPE_THRESHOLD = 40;
-
-  function onDragStart(x) {
-    dragging = true;
-    startX = x;
-    deltaX = 0;
-    root.classList.add("is-dragging");
-    stopAutoplay();
-    track.style.transition = "none";
-  }
-
-  function onDragMove(x) {
-    if (!dragging) return;
-    deltaX = x - startX;
-    const percent = (deltaX / viewport.clientWidth) * 100;
-    track.style.transform = `translateX(calc(-${index * 100}% + ${percent}%))`;
-  }
-
-  function onDragEnd() {
-    if (!dragging) return;
-    dragging = false;
-    root.classList.remove("is-dragging");
-    track.style.transition = "";
-
-    if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
-      if (deltaX < 0) next(true); else prev(true);
-    } else {
-      render();
-    }
-    startAutoplay();
-  }
-
-  viewport.addEventListener("touchstart", (e) => onDragStart(e.touches[0].clientX), { passive: true });
-  viewport.addEventListener("touchmove", (e) => onDragMove(e.touches[0].clientX), { passive: true });
-  viewport.addEventListener("touchend", onDragEnd);
-
-  viewport.addEventListener("pointerdown", (e) => {
-    if (e.pointerType === "touch") return; // handled by touch events above
-    onDragStart(e.clientX);
-  });
-  window.addEventListener("pointermove", (e) => onDragMove(e.clientX));
-  window.addEventListener("pointerup", onDragEnd);
-
-  render();
-  startAutoplay();
-}
-
-initTestimonialCarousel();
-
 // ── LIVE TECH BACKGROUND (particle network in the hero) ──
 const heroCanvas = document.getElementById("heroCanvas");
 
@@ -471,3 +300,99 @@ if (heroCanvas) {
   init();
   window.addEventListener("resize", throttle(init, 250));
 }
+
+// ── DISCOVERY CALL BOOKING WIDGET ──
+// Frontend-only prototype: generates the next 14 available weekdays and a
+// fixed set of time slots. Not connected to a real calendar backend yet —
+// see booking-disclaimer copy in the markup. Ready to be wired to
+// Calendly / Google Calendar / Cal.com later.
+function initBookingWidget() {
+  const widget = document.getElementById("bookingWidget");
+  if (!widget) return;
+
+  const datesEl = document.getElementById("bookingDates");
+  const timesEl = document.getElementById("bookingTimes");
+  const panels = widget.querySelectorAll(".booking-panel");
+  const steps = widget.querySelectorAll(".booking-step");
+  const selectedDateLabel = document.getElementById("bookingSelectedDate");
+  const summaryEl = document.getElementById("bookingSummary");
+  const dateField = document.getElementById("bookingDateField");
+  const timeField = document.getElementById("bookingTimeField");
+
+  const DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const TIME_SLOTS = ["9:00 AM", "10:30 AM", "1:00 PM", "2:30 PM", "4:00 PM"];
+
+  let selectedDate = null;
+  let selectedTime = null;
+
+  function goToPanel(n) {
+    panels.forEach(p => p.classList.toggle("is-active", p.dataset.panel === String(n)));
+    steps.forEach(s => s.classList.toggle("is-active", Number(s.dataset.step) <= n));
+  }
+
+  function buildDates() {
+    const dates = [];
+    let d = new Date();
+    d.setDate(d.getDate() + 1);
+    while (dates.length < 10) {
+      const day = d.getDay();
+      if (day !== 0 && day !== 6) dates.push(new Date(d));
+      d.setDate(d.getDate() + 1);
+    }
+
+    datesEl.innerHTML = "";
+    dates.forEach(date => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "booking-date";
+      btn.innerHTML = `
+        <span class="booking-date-dow">${DOW[date.getDay()]}</span>
+        <span class="booking-date-day">${date.getDate()}</span>
+        <span class="booking-date-mon">${MON[date.getMonth()]}</span>
+      `;
+      btn.addEventListener("click", () => {
+        datesEl.querySelectorAll(".booking-date").forEach(b => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+        selectedDate = date;
+        const label = `${DOW[date.getDay()]}, ${MON[date.getMonth()]} ${date.getDate()}`;
+        selectedDateLabel.textContent = `— ${label}`;
+        buildTimes();
+        goToPanel(2);
+      });
+      datesEl.appendChild(btn);
+    });
+  }
+
+  function buildTimes() {
+    timesEl.innerHTML = "";
+    TIME_SLOTS.forEach(time => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "booking-time";
+      btn.textContent = time;
+      btn.addEventListener("click", () => {
+        timesEl.querySelectorAll(".booking-time").forEach(b => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+        selectedTime = time;
+
+        const dateLabel = `${DOW[selectedDate.getDay()]}, ${MON[selectedDate.getMonth()]} ${selectedDate.getDate()}`;
+        summaryEl.textContent = `${dateLabel} at ${time}`;
+        dateField.value = dateLabel;
+        timeField.value = time;
+
+        goToPanel(3);
+      });
+      timesEl.appendChild(btn);
+    });
+  }
+
+  widget.querySelectorAll(".booking-back").forEach(btn => {
+    btn.addEventListener("click", () => goToPanel(Number(btn.dataset.back)));
+  });
+
+  buildDates();
+  goToPanel(1);
+}
+
+initBookingWidget();
