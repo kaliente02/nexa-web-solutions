@@ -521,53 +521,69 @@
     </div>
     <p class="capacity-note reveal">Taking on a limited number of new projects this quarter — book a discovery call to check availability.</p>
 
+    <!-- CHANGED: booking-widget now embeds NEXA's real Google Calendar
+         Appointment Schedule inline (real dates/times, real booking), with
+         a redirect link kept as a fallback for browsers where the embed
+         doesn't load. This replaces the fake multi-step date/time picker. -->
     <div class="booking-widget reveal" id="bookingWidget">
-      <div class="booking-steps" aria-hidden="true">
-        <span class="booking-step is-active" data-step="1">1. Date</span>
-        <span class="booking-step" data-step="2">2. Time</span>
-        <span class="booking-step" data-step="3">3. Details</span>
+      <div class="booking-info">
+        <h3 class="booking-info-title">NEXA Discovery Call</h3>
+        <p class="booking-info-desc">A consultation to understand your business, current challenges, goals, and the type of website, web application, business system, or automation solution NEXA can build for you.</p>
+        <ul class="booking-info-meta">
+          <li><span class="booking-meta-label">Duration</span><span id="bookingCallDuration">30 minutes</span></li>
+          <li><span class="booking-meta-label">Meeting method</span><span>Google Meet (link included once configured)</span></li>
+          <li><span class="booking-meta-label">Availability</span><span>Real-time — pulled live from Google Calendar</span></li>
+        </ul>
       </div>
 
-      <!-- Step 1: date -->
-      <div class="booking-panel is-active" data-panel="1">
-        <h3 class="booking-panel-title">Pick a date</h3>
-        <div class="booking-dates" id="bookingDates"></div>
+      <!-- Embedded booking calendar. JS fills this in from
+           BOOKING_CONFIG.googleBookingUrl. Hidden until configured. -->
+      <div class="booking-embed" id="bookingEmbed" hidden>
+        <iframe
+          id="bookingEmbedFrame"
+          title="NEXA discovery call booking calendar"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
 
-      <!-- Step 2: time -->
-      <div class="booking-panel" data-panel="2">
-        <h3 class="booking-panel-title">Pick a time <span class="booking-selected-date" id="bookingSelectedDate"></span></h3>
-        <div class="booking-times" id="bookingTimes"></div>
-        <button type="button" class="booking-back" data-back="1">← Back to dates</button>
-      </div>
-
-      <!-- Step 3: details -->
-      <div class="booking-panel" data-panel="3">
-        <h3 class="booking-panel-title">Your details</h3>
-        <p class="booking-summary" id="bookingSummary"></p>
-        <form class="contact-form booking-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY"/>
-          <input type="hidden" name="subject" value="New Discovery Call Booking — NEXA Website"/>
-          <input type="hidden" name="redirect" value="false"/>
-          <input type="hidden" name="requested_date" id="bookingDateField" value=""/>
-          <input type="hidden" name="requested_time" id="bookingTimeField" value=""/>
-          <label for="contactName" class="sr-only">Your Name</label>
-          <input type="text" id="contactName" name="name" placeholder="Your Name" required/>
-          <label for="contactEmail" class="sr-only">Your Email</label>
-          <input type="email" id="contactEmail" name="email" placeholder="Your Email" required/>
-          <label for="contactCompany" class="sr-only">Company</label>
-          <input type="text" id="contactCompany" name="company" placeholder="Company (optional)"/>
-          <label for="contactPhone" class="sr-only">Your Phone (optional)</label>
-          <input type="tel" id="contactPhone" name="phone" placeholder="Your Phone (optional)"/>
-          <label for="contactMessage" class="sr-only">Brief message</label>
-          <textarea id="contactMessage" name="message" placeholder="Brief message about your project (optional)"></textarea>
-          <button type="submit" class="primary-btn" id="submitBtn">Confirm Discovery Call</button>
-          <p id="formStatus" class="form-status"></p>
-        </form>
-        <button type="button" class="booking-back" data-back="2">← Back to times</button>
+      <!-- Shown only if the embed can't be configured/loaded, or as the
+           general fallback link. -->
+      <div class="booking-action">
+        <button type="button" class="primary-btn booking-cta" id="bookingCtaBtn" aria-describedby="bookingCtaHelp">
+          Open Booking Page in a New Tab
+        </button>
+        <p class="booking-cta-help" id="bookingCtaHelp" role="status" aria-live="polite"></p>
       </div>
     </div>
-    <p class="booking-disclaimer reveal">This scheduler is a frontend prototype. Submitting confirms your request — we'll follow up by email to lock in the exact time.</p>
+
+    <p class="booking-disclaimer reveal">
+      The calendar above shows NEXA's genuinely available dates and times, pulled directly from Google Calendar. If it doesn't load for you, use the button to open the same booking page in a new tab. Either way, your appointment is confirmed by Google Calendar, not by this website.
+    </p>
+
+    <!-- General inquiry form — kept separate from the booking flow so no one
+         mistakes "message sent" for "call booked". -->
+    <div class="inquiry-wrap reveal">
+      <h3 class="inquiry-title">Prefer to send a message first?</h3>
+      <p class="inquiry-subtitle">This form sends a general inquiry — it does not book a discovery call. To book an actual appointment, use the button above.</p>
+      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" id="web3formsAccessKey" value="YOUR_ACCESS_KEY"/>
+        <input type="hidden" name="subject" value="New Inquiry — NEXA Website"/>
+        <input type="hidden" name="redirect" value="false"/>
+        <label for="contactName" class="sr-only">Your Name</label>
+        <input type="text" id="contactName" name="name" placeholder="Your Name" required/>
+        <label for="contactEmail" class="sr-only">Your Email</label>
+        <input type="email" id="contactEmail" name="email" placeholder="Your Email" required/>
+        <label for="contactCompany" class="sr-only">Company</label>
+        <input type="text" id="contactCompany" name="company" placeholder="Company (optional)"/>
+        <label for="contactPhone" class="sr-only">Your Phone (optional)</label>
+        <input type="tel" id="contactPhone" name="phone" placeholder="Your Phone (optional)"/>
+        <label for="contactMessage" class="sr-only">Brief message</label>
+        <textarea id="contactMessage" name="message" placeholder="Brief message about your project (optional)"></textarea>
+        <button type="submit" class="secondary-btn" id="submitBtn">Send Inquiry</button>
+        <p id="formStatus" class="form-status"></p>
+      </form>
+    </div>
   </section>
 
   <div class="sticky-cta" id="stickyCta">

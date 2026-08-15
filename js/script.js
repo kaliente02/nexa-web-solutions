@@ -1,3 +1,31 @@
+// ════════════════════════════════════════════════════════════════
+// NEXA BOOKING CONFIGURATION
+// This is the ONLY place you need to edit to connect real booking.
+//
+// - googleBookingUrl: paste your Google Calendar Appointment Schedule
+//   booking page URL (Google Calendar → Appointment schedule → Share →
+//   "Booking page" link). Example:
+//   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ..."
+// - web3formsAccessKey: paste your Web3Forms access key (from
+//   https://web3forms.com) if you want the general inquiry form to work.
+//
+// Do NOT put Google OAuth client secrets, refresh tokens, access tokens,
+// or your Google account password anywhere in this file.
+// ════════════════════════════════════════════════════════════════
+const BOOKING_CONFIG = {
+  googleBookingUrl: "https://calendar.app.google/RsQoUfKpXhaqsQg7A",
+  businessName: "NEXA",
+  meetingDurationMinutes: 30
+};
+// googleBookingUrl is used BOTH as the inline embed source and as the
+// "open in a new tab" fallback link — paste the same booking-page URL
+// from Google Calendar → Appointment schedule → Share.
+
+const FORM_CONFIG = {
+  web3formsAccessKey: "3b225d2b-4f68-4bd6-82c0-433ffc5f1177"
+};
+// ════════════════════════════════════════════════════════════════
+
 // ── UTIL: THROTTLE ──
 function throttle(fn, wait) {
   let last = 0;
@@ -59,8 +87,10 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealElements.forEach(el => revealObserver.observe(el));
 
 // ── GENERIC WEB3FORMS SUBMIT HANDLER ──
-// Wires up any form on the page that posts to Web3Forms, so the
-// discovery-call booking form (and any future form) share one code path.
+// Wires up the general-inquiry form. Note: a successful Web3Forms
+// submission means the INQUIRY was sent — it is never described as a
+// booked discovery call. Only the Google Calendar redirect flow
+// (initBookingWidget below) leads to an actual appointment.
 function wireWeb3Form(formEl, statusEl, sendingLabel = "Sending...") {
   if (!formEl || !statusEl) return;
   const submitBtn = formEl.querySelector('button[type="submit"]');
@@ -86,7 +116,7 @@ function wireWeb3Form(formEl, statusEl, sendingLabel = "Sending...") {
       const data = await response.json();
 
       if (data.success) {
-        statusEl.textContent = "✅ Sent! We'll follow up by email to confirm your discovery call.";
+        statusEl.textContent = "✅ Request submitted. This is an inquiry, not a booked call — we'll follow up by email.";
         statusEl.className = "form-status success";
         formEl.reset();
       } else {
@@ -103,6 +133,18 @@ function wireWeb3Form(formEl, statusEl, sendingLabel = "Sending...") {
     }
   });
 }
+
+// Apply the configured Web3Forms access key to the inquiry form, if set.
+(function applyFormConfig() {
+  const accessKeyInput = document.getElementById("web3formsAccessKey");
+  if (
+    accessKeyInput &&
+    FORM_CONFIG.web3formsAccessKey &&
+    !FORM_CONFIG.web3formsAccessKey.startsWith("REPLACE_WITH")
+  ) {
+    accessKeyInput.value = FORM_CONFIG.web3formsAccessKey;
+  }
+})();
 
 wireWeb3Form(
   document.getElementById("contactForm"),
@@ -302,97 +344,53 @@ if (heroCanvas) {
 }
 
 // ── DISCOVERY CALL BOOKING WIDGET ──
-// Frontend-only prototype: generates the next 14 available weekdays and a
-// fixed set of time slots. Not connected to a real calendar backend yet —
-// see booking-disclaimer copy in the markup. Ready to be wired to
-// Calendly / Google Calendar / Cal.com later.
+// CHANGED: this used to generate 10 fake weekday dates and a hard-coded
+// TIME_SLOTS array, then faked a "confirmed" booking through Web3Forms.
+// That logic (buildDates, buildTimes, TIME_SLOTS, the 3-panel date/time/
+// details flow, and the hidden requested_date / requested_time fields) has
+// been removed entirely. The widget now embeds NEXA's real Google Calendar
+// Appointment Schedule inline (real dates/times pulled live by Google),
+// with a same-URL "open in a new tab" link kept as a fallback for browsers
+// that block the embedded iframe (e.g. strict third-party cookie blocking
+// in Safari or Brave). No time is ever shown as "available" unless Google
+// Calendar itself confirms it — nothing here is generated or guessed.
 function initBookingWidget() {
-  const widget = document.getElementById("bookingWidget");
-  if (!widget) return;
+  const embedWrap = document.getElementById("bookingEmbed");
+  const embedFrame = document.getElementById("bookingEmbedFrame");
+  const ctaBtn = document.getElementById("bookingCtaBtn");
+  const helpEl = document.getElementById("bookingCtaHelp");
+  if (!ctaBtn || !helpEl) return;
 
-  const datesEl = document.getElementById("bookingDates");
-  const timesEl = document.getElementById("bookingTimes");
-  const panels = widget.querySelectorAll(".booking-panel");
-  const steps = widget.querySelectorAll(".booking-step");
-  const selectedDateLabel = document.getElementById("bookingSelectedDate");
-  const summaryEl = document.getElementById("bookingSummary");
-  const dateField = document.getElementById("bookingDateField");
-  const timeField = document.getElementById("bookingTimeField");
-
-  const DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  const TIME_SLOTS = ["9:00 AM", "10:30 AM", "1:00 PM", "2:30 PM", "4:00 PM"];
-
-  let selectedDate = null;
-  let selectedTime = null;
-
-  function goToPanel(n) {
-    panels.forEach(p => p.classList.toggle("is-active", p.dataset.panel === String(n)));
-    steps.forEach(s => s.classList.toggle("is-active", Number(s.dataset.step) <= n));
+  function isConfigured(url) {
+    return typeof url === "string" && url.trim().length > 0 && !url.startsWith("REPLACE_WITH");
   }
 
-  function buildDates() {
-    const dates = [];
-    let d = new Date();
-    d.setDate(d.getDate() + 1);
-    while (dates.length < 10) {
-      const day = d.getDay();
-      if (day !== 0 && day !== 6) dates.push(new Date(d));
-      d.setDate(d.getDate() + 1);
+  const url = BOOKING_CONFIG.googleBookingUrl;
+  const configured = isConfigured(url);
+
+  if (!configured) {
+    console.warn("NEXA booking URL is not configured.");
+    helpEl.textContent = "Booking is temporarily unavailable. Please contact NEXA directly.";
+    helpEl.className = "booking-cta-help error";
+  } else {
+    // Load the real appointment schedule inline.
+    if (embedWrap && embedFrame) {
+      embedFrame.src = url;
+      embedWrap.hidden = false;
     }
-
-    datesEl.innerHTML = "";
-    dates.forEach(date => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "booking-date";
-      btn.innerHTML = `
-        <span class="booking-date-dow">${DOW[date.getDay()]}</span>
-        <span class="booking-date-day">${date.getDate()}</span>
-        <span class="booking-date-mon">${MON[date.getMonth()]}</span>
-      `;
-      btn.addEventListener("click", () => {
-        datesEl.querySelectorAll(".booking-date").forEach(b => b.classList.remove("is-selected"));
-        btn.classList.add("is-selected");
-        selectedDate = date;
-        const label = `${DOW[date.getDay()]}, ${MON[date.getMonth()]} ${date.getDate()}`;
-        selectedDateLabel.textContent = `— ${label}`;
-        buildTimes();
-        goToPanel(2);
-      });
-      datesEl.appendChild(btn);
-    });
+    helpEl.textContent = "Having trouble with the calendar above? Use the button to open the same booking page in a new tab.";
+    helpEl.className = "booking-cta-help";
   }
 
-  function buildTimes() {
-    timesEl.innerHTML = "";
-    TIME_SLOTS.forEach(time => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "booking-time";
-      btn.textContent = time;
-      btn.addEventListener("click", () => {
-        timesEl.querySelectorAll(".booking-time").forEach(b => b.classList.remove("is-selected"));
-        btn.classList.add("is-selected");
-        selectedTime = time;
-
-        const dateLabel = `${DOW[selectedDate.getDay()]}, ${MON[selectedDate.getMonth()]} ${selectedDate.getDate()}`;
-        summaryEl.textContent = `${dateLabel} at ${time}`;
-        dateField.value = dateLabel;
-        timeField.value = time;
-
-        goToPanel(3);
-      });
-      timesEl.appendChild(btn);
-    });
-  }
-
-  widget.querySelectorAll(".booking-back").forEach(btn => {
-    btn.addEventListener("click", () => goToPanel(Number(btn.dataset.back)));
+  ctaBtn.addEventListener("click", () => {
+    if (!isConfigured(BOOKING_CONFIG.googleBookingUrl)) {
+      console.warn("NEXA booking URL is not configured.");
+      helpEl.textContent = "Booking is temporarily unavailable. Please contact NEXA directly.";
+      helpEl.className = "booking-cta-help error";
+      return;
+    }
+    window.open(BOOKING_CONFIG.googleBookingUrl, "_blank", "noopener,noreferrer");
   });
-
-  buildDates();
-  goToPanel(1);
 }
 
 initBookingWidget();
