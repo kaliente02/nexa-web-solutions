@@ -22,7 +22,7 @@ const BOOKING_CONFIG = {
 // from Google Calendar → Appointment schedule → Share.
 
 const FORM_CONFIG = {
-  web3formsAccessKey: "3b225d2b-4f68-4bd6-82c0-433ffc5f1177"
+  web3formsAccessKey: "ea1cbd7e-5161-49b4-981f-8093cba1c7a0"
 };
 // ════════════════════════════════════════════════════════════════
 
