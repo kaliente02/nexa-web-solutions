@@ -13,7 +13,7 @@
 // or your Google account password anywhere in this file.
 // ════════════════════════════════════════════════════════════════
 const BOOKING_CONFIG = {
-  googleBookingUrl: "https://calendar.app.google/RsQoUfKpXhaqsQg7A",
+  googleBookingUrl: "https://calendar.app.google/ceVQeNmEmkyxE4c8A",
   businessName: "NEXA",
   meetingDurationMinutes: 30
 };
