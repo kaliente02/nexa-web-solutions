@@ -39,27 +39,38 @@ function throttle(fn, wait) {
 }
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+const isSmallScreen = window.matchMedia("(max-width: 900px)").matches;
+// 3D pointer interactions (tilt, parallax) are only enabled on devices with a
+// fine pointer, no reduced-motion preference, and enough screen real estate.
+const enable3DInteractions = !prefersReducedMotion && !isCoarsePointer && !isSmallScreen;
 
 // ── MOBILE MENU ──
 const menuBtn = document.getElementById("menuBtn");
 const navMenu = document.getElementById("navMenu");
 
-menuBtn.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-});
-
-navMenu.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
+if (menuBtn && navMenu) {
+  menuBtn.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("active");
+    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
   });
-});
 
-// ── NAVBAR SCROLL EFFECT ──
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      menuBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+// ── NAVBAR SCROLL EFFECT (glass on scroll) ──
 const navbar = document.querySelector(".navbar");
 
-window.addEventListener("scroll", throttle(() => {
-  navbar.style.background = window.scrollY > 50 ? "rgba(0,0,0,0.85)" : "rgba(0,0,0,0.3)";
-}, 50));
+if (navbar) {
+  window.addEventListener("scroll", throttle(() => {
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  }, 50));
+}
 
 // ── ACTIVE NAV LINK ON SCROLL ──
 const sections = document.querySelectorAll("section");
@@ -155,12 +166,14 @@ wireWeb3Form(
 // ── SCROLL PROGRESS BAR ──
 const scrollProgress = document.getElementById("scrollProgress");
 
-window.addEventListener("scroll", throttle(() => {
-  const doc = document.documentElement;
-  const scrollableHeight = doc.scrollHeight - doc.clientHeight;
-  const pct = scrollableHeight > 0 ? (doc.scrollTop / scrollableHeight) * 100 : 0;
-  scrollProgress.style.width = pct + "%";
-}, 30));
+if (scrollProgress) {
+  window.addEventListener("scroll", throttle(() => {
+    const doc = document.documentElement;
+    const scrollableHeight = doc.scrollHeight - doc.clientHeight;
+    const pct = scrollableHeight > 0 ? (doc.scrollTop / scrollableHeight) * 100 : 0;
+    scrollProgress.style.width = pct + "%";
+  }, 30));
+}
 
 // ── FAQ ACCORDION ──
 document.querySelectorAll(".faq-item").forEach(item => {
@@ -187,13 +200,15 @@ document.querySelectorAll(".faq-item").forEach(item => {
 // ── BACK TO TOP BUTTON ──
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", throttle(() => {
-  backToTop.classList.toggle("visible", window.scrollY > 600);
-}, 100));
+if (backToTop) {
+  window.addEventListener("scroll", throttle(() => {
+    backToTop.classList.toggle("visible", window.scrollY > 600);
+  }, 100));
 
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
 // ── STICKY CTA ──
 const stickyCta = document.getElementById("stickyCta");
@@ -270,6 +285,7 @@ if (heroCanvas) {
   const ctx = heroCanvas.getContext("2d");
   let width, height, nodes = [];
   let rafId = null;
+  let canvasVisible = true;
 
   const NODE_COLOR = "196, 113, 237";
   const LINK_DISTANCE = 140;
@@ -280,8 +296,15 @@ if (heroCanvas) {
     height = heroCanvas.height = rect.height;
   }
 
+  function nodeCount() {
+    // Fewer particles on small screens for performance.
+    const base = Math.floor((width * height) / 26000);
+    const cap = isSmallScreen ? 30 : 60;
+    return Math.max(14, Math.min(cap, base));
+  }
+
   function buildNodes() {
-    const count = Math.max(18, Math.min(60, Math.floor((width * height) / 26000)));
+    const count = nodeCount();
     nodes = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -292,6 +315,7 @@ if (heroCanvas) {
   }
 
   function step() {
+    if (!canvasVisible) { rafId = requestAnimationFrame(step); return; }
     ctx.clearRect(0, 0, width, height);
 
     nodes.forEach(n => {
@@ -339,9 +363,149 @@ if (heroCanvas) {
     }
   }
 
+  // Pause the particle animation entirely when the hero scrolls offscreen.
+  const canvasVisObserver = new IntersectionObserver(([entry]) => {
+    canvasVisible = entry.isIntersecting;
+  }, { threshold: 0 });
+  canvasVisObserver.observe(heroCanvas);
+
   init();
   window.addEventListener("resize", throttle(init, 250));
 }
+
+// ── HERO 3D STAGE: mouse-responsive parallax on the floating dashboard ──
+(function initHeroParallax() {
+  const stage = document.getElementById("heroStage");
+  const dashboard = document.getElementById("dashboardCard");
+  const heroSection = document.getElementById("home");
+  if (!stage || !dashboard || !heroSection || !enable3DInteractions) return;
+
+  let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+  let raf = null;
+
+  function onMove(e) {
+    const rect = heroSection.getBoundingClientRect();
+    const relX = (e.clientX - rect.left) / rect.width;   // 0..1
+    const relY = (e.clientY - rect.top) / rect.height;   // 0..1
+    // restrained rotation range
+    targetY = (relX - 0.5) * 14;   // rotateY
+    targetX = (0.5 - relY) * 10;   // rotateX
+  }
+
+  function onLeave() {
+    targetX = 0;
+    targetY = 0;
+  }
+
+  function animate() {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+    dashboard.style.transform = `rotateX(${currentX.toFixed(2)}deg) rotateY(${currentY.toFixed(2)}deg)`;
+    raf = requestAnimationFrame(animate);
+  }
+
+  heroSection.addEventListener("mousemove", onMove);
+  heroSection.addEventListener("mouseleave", onLeave);
+  animate();
+})();
+
+// ── REUSABLE 3D TILT CARD SYSTEM ──
+// Applies a subtle rotateX/rotateY tilt plus a cursor-tracking highlight to
+// every element with the .tilt-card class (service cards, product cards,
+// pricing cards, portfolio cards, etc). Disabled on touch devices, small
+// screens, and when prefers-reduced-motion is set.
+(function initTiltCards() {
+  if (!enable3DInteractions) return;
+  const cards = document.querySelectorAll(".tilt-card");
+  const MAX_TILT = 6; // degrees — kept subtle per design direction
+
+  cards.forEach(card => {
+    let raf = null;
+
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const relX = (e.clientX - rect.left) / rect.width;
+      const relY = (e.clientY - rect.top) / rect.height;
+
+      const rotateY = (relX - 0.5) * MAX_TILT * 2;
+      const rotateX = (0.5 - relY) * MAX_TILT * 2;
+
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+        card.style.setProperty("--mx", `${relX * 100}%`);
+        card.style.setProperty("--my", `${relY * 100}%`);
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      if (raf) cancelAnimationFrame(raf);
+      card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
+    });
+  });
+})();
+
+// ── BUSINESS SYSTEMS HUB DIAGRAM ──
+// Draws SVG connector lines from the central NEXA core to each floating
+// module, and highlights the line + shows a description on hover/focus.
+(function initSystemsHub() {
+  const hub = document.getElementById("systemsHub");
+  const lineGroup = document.getElementById("hubLineGroup");
+  const tooltip = document.getElementById("hubTooltip");
+  if (!hub || !lineGroup) return;
+
+  const modules = Array.from(hub.querySelectorAll(".hub-module"));
+
+  function drawLines() {
+    lineGroup.innerHTML = "";
+    const hubRect = hub.getBoundingClientRect();
+    const cx = hubRect.width / 2;
+    const cy = hubRect.height / 2;
+    // scale coordinates into the 0-600 viewBox space
+    const scale = 600 / hubRect.width;
+
+    modules.forEach((mod, i) => {
+      const modRect = mod.getBoundingClientRect();
+      const mx = (modRect.left - hubRect.left + modRect.width / 2) * scale;
+      const my = (modRect.top - hubRect.top + modRect.height / 2) * scale;
+      const cxs = cx * scale;
+      const cys = cy * scale;
+
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      const midX = (cxs + mx) / 2;
+      const midY = (cys + my) / 2;
+      path.setAttribute("d", `M${cxs},${cys} Q${midX},${midY} ${mx},${my}`);
+      path.setAttribute("class", "hub-line");
+      path.dataset.index = i;
+      lineGroup.appendChild(path);
+    });
+  }
+
+  function highlight(index, desc) {
+    lineGroup.querySelectorAll(".hub-line").forEach(line => {
+      line.classList.toggle("active", Number(line.dataset.index) === index);
+    });
+    if (tooltip) tooltip.textContent = desc || "";
+  }
+
+  function clearHighlight() {
+    lineGroup.querySelectorAll(".hub-line").forEach(line => line.classList.remove("active"));
+    if (tooltip) tooltip.textContent = "";
+  }
+
+  modules.forEach((mod, i) => {
+    mod.setAttribute("tabindex", "0");
+    mod.addEventListener("mouseenter", () => highlight(i, mod.dataset.desc));
+    mod.addEventListener("focus", () => highlight(i, mod.dataset.desc));
+    mod.addEventListener("mouseleave", clearHighlight);
+    mod.addEventListener("blur", clearHighlight);
+  });
+
+  // Draw once layout has settled, and redraw on resize.
+  window.addEventListener("load", drawLines);
+  setTimeout(drawLines, 300);
+  window.addEventListener("resize", throttle(drawLines, 200));
+})();
 
 // ── DISCOVERY CALL BOOKING WIDGET ──
 // CHANGED: this used to generate 10 fake weekday dates and a hard-coded

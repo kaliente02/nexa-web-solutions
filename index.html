@@ -50,21 +50,26 @@
   <div class="scroll-progress" id="scrollProgress"></div>
   <div class="blur blur-1"></div>
   <div class="blur blur-2"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
 
   <header class="navbar">
-    <div class="logo">NEXA.</div>
-    <nav id="navMenu">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#systems">Solutions</a>
-      <a href="#products">Products</a>
-      <a href="#process">Process</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
+    <div class="navbar-inner">
+      <div class="logo">NEXA.</div>
+      <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#systems">Solutions</a>
+        <a href="#products">Products</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span>
+      </button>
+    </div>
   </header>
 
   <!-- HERO -->
@@ -85,50 +90,64 @@
         working demo before you commit to anything.
       </p>
       <div class="hero-buttons">
-        <a href="#contact"><button class="primary-btn">Book a Discovery Call</button></a>
-        <a href="#systems"><button class="secondary-btn">Explore Solutions</button></a>
+        <a href="#contact"><button class="primary-btn btn-3d">Book a Discovery Call</button></a>
+        <a href="#systems"><button class="secondary-btn btn-3d">Explore Solutions</button></a>
       </div>
     </div>
 
-    <div class="hero-card reveal">
-      <div class="card-glow"></div>
-      <div class="dashboard" id="dashboardCard">
-        <div class="dashboard-top">
-          <div class="dots"><span></span><span></span><span></span></div>
-          <span class="dashboard-label">Client Traffic — 6mo</span>
+    <div class="hero-card reveal" id="heroCardWrap">
+      <div class="hero-3d-stage" id="heroStage">
+        <div class="card-glow"></div>
+
+        <!-- floating satellite panels (pure CSS/SVG, mouse-parallax) -->
+        <div class="float-chip float-chip-1" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 17 L10 11 L14 15 L20 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>+18% growth</span>
         </div>
-        <div class="chart-wrap">
-          <svg class="chart-svg" id="chartSvg" viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#c471ed" stop-opacity="0.45"/>
-                <stop offset="100%" stop-color="#c471ed" stop-opacity="0"/>
-              </linearGradient>
-              <linearGradient id="lineStroke" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#7b2ff7"/>
-                <stop offset="100%" stop-color="#c471ed"/>
-              </linearGradient>
-            </defs>
-            <g class="chart-grid">
-              <line x1="0" y1="20" x2="400" y2="20"/>
-              <line x1="0" y1="60" x2="400" y2="60"/>
-              <line x1="0" y1="100" x2="400" y2="100"/>
-              <line x1="0" y1="140" x2="400" y2="140"/>
-            </g>
-            <path class="chart-area" d="M0,128 L36,120 L72,132 L108,104 L144,112 L180,80 L216,90 L252,58 L288,66 L324,34 L360,40 L400,14 L400,160 L0,160 Z"/>
-            <path class="chart-line" id="chartLine" d="M0,128 L36,120 L72,132 L108,104 L144,112 L180,80 L216,90 L252,58 L288,66 L324,34 L360,40 L400,14"/>
-            <circle class="chart-point" cx="400" cy="14" r="5"/>
-            <circle class="chart-point-pulse" cx="400" cy="14" r="5"/>
-          </svg>
-          <div class="chart-labels"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+        <div class="float-chip float-chip-2" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Live sync</span>
         </div>
-        <div class="chart-callout">
-          <span class="chart-callout-value">Live</span>
-          <span class="chart-callout-label">example of an analytics dashboard we build for clients</span>
-        </div>
-        <div class="stats">
-          <div class="stat-box"><h3>Systems</h3><p>Not just sites</p></div>
-          <div class="stat-box"><h3>Demo-First</h3><p>See it before you pay</p></div>
+        <div class="float-ring" aria-hidden="true"></div>
+
+        <div class="dashboard" id="dashboardCard">
+          <div class="dashboard-top">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="dashboard-label">Client Traffic — 6mo</span>
+          </div>
+          <div class="chart-wrap">
+            <svg class="chart-svg" id="chartSvg" viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#c471ed" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#c471ed" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="lineStroke" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#7b2ff7"/>
+                  <stop offset="100%" stop-color="#c471ed"/>
+                </linearGradient>
+              </defs>
+              <g class="chart-grid">
+                <line x1="0" y1="20" x2="400" y2="20"/>
+                <line x1="0" y1="60" x2="400" y2="60"/>
+                <line x1="0" y1="100" x2="400" y2="100"/>
+                <line x1="0" y1="140" x2="400" y2="140"/>
+              </g>
+              <path class="chart-area" d="M0,128 L36,120 L72,132 L108,104 L144,112 L180,80 L216,90 L252,58 L288,66 L324,34 L360,40 L400,14 L400,160 L0,160 Z"/>
+              <path class="chart-line" id="chartLine" d="M0,128 L36,120 L72,132 L108,104 L144,112 L180,80 L216,90 L252,58 L288,66 L324,34 L360,40 L400,14"/>
+              <circle class="chart-point" cx="400" cy="14" r="5"/>
+              <circle class="chart-point-pulse" cx="400" cy="14" r="5"/>
+            </svg>
+            <div class="chart-labels"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+          </div>
+          <div class="chart-callout">
+            <span class="chart-callout-value">Live</span>
+            <span class="chart-callout-label">example of an analytics dashboard we build for clients</span>
+          </div>
+          <div class="stats">
+            <div class="stat-box"><h3>Systems</h3><p>Not just sites</p></div>
+            <div class="stat-box"><h3>Demo-First</h3><p>See it before you pay</p></div>
+          </div>
         </div>
       </div>
     </div>
@@ -158,42 +177,42 @@
       <p class="section-subtitle">We solve operational and growth problems with technology — not just sites.</p>
     </div>
     <div class="solution-grid reveal">
-      <div class="solution-card">
+      <div class="solution-card tilt-card">
         <span class="solution-problem">Problem</span>
         <p class="solution-problem-text">Too many manual processes</p>
         <span class="solution-arrow" aria-hidden="true">↓</span>
         <span class="solution-label">Solution</span>
         <p class="solution-text">Custom business systems that automate repetitive workflows.</p>
       </div>
-      <div class="solution-card">
+      <div class="solution-card tilt-card">
         <span class="solution-problem">Problem</span>
         <p class="solution-problem-text">Customers can't easily book or contact you</p>
         <span class="solution-arrow" aria-hidden="true">↓</span>
         <span class="solution-label">Solution</span>
         <p class="solution-text">Booking systems, forms, customer portals, and conversion-focused websites.</p>
       </div>
-      <div class="solution-card">
+      <div class="solution-card tilt-card">
         <span class="solution-problem">Problem</span>
         <p class="solution-problem-text">Leads come in but aren't followed up</p>
         <span class="solution-arrow" aria-hidden="true">↓</span>
         <span class="solution-label">Solution</span>
         <p class="solution-text">Lead capture, CRM workflows, notifications, and automated follow-ups.</p>
       </div>
-      <div class="solution-card">
+      <div class="solution-card tilt-card">
         <span class="solution-problem">Problem</span>
         <p class="solution-problem-text">Your business depends on spreadsheets</p>
         <span class="solution-arrow" aria-hidden="true">↓</span>
         <span class="solution-label">Solution</span>
         <p class="solution-text">Centralized dashboards and custom management systems.</p>
       </div>
-      <div class="solution-card">
+      <div class="solution-card tilt-card">
         <span class="solution-problem">Problem</span>
         <p class="solution-problem-text">Your website gets traffic but not customers</p>
         <span class="solution-arrow" aria-hidden="true">↓</span>
         <span class="solution-label">Solution</span>
         <p class="solution-text">Conversion-focused landing pages, lead-generation systems, and analytics.</p>
       </div>
-      <div class="solution-card">
+      <div class="solution-card tilt-card">
         <span class="solution-problem">Problem</span>
         <p class="solution-problem-text">Your team spends hours on repetitive tasks</p>
         <span class="solution-arrow" aria-hidden="true">↓</span>
@@ -207,12 +226,30 @@
   <section class="services" id="services">
     <div class="section-title reveal"><span>OUR SERVICES</span><h2>Websites & Digital Experiences</h2></div>
     <div class="service-grid">
-      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🌐</div><h3>Business Websites</h3><p>Professional, mobile-ready sites for clinics, restaurants, and shops.</p></div>
-      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🏢</div><h3>Corporate Websites</h3><p>Multi-page sites that represent an established company online.</p></div>
-      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">📄</div><h3>Landing Pages</h3><p>High-converting single pages for promos, events, and campaigns.</p></div>
-      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🛒</div><h3>E-commerce Websites</h3><p>Online stores built to actually convert browsers into buyers.</p></div>
-      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">📈</div><h3>Conversion-Focused Websites</h3><p>Sites structured around a single job: turning visits into inquiries.</p></div>
-      <div class="service-card reveal"><div class="service-icon" aria-hidden="true">🎨</div><h3>Portfolio & Brand Websites</h3><p>Clean, credible sites for professionals and personal brands.</p></div>
+      <div class="service-card tilt-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="4" y="8" width="32" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="4" y1="15" x2="36" y2="15" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="11.5" r="1.2" fill="currentColor"/><circle cx="13" cy="11.5" r="1.2" fill="currentColor"/><path d="M11 24 L17 24 M11 28 L23 28" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Business Websites</h3><p>Professional, mobile-ready sites for clinics, restaurants, and shops.</p>
+      </div>
+      <div class="service-card tilt-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="5" y="6" width="30" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="19" width="14" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="21" y="19" width="14" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Corporate Websites</h3><p>Multi-page sites that represent an established company online.</p>
+      </div>
+      <div class="service-card tilt-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="10" y="4" width="20" height="32" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="14" y1="12" x2="26" y2="12" stroke="currentColor" stroke-width="1.6"/><line x1="14" y1="17" x2="26" y2="17" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="23" width="12" height="6" rx="2" fill="currentColor" opacity="0.5"/></svg></div>
+        <h3>Landing Pages</h3><p>High-converting single pages for promos, events, and campaigns.</p>
+      </div>
+      <div class="service-card tilt-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M6 10 H34 L31 24 H11 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="15" cy="31" r="2" fill="currentColor"/><circle cx="27" cy="31" r="2" fill="currentColor"/><path d="M6 10 L4 6 H2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>E-commerce Websites</h3><p>Online stores built to actually convert browsers into buyers.</p>
+      </div>
+      <div class="service-card tilt-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M6 30 L14 18 L21 24 L34 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M26 8 H34 V16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Conversion-Focused Websites</h3><p>Sites structured around a single job: turning visits into inquiries.</p>
+      </div>
+      <div class="service-card tilt-card reveal">
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 34 C8 26 13 22 20 22 C27 22 32 26 32 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Portfolio & Brand Websites</h3><p>Clean, credible sites for professionals and personal brands.</p>
+      </div>
     </div>
   </section>
 
@@ -221,6 +258,27 @@
     <div class="section-title reveal"><span>BEYOND WEBSITES</span><h2>Web Applications & Business Systems</h2>
       <p class="section-subtitle">Custom systems built around your actual workflow — replacing manual processes, spreadsheets, and disconnected tools. The list below is illustrative, not exhaustive.</p>
     </div>
+
+    <!-- 3D "digital operating system" hub: central NEXA core with connected modules -->
+    <div class="systems-hub reveal" id="systemsHub" aria-hidden="false">
+      <svg class="hub-lines" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <g class="hub-line-group" id="hubLineGroup"></g>
+      </svg>
+      <div class="hub-core">
+        <span class="hub-core-ring"></span>
+        <span class="hub-core-label">NEXA<br><small>Core</small></span>
+      </div>
+      <div class="hub-module" data-desc="Manage leads, follow-ups, and customer relationships in one place." style="--angle:0deg;">CRM</div>
+      <div class="hub-module" data-desc="Real-time booking and reservation management, synced automatically." style="--angle:51.4deg;">Booking</div>
+      <div class="hub-module" data-desc="Track stock levels, products, and reporting from a single dashboard." style="--angle:102.8deg;">Inventory</div>
+      <div class="hub-module" data-desc="Employee records, schedules, and HR workflows in one system." style="--angle:154.2deg;">HR</div>
+      <div class="hub-module" data-desc="See traffic, conversions, and growth metrics as they happen." style="--angle:205.6deg;">Analytics</div>
+      <div class="hub-module" data-desc="Automated invoicing, billing, and payment tracking." style="--angle:257deg;">Billing</div>
+      <div class="hub-module" data-desc="AI-assisted workflows that remove repetitive manual work." style="--angle:308.4deg;">Automation</div>
+      <div class="hub-tooltip" id="hubTooltip" role="status" aria-live="polite"></div>
+    </div>
+    <p class="systems-hub-caption reveal">We don't just build websites. We build systems.</p>
+
     <div class="systems-grid reveal">
       <div class="system-chip">Inventory Management</div>
       <div class="system-chip">Booking & Reservations</div>
@@ -246,6 +304,22 @@
     <div class="section-title reveal"><span>GROWTH</span><h2>Your Website Shouldn't Just Exist. It Should Help Your Business Grow.</h2>
       <p class="section-subtitle">We help businesses build the infrastructure to generate and manage leads — turning visitors into inquiries, appointments, and customers.</p>
     </div>
+
+    <!-- 3D conversion funnel visualization -->
+    <div class="funnel reveal" aria-hidden="true">
+      <div class="funnel-stage" style="--i:0;"><span>Visitor</span></div>
+      <div class="funnel-arrow"></div>
+      <div class="funnel-stage" style="--i:1;"><span>Landing Page</span></div>
+      <div class="funnel-arrow"></div>
+      <div class="funnel-stage" style="--i:2;"><span>Lead</span></div>
+      <div class="funnel-arrow"></div>
+      <div class="funnel-stage" style="--i:3;"><span>CRM</span></div>
+      <div class="funnel-arrow"></div>
+      <div class="funnel-stage" style="--i:4;"><span>Follow-up</span></div>
+      <div class="funnel-arrow"></div>
+      <div class="funnel-stage funnel-stage-end" style="--i:5;"><span>Customer</span></div>
+    </div>
+
     <div class="leadgen-grid reveal">
       <div class="leadgen-item">High-converting landing pages</div>
       <div class="leadgen-item">Lead capture forms</div>
@@ -267,12 +341,48 @@
       <p class="section-subtitle">Not generic templates — starting points we tailor to your business.</p>
     </div>
     <div class="products-grid reveal">
-      <div class="product-card"><h3>NEXA HR</h3><p>Employee and HR management platform.</p></div>
-      <div class="product-card"><h3>NEXA Inventory</h3><p>Inventory, stock, product, and reporting management.</p></div>
-      <div class="product-card"><h3>NEXA Book</h3><p>Booking and appointment management.</p></div>
-      <div class="product-card"><h3>NEXA CRM</h3><p>Lead and customer management.</p></div>
-      <div class="product-card"><h3>NEXA Flow</h3><p>Business workflow and automation platform.</p></div>
-      <div class="product-card"><h3>NEXA Analytics</h3><p>Business dashboards and reporting.</p></div>
+      <div class="product-card tilt-card">
+        <div class="product-window" aria-hidden="true">
+          <div class="pw-bar"><span></span><span></span><span></span></div>
+          <div class="pw-body"><div class="pw-row pw-row-a"></div><div class="pw-row pw-row-b"></div><div class="pw-bars"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:90%"></i></div></div>
+        </div>
+        <h3>NEXA HR</h3><p>Employee and HR management platform.</p>
+      </div>
+      <div class="product-card tilt-card">
+        <div class="product-window" aria-hidden="true">
+          <div class="pw-bar"><span></span><span></span><span></span></div>
+          <div class="pw-body"><div class="pw-row pw-row-a"></div><div class="pw-grid-mini"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <h3>NEXA Inventory</h3><p>Inventory, stock, product, and reporting management.</p>
+      </div>
+      <div class="product-card tilt-card">
+        <div class="product-window" aria-hidden="true">
+          <div class="pw-bar"><span></span><span></span><span></span></div>
+          <div class="pw-body"><div class="pw-calendar"><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i class="on"></i></div></div>
+        </div>
+        <h3>NEXA Book</h3><p>Booking and appointment management.</p>
+      </div>
+      <div class="product-card tilt-card">
+        <div class="product-window" aria-hidden="true">
+          <div class="pw-bar"><span></span><span></span><span></span></div>
+          <div class="pw-body"><div class="pw-row pw-row-a"></div><div class="pw-row pw-row-b"></div><div class="pw-row pw-row-a" style="width:60%"></div></div>
+        </div>
+        <h3>NEXA CRM</h3><p>Lead and customer management.</p>
+      </div>
+      <div class="product-card tilt-card">
+        <div class="product-window" aria-hidden="true">
+          <div class="pw-bar"><span></span><span></span><span></span></div>
+          <div class="pw-body"><div class="pw-flow"><i></i><i></i><i></i></div></div>
+        </div>
+        <h3>NEXA Flow</h3><p>Business workflow and automation platform.</p>
+      </div>
+      <div class="product-card tilt-card">
+        <div class="product-window" aria-hidden="true">
+          <div class="pw-bar"><span></span><span></span><span></span></div>
+          <div class="pw-body"><svg class="pw-chart" viewBox="0 0 100 40" preserveAspectRatio="none"><polyline points="0,32 20,24 40,28 60,12 80,18 100,4" fill="none" stroke="#c471ed" stroke-width="2"/></svg></div>
+        </div>
+        <h3>NEXA Analytics</h3><p>Business dashboards and reporting.</p>
+      </div>
     </div>
     <p class="products-note reveal">Need something different? We can build a custom system around your business.</p>
   </section>
@@ -326,16 +436,16 @@
   <section class="industries" id="industries">
     <div class="section-title reveal"><span>WHO WE BUILD FOR</span><h2>Industries We Serve</h2></div>
     <div class="industries-grid reveal">
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">🍽️</div><h3>Restaurants</h3><p>Menus that go stale and no online ordering, so orders stay stuck at phone-and-DM.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">🏥</div><h3>Clinics</h3><p>Booking by phone during business hours only, and no reminders to cut no-shows.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">🏗️</div><h3>Construction</h3><p>No portfolio to point leads to, so quotes rely entirely on word of mouth.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">🏠</div><h3>Real Estate</h3><p>Listings live only on third-party portals, with no owned way to capture leads.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">⚖️</div><h3>Law Firms</h3><p>No system to intake and route inquiries, so leads sit unanswered in an inbox.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">📊</div><h3>Accounting</h3><p>Client documents pass by email, with no secure portal for intake or updates.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">🏭</div><h3>Manufacturing</h3><p>Inventory and orders tracked manually, out of sync across teams.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">🎓</div><h3>Education</h3><p>Enrollment and scheduling still run on paper forms and spreadsheets.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">💇</div><h3>Beauty</h3><p>No self-serve booking, so front desk time goes to answering the phone.</p></div>
-      <div class="industry-card"><div class="industry-icon" aria-hidden="true">🏨</div><h3>Hospitality</h3><p>Reservations split across platforms, with no single view of availability.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">🍽️</div><h3>Restaurants</h3><p>Menus that go stale and no online ordering, so orders stay stuck at phone-and-DM.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">🏥</div><h3>Clinics</h3><p>Booking by phone during business hours only, and no reminders to cut no-shows.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">🏗️</div><h3>Construction</h3><p>No portfolio to point leads to, so quotes rely entirely on word of mouth.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">🏠</div><h3>Real Estate</h3><p>Listings live only on third-party portals, with no owned way to capture leads.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">⚖️</div><h3>Law Firms</h3><p>No system to intake and route inquiries, so leads sit unanswered in an inbox.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">📊</div><h3>Accounting</h3><p>Client documents pass by email, with no secure portal for intake or updates.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">🏭</div><h3>Manufacturing</h3><p>Inventory and orders tracked manually, out of sync across teams.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">🎓</div><h3>Education</h3><p>Enrollment and scheduling still run on paper forms and spreadsheets.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">💇</div><h3>Beauty</h3><p>No self-serve booking, so front desk time goes to answering the phone.</p></div>
+      <div class="industry-card tilt-card"><div class="industry-icon" aria-hidden="true">🏨</div><h3>Hospitality</h3><p>Reservations split across platforms, with no single view of availability.</p></div>
     </div>
   </section>
 
@@ -343,13 +453,13 @@
   <section class="workflow" id="process">
     <div class="section-title reveal"><span>OUR PROCESS</span><h2>How We Build</h2></div>
     <div class="workflow-grid">
-      <div class="workflow-step reveal"><div class="workflow-num">01</div><h3>Discovery</h3><p>Understand the business, users, workflows, requirements, and goals.</p></div>
-      <div class="workflow-step reveal"><div class="workflow-num">02</div><h3>Planning</h3><p>Define scope, features, priorities, technology, milestones, and roadmap.</p></div>
-      <div class="workflow-step reveal"><div class="workflow-num">03</div><h3>Design</h3><p>Create the user experience, interface, wireframes, and system structure.</p></div>
-      <div class="workflow-step reveal"><div class="workflow-num">04</div><h3>Build</h3><p>Develop the website or web application in prioritized iterations.</p></div>
-      <div class="workflow-step reveal"><div class="workflow-num">05</div><h3>Review & Test</h3><p>Review functionality with you, test responsiveness, security, and usability.</p></div>
-      <div class="workflow-step reveal"><div class="workflow-num">06</div><h3>Launch</h3><p>Deploy the finished product and configure the production environment.</p></div>
-      <div class="workflow-step reveal"><div class="workflow-num">07</div><h3>Improve</h3><p>Continue improving based on user feedback, analytics, and business needs.</p></div>
+      <div class="workflow-step tilt-card reveal"><div class="workflow-num">01</div><h3>Discovery</h3><p>Understand the business, users, workflows, requirements, and goals.</p></div>
+      <div class="workflow-step tilt-card reveal"><div class="workflow-num">02</div><h3>Planning</h3><p>Define scope, features, priorities, technology, milestones, and roadmap.</p></div>
+      <div class="workflow-step tilt-card reveal"><div class="workflow-num">03</div><h3>Design</h3><p>Create the user experience, interface, wireframes, and system structure.</p></div>
+      <div class="workflow-step tilt-card reveal"><div class="workflow-num">04</div><h3>Build</h3><p>Develop the website or web application in prioritized iterations.</p></div>
+      <div class="workflow-step tilt-card reveal"><div class="workflow-num">05</div><h3>Review & Test</h3><p>Review functionality with you, test responsiveness, security, and usability.</p></div>
+      <div class="workflow-step tilt-card reveal"><div class="workflow-num">06</div><h3>Launch</h3><p>Deploy the finished product and configure the production environment.</p></div>
+      <div class="workflow-step tilt-card reveal"><div class="workflow-num">07</div><h3>Improve</h3><p>Continue improving based on user feedback, analytics, and business needs.</p></div>
     </div>
     <div class="timeline reveal">
       <h3 class="timeline-title">Typical Project Timeline</h3>
@@ -368,14 +478,14 @@
     <div class="section-title reveal"><span>THE TEAM</span><h2>Who Builds Your Project</h2></div>
     <p class="team-intro reveal">One founder as your point of contact, backed by a small specialized team.</p>
     <div class="team-grid">
-      <div class="team-card team-card-founder reveal">
+      <div class="team-card team-card-founder tilt-card reveal">
         <div class="team-photo" data-initials="KM" style="background-image:url('/images/team/kims-moring.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"><span class="team-badge">Founder</span></div>
         <h3>Engr. Kims Cyra Rayel M. Moring</h3><span class="team-role">Founder · Full-Stack Developer</span><p>Leads discovery, architecture, and every client conversation end to end.</p>
       </div>
       <div class="team-card reveal" style="display:none;"></div>
-      <div class="team-card reveal"><div class="team-photo" data-initials="JD" style="background-image:url('/images/team/john-lesther-dy.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. John Lesther Dy</h3><span class="team-role">Frontend Developer</span><p>Builds the interfaces clients and their customers actually interact with.</p></div>
-      <div class="team-card reveal"><div class="team-photo" data-initials="CS" style="background-image:url('/images/team/camila-kim-supremo.jpg'), linear-gradient(135deg, #c471ed, #7b2ff7); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. Camila Kim Supremo</h3><span class="team-role">Quality Assurance</span><p>Tests every build across devices and browsers before it reaches launch.</p></div>
-      <div class="team-card reveal"><div class="team-photo" data-initials="CP" style="background-image:url('/images/team/crystle-wyne-piodos.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. Crystle Wyne Piodos</h3><span class="team-role">UI/UX Designer</span><p>Shapes the look, feel, and usability of every interface we ship.</p></div>
+      <div class="team-card tilt-card reveal"><div class="team-photo" data-initials="JD" style="background-image:url('/images/team/john-lesther-dy.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. John Lesther Dy</h3><span class="team-role">Frontend Developer</span><p>Builds the interfaces clients and their customers actually interact with.</p></div>
+      <div class="team-card tilt-card reveal"><div class="team-photo" data-initials="CS" style="background-image:url('/images/team/camila-kim-supremo.jpg'), linear-gradient(135deg, #c471ed, #7b2ff7); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. Camila Kim Supremo</h3><span class="team-role">Quality Assurance</span><p>Tests every build across devices and browsers before it reaches launch.</p></div>
+      <div class="team-card tilt-card reveal"><div class="team-photo" data-initials="CP" style="background-image:url('/images/team/crystle-wyne-piodos.jpg'), linear-gradient(135deg, #7b2ff7, #c471ed); background-size: cover, cover; background-position: center, center;"></div><h3>Engr. Crystle Wyne Piodos</h3><span class="team-role">UI/UX Designer</span><p>Shapes the look, feel, and usability of every interface we ship.</p></div>
     </div>
   </section>
 
@@ -383,7 +493,7 @@
   <section class="portfolio" id="portfolio">
     <div class="section-title reveal"><span>CASE STUDIES</span><h2>Recent Projects</h2></div>
     <div class="portfolio-grid">
-      <div class="portfolio-card reveal">
+      <div class="portfolio-card tilt-card reveal">
         <div class="portfolio-preview">
           <div class="portfolio-chrome" aria-hidden="true"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-url">findmewebsite.vercel.app</span></div>
           <iframe src="https://findmewebsite.vercel.app/" title="Find Me — Lost and Found App" loading="lazy" scrolling="no" tabindex="-1"></iframe>
@@ -391,10 +501,10 @@
         </div>
         <div class="portfolio-info">
           <span class="portfolio-tag">Web App · Campus</span><h3>Find Me</h3><p>A lost and found web app for campus use — report, search, and claim items online.</p>
-          <a href="https://findmewebsite.vercel.app/" target="_blank" class="portfolio-link">View Live Site →</a>
+          <a href="https://findmewebsite.vercel.app/" target="_blank" class="portfolio-link">View Project →</a>
         </div>
       </div>
-      <div class="portfolio-card reveal">
+      <div class="portfolio-card tilt-card reveal">
         <div class="portfolio-preview">
           <div class="portfolio-chrome" aria-hidden="true"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-url">landmark-davao.vercel.app</span></div>
           <iframe src="https://landmark-davao.vercel.app/" title="Landmark Davao" loading="lazy" scrolling="no" tabindex="-1"></iframe>
@@ -402,7 +512,7 @@
         </div>
         <div class="portfolio-info">
           <span class="portfolio-tag">Directory · Davao</span><h3>Landmark Davao</h3><p>A local landmark directory helping residents and visitors discover Davao City.</p>
-          <a href="https://landmark-davao.vercel.app/" target="_blank" class="portfolio-link">View Live Site →</a>
+          <a href="https://landmark-davao.vercel.app/" target="_blank" class="portfolio-link">View Project →</a>
         </div>
       </div>
     </div>
@@ -415,19 +525,19 @@
       <p class="section-subtitle">We're an early-stage, founder-led studio. Instead of stats we can't back up, here's what you can actually check.</p>
     </div>
     <div class="trust-grid reveal">
-      <div class="trust-card">
+      <div class="trust-card tilt-card">
         <h3>Live Case Studies</h3>
         <p>Real, working projects you can open and click through yourself — see the <a href="#portfolio">portfolio</a> above.</p>
       </div>
-      <div class="trust-card">
+      <div class="trust-card tilt-card">
         <h3>A Transparent Process</h3>
         <p>Every project follows the same seven-step process, from discovery to launch — see <a href="#process">how we build</a>.</p>
       </div>
-      <div class="trust-card">
+      <div class="trust-card tilt-card">
         <h3>Direct Access to the Builder</h3>
         <p>You work directly with the founder and a small named team — no account managers, no agency layers.</p>
       </div>
-      <div class="trust-card">
+      <div class="trust-card tilt-card">
         <h3>Demo Before Commitment</h3>
         <p>You see a working prototype before finalizing payment — our commitment point, not yours.</p>
       </div>
@@ -446,7 +556,7 @@
 
   <div class="trust-grid reveal">
 
-    <div class="trust-card">
+    <div class="trust-card tilt-card">
       <h3>Our Vision</h3>
       <p>
         To become a trusted technology partner that transforms ideas into
@@ -454,7 +564,7 @@
       </p>
     </div>
 
-    <div class="trust-card">
+    <div class="trust-card tilt-card">
       <h3>Our Mission</h3>
       <p>
         To provide practical and innovative digital solutions that help
@@ -462,7 +572,7 @@
       </p>
     </div>
 
-    <div class="trust-card">
+    <div class="trust-card tilt-card">
       <h3>Our Core Values</h3>
       <p>
         Innovation, Integrity, Quality, Collaboration, Customer Focus,
@@ -486,7 +596,7 @@
 
   <div class="trust-grid reveal">
 
-    <div class="trust-card">
+    <div class="trust-card tilt-card">
       <h3>Excellent Service</h3>
       <p>
         “NEXA provided a professional and reliable solution that
@@ -495,7 +605,7 @@
       <strong>— NEXA Client</strong>
     </div>
 
-    <div class="trust-card">
+    <div class="trust-card tilt-card">
       <h3>Professional Team</h3>
       <p>
         “The team was easy to communicate with and understood our
@@ -504,7 +614,7 @@
       <strong>— NEXA Client</strong>
     </div>
 
-    <div class="trust-card">
+    <div class="trust-card tilt-card">
       <h3>Great Digital Solution</h3>
       <p>
         “NEXA helped turn our idea into a practical digital solution.
@@ -521,7 +631,7 @@
     <div class="section-title reveal"><span>INVESTMENT</span><h2>Starting From</h2></div>
     <p class="pricing-sub reveal">Every quote is scoped to your project after a discovery call — these are starting estimates, not final prices.</p>
     <div class="pricing-grid reveal">
-      <div class="pricing-card">
+      <div class="pricing-card tilt-card">
         <span class="pricing-tier">Starter</span>
         <div class="pricing-amount"><span class="pricing-currency">$</span>5,000<span class="pricing-suffix">+</span></div>
         <div class="pricing-secondary">≈ ₱290,000+</div>
@@ -534,9 +644,9 @@
           <li>Analytics & SEO-ready structure</li>
           <li>Deployment</li>
         </ul>
-        <a href="#contact"><button class="secondary-btn pricing-btn">Book a Discovery Call</button></a>
+        <a href="#contact"><button class="secondary-btn pricing-btn btn-3d">Book a Discovery Call</button></a>
       </div>
-      <div class="pricing-card pricing-card-featured">
+      <div class="pricing-card pricing-card-featured tilt-card">
         <span class="pricing-badge">Most Popular</span>
         <span class="pricing-tier">Business</span>
         <div class="pricing-amount"><span class="pricing-currency">$</span>15,000<span class="pricing-suffix">+</span></div>
@@ -550,9 +660,9 @@
           <li>AI automation opportunities</li>
           <li>Priority development</li>
         </ul>
-        <a href="#contact"><button class="primary-btn pricing-btn">Book a Discovery Call</button></a>
+        <a href="#contact"><button class="primary-btn pricing-btn btn-3d">Book a Discovery Call</button></a>
       </div>
-      <div class="pricing-card">
+      <div class="pricing-card tilt-card">
         <span class="pricing-tier">Custom</span>
         <div class="pricing-amount">Custom Pricing</div>
         <p class="pricing-desc">For complex business systems, enterprise applications, multi-role platforms, advanced integrations, and long-term technology partnerships.</p>
@@ -562,7 +672,7 @@
           <li>Custom AI implementations</li>
           <li>Multi-role, multi-team platforms</li>
         </ul>
-        <a href="#contact"><button class="secondary-btn pricing-btn">Discuss Your Project</button></a>
+        <a href="#contact"><button class="secondary-btn pricing-btn btn-3d">Discuss Your Project</button></a>
       </div>
     </div>
     <p class="pricing-disclaimer reveal">Prices are starting estimates. Final pricing depends on project scope, functionality, integrations, design requirements, and implementation complexity.</p>
@@ -597,74 +707,79 @@
 
   <!-- DISCOVERY CALL BOOKING -->
   <section class="contact" id="contact">
-    <div class="section-title reveal">
-      <span>BOOK A DISCOVERY CALL</span><h2>Let's Talk About Your Project</h2>
-      <p class="section-subtitle">Serving US and international clients remotely · Based in Davao City, Philippines</p>
-    </div>
-    <p class="capacity-note reveal">Taking on a limited number of new projects this quarter — book a discovery call to check availability.</p>
-
-    <!-- CHANGED: booking-widget now embeds NEXA's real Google Calendar
-         Appointment Schedule inline (real dates/times, real booking), with
-         a redirect link kept as a fallback for browsers where the embed
-         doesn't load. This replaces the fake multi-step date/time picker. -->
-    <div class="booking-widget reveal" id="bookingWidget">
-      <div class="booking-info">
-        <h3 class="booking-info-title">NEXA Discovery Call</h3>
-        <p class="booking-info-desc">A consultation to understand your business, current challenges, goals, and the type of website, web application, business system, or automation solution NEXA can build for you.</p>
-        <ul class="booking-info-meta">
-          <li><span class="booking-meta-label">Duration</span><span id="bookingCallDuration">30 minutes</span></li>
-          <li><span class="booking-meta-label">Meeting method</span><span>Google Meet (link included once configured)</span></li>
-          <li><span class="booking-meta-label">Availability</span><span>Real-time — pulled live from Google Calendar</span></li>
-        </ul>
+    <div class="contact-split">
+      <div class="contact-split-left reveal">
+        <span class="contact-eyebrow">BOOK A DISCOVERY CALL</span>
+        <h2 class="contact-headline">Let's build something that works.</h2>
+        <p class="section-subtitle contact-sub">Serving US and international clients remotely · Based in Davao City, Philippines</p>
+        <p class="capacity-note">Taking on a limited number of new projects this quarter — book a discovery call to check availability.</p>
       </div>
 
-      <!-- Embedded booking calendar. JS fills this in from
-           BOOKING_CONFIG.googleBookingUrl. Hidden until configured. -->
-      <div class="booking-embed" id="bookingEmbed" hidden>
-        <iframe
-          id="bookingEmbedFrame"
-          title="NEXA discovery call booking calendar"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <div class="contact-split-right reveal">
+        <!-- CHANGED: booking-widget now embeds NEXA's real Google Calendar
+             Appointment Schedule inline (real dates/times, real booking), with
+             a redirect link kept as a fallback for browsers where the embed
+             doesn't load. This replaces the fake multi-step date/time picker. -->
+        <div class="booking-widget" id="bookingWidget">
+          <div class="booking-info">
+            <h3 class="booking-info-title">NEXA Discovery Call</h3>
+            <p class="booking-info-desc">A consultation to understand your business, current challenges, goals, and the type of website, web application, business system, or automation solution NEXA can build for you.</p>
+            <ul class="booking-info-meta">
+              <li><span class="booking-meta-label">Duration</span><span id="bookingCallDuration">30 minutes</span></li>
+              <li><span class="booking-meta-label">Meeting method</span><span>Google Meet (link included once configured)</span></li>
+              <li><span class="booking-meta-label">Availability</span><span>Real-time — pulled live from Google Calendar</span></li>
+            </ul>
+          </div>
+
+          <!-- Embedded booking calendar. JS fills this in from
+               BOOKING_CONFIG.googleBookingUrl. Hidden until configured. -->
+          <div class="booking-embed" id="bookingEmbed" hidden>
+            <iframe
+              id="bookingEmbedFrame"
+              title="NEXA discovery call booking calendar"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <!-- Shown only if the embed can't be configured/loaded, or as the
+               general fallback link. -->
+          <div class="booking-action">
+            <button type="button" class="primary-btn booking-cta btn-3d" id="bookingCtaBtn" aria-describedby="bookingCtaHelp">
+              Open Booking Page in a New Tab
+            </button>
+            <p class="booking-cta-help" id="bookingCtaHelp" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <p class="booking-disclaimer">
+          The calendar above shows NEXA's genuinely available dates and times, pulled directly from Google Calendar. If it doesn't load for you, use the button to open the same booking page in a new tab. Either way, your appointment is confirmed by Google Calendar, not by this website.
+        </p>
+
+        <!-- General inquiry form — kept separate from the booking flow so no one
+             mistakes "message sent" for "call booked". -->
+        <div class="inquiry-wrap">
+          <h3 class="inquiry-title">Prefer to send a message first?</h3>
+          <p class="inquiry-subtitle">This form sends a general inquiry — it does not book a discovery call. To book an actual appointment, use the button above.</p>
+          <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" id="web3formsAccessKey" value="YOUR_ACCESS_KEY"/>
+            <input type="hidden" name="subject" value="New Inquiry — NEXA Website"/>
+            <input type="hidden" name="redirect" value="false"/>
+            <label for="contactName" class="sr-only">Your Name</label>
+            <input type="text" id="contactName" name="name" placeholder="Your Name" required/>
+            <label for="contactEmail" class="sr-only">Your Email</label>
+            <input type="email" id="contactEmail" name="email" placeholder="Your Email" required/>
+            <label for="contactCompany" class="sr-only">Company</label>
+            <input type="text" id="contactCompany" name="company" placeholder="Company (optional)"/>
+            <label for="contactPhone" class="sr-only">Your Phone (optional)</label>
+            <input type="tel" id="contactPhone" name="phone" placeholder="Your Phone (optional)"/>
+            <label for="contactMessage" class="sr-only">Brief message</label>
+            <textarea id="contactMessage" name="message" placeholder="Brief message about your project (optional)"></textarea>
+            <button type="submit" class="secondary-btn btn-3d" id="submitBtn">Send Inquiry</button>
+            <p id="formStatus" class="form-status"></p>
+          </form>
+        </div>
       </div>
-
-      <!-- Shown only if the embed can't be configured/loaded, or as the
-           general fallback link. -->
-      <div class="booking-action">
-        <button type="button" class="primary-btn booking-cta" id="bookingCtaBtn" aria-describedby="bookingCtaHelp">
-          Open Booking Page in a New Tab
-        </button>
-        <p class="booking-cta-help" id="bookingCtaHelp" role="status" aria-live="polite"></p>
-      </div>
-    </div>
-
-    <p class="booking-disclaimer reveal">
-      The calendar above shows NEXA's genuinely available dates and times, pulled directly from Google Calendar. If it doesn't load for you, use the button to open the same booking page in a new tab. Either way, your appointment is confirmed by Google Calendar, not by this website.
-    </p>
-
-    <!-- General inquiry form — kept separate from the booking flow so no one
-         mistakes "message sent" for "call booked". -->
-    <div class="inquiry-wrap reveal">
-      <h3 class="inquiry-title">Prefer to send a message first?</h3>
-      <p class="inquiry-subtitle">This form sends a general inquiry — it does not book a discovery call. To book an actual appointment, use the button above.</p>
-      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" id="web3formsAccessKey" value="YOUR_ACCESS_KEY"/>
-        <input type="hidden" name="subject" value="New Inquiry — NEXA Website"/>
-        <input type="hidden" name="redirect" value="false"/>
-        <label for="contactName" class="sr-only">Your Name</label>
-        <input type="text" id="contactName" name="name" placeholder="Your Name" required/>
-        <label for="contactEmail" class="sr-only">Your Email</label>
-        <input type="email" id="contactEmail" name="email" placeholder="Your Email" required/>
-        <label for="contactCompany" class="sr-only">Company</label>
-        <input type="text" id="contactCompany" name="company" placeholder="Company (optional)"/>
-        <label for="contactPhone" class="sr-only">Your Phone (optional)</label>
-        <input type="tel" id="contactPhone" name="phone" placeholder="Your Phone (optional)"/>
-        <label for="contactMessage" class="sr-only">Brief message</label>
-        <textarea id="contactMessage" name="message" placeholder="Brief message about your project (optional)"></textarea>
-        <button type="submit" class="secondary-btn" id="submitBtn">Send Inquiry</button>
-        <p id="formStatus" class="form-status"></p>
-      </form>
     </div>
   </section>
 
