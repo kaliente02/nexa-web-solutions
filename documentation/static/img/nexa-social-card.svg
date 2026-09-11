@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+
+  <rect width="1200" height="630" fill="#080808"></rect>
+
+  <text x="80" y="190" font-family="Arial, Helvetica, sans-serif" font-size="90" font-weight="700" letter-spacing="12" fill="white">
+    NEXA
+  </text>
+
+  <text x="80" y="280" font-family="Arial, Helvetica, sans-serif" font-size="42" fill="#999999">
+    Documentation
+  </text>
+
+  <text x="80" y="390" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="white">
+    Digital Systems Built for Growth,
+  </text>
+
+  <text x="80" y="435" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="white">
+    Speed, Scale &amp; Trust.
+  </text>
+
+</svg>

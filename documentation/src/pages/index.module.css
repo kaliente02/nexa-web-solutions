@@ -1,0 +1,504 @@
+.main {
+  min-height: 100vh;
+}
+
+/* HERO */
+
+.hero {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.heroInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 130px 30px 120px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 32px;
+  padding: 8px 13px;
+
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+
+  opacity: 0.75;
+}
+
+.badge span {
+  opacity: 0.4;
+}
+
+.hero h1 {
+  margin: 0;
+
+  max-width: 1000px;
+
+  font-size: clamp(56px, 9vw, 112px);
+  line-height: 0.9;
+
+  letter-spacing: -0.07em;
+}
+
+.hero h1 span {
+  opacity: 0.4;
+}
+
+.heroText {
+  max-width: 720px;
+
+  margin: 42px 0 35px;
+
+  font-size: 20px;
+  line-height: 1.7;
+
+  color: var(--ifm-color-emphasis-700);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px 20px;
+
+  border-radius: 9px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.primaryButton {
+  background: var(--nexa-accent);
+  color: white;
+}
+
+.primaryButton:hover {
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-font-color-base);
+}
+
+.secondaryButton:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  background: var(--ifm-color-emphasis-100);
+}
+
+/* DOCUMENTATION */
+
+.documentation {
+  max-width: 1240px;
+  margin: 0 auto;
+
+  padding: 100px 30px;
+}
+
+.sectionHeader {
+  display: grid;
+
+  grid-template-columns: 80px 1fr;
+
+  gap: 25px;
+
+  margin-bottom: 50px;
+}
+
+.sectionNumber {
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  opacity: 0.4;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+
+  font-size: clamp(36px, 5vw, 58px);
+
+  letter-spacing: -0.05em;
+}
+
+.sectionHeader p {
+  max-width: 600px;
+
+  margin-top: 15px;
+
+  line-height: 1.7;
+
+  opacity: 0.6;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.card {
+  min-height: 280px;
+
+  padding: 26px;
+
+  border:
+    1px solid
+    var(--ifm-color-emphasis-200);
+
+  border-radius: 15px;
+
+  color: inherit;
+
+  background: var(--nexa-card);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.card:hover {
+  color: inherit;
+
+  text-decoration: none;
+
+  transform: translateY(-5px);
+
+  border-color: var(--nexa-accent);
+
+  background:
+    var(--ifm-color-emphasis-100);
+}
+
+.cardTop {
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  opacity: 0.4;
+}
+
+.cardArrow {
+  font-size: 18px;
+}
+
+.card h3 {
+  margin-top: 70px;
+
+  font-size: 27px;
+
+  letter-spacing: -0.03em;
+}
+
+.card p {
+  max-width: 330px;
+
+  line-height: 1.65;
+
+  opacity: 0.6;
+}
+
+.cardLink {
+  margin-top: 25px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+/* PHILOSOPHY */
+
+.philosophy {
+  border-top:
+    1px solid
+    var(--ifm-color-emphasis-200);
+
+  border-bottom:
+    1px solid
+    var(--ifm-color-emphasis-200);
+
+  padding: 110px 30px;
+}
+
+.philosophyLabel {
+  max-width: 1240px;
+
+  margin: 0 auto 35px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  opacity: 0.45;
+}
+
+.philosophyContent {
+  max-width: 1240px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1.6fr
+    0.7fr;
+
+  gap: 80px;
+}
+
+.philosophy h2 {
+  margin: 0;
+
+  font-size: clamp(35px, 5vw, 65px);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.055em;
+}
+
+.philosophy h2 span {
+  opacity: 0.4;
+}
+
+.philosophy p {
+  align-self: end;
+
+  line-height: 1.8;
+
+  opacity: 0.6;
+}
+
+/* PROCESS */
+
+.process {
+  max-width: 1240px;
+
+  margin: auto;
+
+  padding: 110px 30px;
+}
+
+.processFlow {
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, 1fr);
+
+  border:
+    1px solid
+    var(--ifm-color-emphasis-200);
+
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+.processStep {
+  min-height: 150px;
+
+  padding: 20px;
+
+  border-right:
+    1px solid
+    var(--ifm-color-emphasis-200);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.processStep:last-child {
+  border-right: none;
+}
+
+.processStep span {
+  font-size: 11px;
+
+  font-weight: 700;
+
+  opacity: 0.35;
+}
+
+.processStep strong {
+  font-size: 15px;
+}
+
+/* CTA */
+
+.cta {
+  max-width: 1240px;
+
+  margin: 0 auto 100px;
+
+  padding: 70px 50px;
+
+  border:
+    1px solid
+    var(--ifm-color-emphasis-200);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--nexa-card),
+      transparent
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.cta > div > span {
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  opacity: 0.45;
+}
+
+.cta h2 {
+  margin: 15px 0 10px;
+
+  font-size: clamp(35px, 5vw, 60px);
+
+  letter-spacing: -0.05em;
+}
+
+.cta p {
+  margin: 0;
+
+  max-width: 550px;
+
+  line-height: 1.7;
+
+  opacity: 0.6;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 996px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .processFlow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .processStep:nth-child(3) {
+    border-right: none;
+  }
+
+  .philosophyContent {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .heroInner {
+    padding: 90px 22px;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .heroText {
+    font-size: 17px;
+  }
+
+  .documentation,
+  .process {
+    padding: 75px 22px;
+  }
+
+  .sectionHeader {
+    display: block;
+  }
+
+  .sectionNumber {
+    margin-bottom: 12px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .processFlow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .processStep:nth-child(3) {
+    border-right:
+      1px solid
+      var(--ifm-color-emphasis-200);
+  }
+
+  .processStep:nth-child(even) {
+    border-right: none;
+  }
+
+  .philosophy {
+    padding: 75px 22px;
+  }
+
+  .philosophyLabel {
+    margin-bottom: 25px;
+  }
+
+  .cta {
+    margin: 0 22px 70px;
+
+    padding: 45px 28px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+}
