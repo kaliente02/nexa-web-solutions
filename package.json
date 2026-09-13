@@ -5,12 +5,17 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "node scripts/build-deploy.js",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.1",
     "helmet": "^8.1.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.131.1"
   }
 }
