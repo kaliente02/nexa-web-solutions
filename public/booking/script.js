@@ -2,7 +2,7 @@
 // PocketBase Configuration
 // ============================================================================
 
-const POCKETBASE_URL = 'http://localhost:8090';
+const POCKETBASE_URL = 'https://pocketbase-nexa.replit.dev';
 const pb = new PocketBase(POCKETBASE_URL);
 
 // ============================================================================
