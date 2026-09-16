@@ -2,7 +2,7 @@
 // PocketBase Configuration
 // ============================================================================
 
-const POCKETBASE_URL = 'https://pocketbase-nexa.replit.dev';
+const POCKETBASE_URL = 'https://pocketbase-nexa-production.up.railway.app';
 const pb = new PocketBase(POCKETBASE_URL);
 
 // ============================================================================
