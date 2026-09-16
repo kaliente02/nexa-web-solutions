@@ -85,7 +85,7 @@ function isStepValid(step, form) {
 
 async function fetchBookingsFromDB() {
   try {
-    const records = await pb.collection('bookings').getFullList({
+    const records = await pb.collection('booking').getFullList({
       sort: '-created',
     });
     return records.map(r => ({
@@ -104,7 +104,7 @@ async function fetchBookingsFromDB() {
 
 async function submitBookingToDB(formData) {
   try {
-    const record = await pb.collection('bookings').create({
+    const record = await pb.collection('booking').create({
       fullName: formData.fullName,
       businessName: formData.businessName,
       email: formData.email,
