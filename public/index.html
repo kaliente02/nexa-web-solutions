@@ -2534,162 +2534,15 @@
 
 
   <!-- ======================================================
-       PORTFOLIO
+       RECENT PROJECTS / PORTFOLIO
        ====================================================== -->
+  <!--
+    Extracted to recent-projects.html + recent-projects.js.
+    This mount point is filled in dynamically at load time.
+    See those files for details.
+  -->
 
-  <section
-    class="portfolio"
-    id="portfolio"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        CASE STUDIES
-      </span>
-
-      <h2>
-        Recent Projects
-      </h2>
-
-    </div>
-
-
-    <div class="portfolio-grid">
-
-      <div class="portfolio-card tilt-card reveal">
-
-        <div class="portfolio-preview">
-
-          <div class="portfolio-chrome">
-
-            <span class="pc-dot"></span>
-            <span class="pc-dot"></span>
-            <span class="pc-dot"></span>
-
-            <span class="pc-url">
-              findmewebsite.vercel.app
-            </span>
-
-          </div>
-
-
-          <iframe
-            src="https://findmewebsite.vercel.app/"
-            title="Find Me — Lost and Found App"
-            loading="lazy"
-            scrolling="no"
-            tabindex="-1"
-          ></iframe>
-
-          <div class="iframe-overlay"></div>
-
-        </div>
-
-
-        <div class="portfolio-info">
-
-          <span class="portfolio-tag">
-            Web App · Campus
-          </span>
-
-          <h3>
-            Find Me
-          </h3>
-
-          <p>
-            A lost and found web app for campus use —
-            report, search, and claim items online.
-          </p>
-
-          <a
-            href="https://findmewebsite.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="portfolio-link"
-          >
-            View Project →
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="portfolio-card tilt-card reveal">
-
-        <div class="portfolio-preview">
-
-          <div class="portfolio-chrome">
-
-            <span class="pc-dot"></span>
-            <span class="pc-dot"></span>
-            <span class="pc-dot"></span>
-
-            <span class="pc-url">
-              landmark-davao.vercel.app
-            </span>
-
-          </div>
-
-
-          <iframe
-            src="https://landmark-davao.vercel.app/"
-            title="Landmark Davao"
-            loading="lazy"
-            scrolling="no"
-            tabindex="-1"
-          ></iframe>
-
-          <div class="iframe-overlay"></div>
-
-        </div>
-
-
-        <div class="portfolio-info">
-
-          <span class="portfolio-tag">
-            Directory · Davao
-          </span>
-
-          <h3>
-            Landmark Davao
-          </h3>
-
-          <p>
-            A local landmark directory helping residents
-            and visitors discover Davao City.
-          </p>
-
-          <a
-            href="https://landmark-davao.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="portfolio-link"
-          >
-            View Project →
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <p class="portfolio-note reveal">
-
-      More case studies coming soon as new projects launch.
-
-      <a href="#contact">
-        Get in touch
-      </a>
-
-      to work with us.
-
-    </p>
-
-  </section>
+  <div id="portfolio-mount"></div>
 
 
   <!-- ======================================================
@@ -3817,6 +3670,15 @@
        ====================================================== -->
 
   <script src="/js/script.js"></script>
+
+  <!--
+    Loads and wires up the Recent Projects section
+    (fetches recent-projects.html into #portfolio-mount above,
+    then runs its own scoped reveal/tilt effects).
+    Path assumes recent-projects.js sits in the same /js/ folder
+    as script.js — adjust if you place it elsewhere.
+  -->
+  <script src="/js/recent-projects.js"></script>
 
 </body>
 

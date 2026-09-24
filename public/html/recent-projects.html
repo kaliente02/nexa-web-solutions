@@ -1,0 +1,178 @@
+<!--
+  ================================================================
+  RECENT PROJECTS / PORTFOLIO SECTION
+  ================================================================
+  Extracted from index.html.
+
+  This is a fragment, not a full page. To use it:
+
+  OPTION A — Copy/paste directly back into index.html
+    Paste this <section> where the old portfolio section was.
+
+  OPTION B — Load it dynamically into index.html
+    1. Replace the old <section class="portfolio" id="portfolio">...</section>
+       in index.html with an empty mount point:
+         <div id="portfolio-mount"></div>
+    2. In index.html, add before the closing </body>, after script.js:
+         <script src="/js/recent-projects.js"></script>
+    3. recent-projects.js (see companion file) will fetch this file
+       and inject it into #portfolio-mount.
+
+  Either way, make sure recent-projects.js is loaded on the page
+  for the tilt/reveal effects and iframe overlay to work.
+  ================================================================
+-->
+
+<section
+  class="portfolio"
+  id="portfolio"
+>
+
+  <div class="section-title reveal">
+
+    <span>
+      CASE STUDIES
+    </span>
+
+    <h2>
+      Recent Projects
+    </h2>
+
+  </div>
+
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-card tilt-card reveal">
+
+      <div class="portfolio-preview">
+
+        <div class="portfolio-chrome">
+
+          <span class="pc-dot"></span>
+          <span class="pc-dot"></span>
+          <span class="pc-dot"></span>
+
+          <span class="pc-url">
+            findmewebsite.vercel.app
+          </span>
+
+        </div>
+
+
+        <iframe
+          src="https://findmewebsite.vercel.app/"
+          title="Find Me — Lost and Found App"
+          loading="lazy"
+          scrolling="no"
+          tabindex="-1"
+        ></iframe>
+
+        <div class="iframe-overlay"></div>
+
+      </div>
+
+
+      <div class="portfolio-info">
+
+        <span class="portfolio-tag">
+          Web App · Campus
+        </span>
+
+        <h3>
+          Find Me
+        </h3>
+
+        <p>
+          A lost and found web app for campus use —
+          report, search, and claim items online.
+        </p>
+
+        <a
+          href="https://findmewebsite.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="portfolio-link"
+        >
+          View Project →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="portfolio-card tilt-card reveal">
+
+      <div class="portfolio-preview">
+
+        <div class="portfolio-chrome">
+
+          <span class="pc-dot"></span>
+          <span class="pc-dot"></span>
+          <span class="pc-dot"></span>
+
+          <span class="pc-url">
+            landmark-davao.vercel.app
+          </span>
+
+        </div>
+
+
+        <iframe
+          src="https://landmark-davao.vercel.app/"
+          title="Landmark Davao"
+          loading="lazy"
+          scrolling="no"
+          tabindex="-1"
+        ></iframe>
+
+        <div class="iframe-overlay"></div>
+
+      </div>
+
+
+      <div class="portfolio-info">
+
+        <span class="portfolio-tag">
+          Directory · Davao
+        </span>
+
+        <h3>
+          Landmark Davao
+        </h3>
+
+        <p>
+          A local landmark directory helping residents
+          and visitors discover Davao City.
+        </p>
+
+        <a
+          href="https://landmark-davao.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="portfolio-link"
+        >
+          View Project →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <p class="portfolio-note reveal">
+
+    More case studies coming soon as new projects launch.
+
+    <a href="#contact">
+      Get in touch
+    </a>
+
+    to work with us.
+
+  </p>
+
+</section>
