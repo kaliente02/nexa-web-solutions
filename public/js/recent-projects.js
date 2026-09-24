@@ -32,7 +32,7 @@
 
   if (mount && !document.getElementById("portfolio")) {
     try {
-      const response = await fetch("recent-projects.html");
+      const response = await fetch("/html/recent-projects.html");
 
       if (response.ok) {
         const html = await response.text();
