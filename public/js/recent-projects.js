@@ -1,31 +1,11 @@
 // ================================================================
-// RECENT PROJECTS / PORTFOLIO SECTION — BEHAVIOR
-// ================================================================
-// Extracted from script.js.
-//
-// This file is self-contained and only touches elements inside
-// #portfolio, so it can be dropped into any page independently
-// of the rest of the site's script.js.
-//
-// It does two things:
-//   1. (Optional) If it finds an empty <div id="portfolio-mount">,
-//      it fetches recent-projects.html and injects it there.
-//      If the portfolio section is already in the page (pasted
-//      directly), this step is skipped automatically.
-//   2. Wires up the scroll-reveal animation and the 3D tilt-card
-//      effect for everything inside #portfolio.
-//
-// NOTE: If this page ALSO loads the site's main script.js (which
-// already runs generic `.reveal` / `.tilt-card` handlers on the
-// whole page), you don't need this file at all — script.js will
-// already cover the portfolio section. Use recent-projects.js only
-// when the portfolio section lives on its own, without script.js.
+// NECXSOFT PRODUCTS — PORTFOLIO BEHAVIOR
 // ================================================================
 
-(async function initRecentProjects() {
+(async function initNecxsoftProducts() {
 
   // --------------------------------------------------------------
-  // STEP 1: Optionally inject the markup from recent-projects.html
+  // STEP 1: OPTIONAL PRODUCT SECTION INJECTION
   // --------------------------------------------------------------
 
   const mount = document.getElementById("portfolio-mount");
@@ -34,33 +14,40 @@
     try {
       const response = await fetch("/html/recent-projects.html");
 
-      if (response.ok) {
-        const html = await response.text();
-        mount.outerHTML = html;
-      } else {
+      if (!response.ok) {
         console.error(
-          "recent-projects.js: failed to load recent-projects.html",
+          "NECXSOFT Products: failed to load product section.",
           response.status
         );
+        return;
       }
+
+      const html = await response.text();
+      mount.outerHTML = html;
+
     } catch (error) {
       console.error(
-        "recent-projects.js: error fetching recent-projects.html",
+        "NECXSOFT Products: error loading product section.",
         error
       );
+      return;
     }
   }
+
+
+  // --------------------------------------------------------------
+  // GET PRODUCT SECTION
+  // --------------------------------------------------------------
 
   const portfolioSection = document.getElementById("portfolio");
 
   if (!portfolioSection) {
-    // Nothing to wire up — section isn't on this page.
     return;
   }
 
 
   // --------------------------------------------------------------
-  // DEVICE / MOTION DETECTION
+  // MOTION / DEVICE DETECTION
   // --------------------------------------------------------------
 
   const prefersReducedMotion =
@@ -79,77 +66,131 @@
 
 
   // --------------------------------------------------------------
-  // STEP 2a: Scroll reveal (scoped to #portfolio)
+  // SCROLL REVEAL
   // --------------------------------------------------------------
 
   const revealElements =
     portfolioSection.querySelectorAll(".reveal");
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    },
-    {
-      threshold: 0.15
-    }
-  );
+  if ("IntersectionObserver" in window) {
 
-  revealElements.forEach((element) => {
-    revealObserver.observe(element);
-  });
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+  } else {
+
+    // Fallback for browsers without IntersectionObserver
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
+    });
+
+  }
 
 
   // --------------------------------------------------------------
-  // STEP 2b: 3D tilt cards (scoped to #portfolio)
+  // 3D PRODUCT CARD TILT
   // --------------------------------------------------------------
 
   if (enable3DInteractions) {
+
     const cards =
       portfolioSection.querySelectorAll(".tilt-card");
 
     const MAX_TILT = 6;
 
     cards.forEach((card) => {
+
       let raf = null;
 
       card.addEventListener("mousemove", (event) => {
+
         const rect = card.getBoundingClientRect();
 
-        const relX = (event.clientX - rect.left) / rect.width;
-        const relY = (event.clientY - rect.top) / rect.height;
+        const relX =
+          (event.clientX - rect.left) / rect.width;
 
-        const rotateY = (relX - 0.5) * MAX_TILT * 2;
-        const rotateX = (0.5 - relY) * MAX_TILT * 2;
+        const relY =
+          (event.clientY - rect.top) / rect.height;
+
+        const rotateY =
+          (relX - 0.5) * MAX_TILT * 2;
+
+        const rotateX =
+          (0.5 - relY) * MAX_TILT * 2;
+
 
         if (raf) {
           cancelAnimationFrame(raf);
         }
 
-        raf = requestAnimationFrame(() => {
-          card.style.transform =
-            `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
 
-          card.style.setProperty("--mx", `${relX * 100}%`);
-          card.style.setProperty("--my", `${relY * 100}%`);
+        raf = requestAnimationFrame(() => {
+
+          card.style.transform =
+            `perspective(900px) ` +
+            `rotateX(${rotateX.toFixed(2)}deg) ` +
+            `rotateY(${rotateY.toFixed(2)}deg) ` +
+            `translateY(-6px)`;
+
+          card.style.setProperty(
+            "--mx",
+            `${relX * 100}%`
+          );
+
+          card.style.setProperty(
+            "--my",
+            `${relY * 100}%`
+          );
+
         });
+
       });
 
+
       card.addEventListener("mouseleave", () => {
+
         if (raf) {
           cancelAnimationFrame(raf);
         }
 
         card.style.transform =
-          "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
+          "perspective(900px) " +
+          "rotateX(0deg) " +
+          "rotateY(0deg) " +
+          "translateY(0)";
+
       });
+
     });
+
   }
 
 
-  console.log("NECXSOFT Recent Projects section initialized.");
+  // --------------------------------------------------------------
+  // INITIALIZED
+  // --------------------------------------------------------------
+
+  console.log(
+    "NECXSOFT Products section initialized."
+  );
 
 })();

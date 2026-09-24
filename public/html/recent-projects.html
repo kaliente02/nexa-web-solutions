@@ -1,28 +1,3 @@
-<!--
-  ================================================================
-  RECENT PROJECTS / PORTFOLIO SECTION
-  ================================================================
-  Extracted from index.html.
-
-  This is a fragment, not a full page. To use it:
-
-  OPTION A — Copy/paste directly back into index.html
-    Paste this <section> where the old portfolio section was.
-
-  OPTION B — Load it dynamically into index.html
-    1. Replace the old <section class="portfolio" id="portfolio">...</section>
-       in index.html with an empty mount point:
-         <div id="portfolio-mount"></div>
-    2. In index.html, add before the closing </body>, after script.js:
-         <script src="/js/recent-projects.js"></script>
-    3. recent-projects.js (see companion file) will fetch this file
-       and inject it into #portfolio-mount.
-
-  Either way, make sure recent-projects.js is loaded on the page
-  for the tilt/reveal effects and iframe overlay to work.
-  ================================================================
--->
-
 <section
   class="portfolio"
   id="portfolio"
@@ -31,11 +6,11 @@
   <div class="section-title reveal">
 
     <span>
-      CASE STUDIES
+      PRODUCTS
     </span>
 
     <h2>
-      Recent Projects
+      NECXSOFT Products
     </h2>
 
   </div>
@@ -43,6 +18,7 @@
 
   <div class="portfolio-grid">
 
+    <!-- CRM -->
     <div class="portfolio-card tilt-card reveal">
 
       <div class="portfolio-preview">
@@ -54,15 +30,14 @@
           <span class="pc-dot"></span>
 
           <span class="pc-url">
-            findmewebsite.vercel.app
+            necxsoft-crm.vercel.app
           </span>
 
         </div>
 
-
         <iframe
-          src="https://findmewebsite.vercel.app/"
-          title="Find Me — Lost and Found App"
+          src="https://necxsoft-crm.vercel.app/"
+          title="NECXSOFT CRM"
           loading="lazy"
           scrolling="no"
           tabindex="-1"
@@ -76,25 +51,26 @@
       <div class="portfolio-info">
 
         <span class="portfolio-tag">
-          Web App · Campus
+          Business · CRM
         </span>
 
         <h3>
-          Find Me
+          NECXSOFT CRM
         </h3>
 
         <p>
-          A lost and found web app for campus use —
-          report, search, and claim items online.
+          A customer relationship management system
+          designed to organize leads, customers, and
+          business operations.
         </p>
 
         <a
-          href="https://findmewebsite.vercel.app/"
+          href="https://necxsoft-crm.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           class="portfolio-link"
         >
-          View Project →
+          View Product →
         </a>
 
       </div>
@@ -102,6 +78,7 @@
     </div>
 
 
+    <!-- Booking -->
     <div class="portfolio-card tilt-card reveal">
 
       <div class="portfolio-preview">
@@ -113,15 +90,14 @@
           <span class="pc-dot"></span>
 
           <span class="pc-url">
-            landmark-davao.vercel.app
+            necxsoft-booking.vercel.app
           </span>
 
         </div>
 
-
         <iframe
-          src="https://landmark-davao.vercel.app/"
-          title="Landmark Davao"
+          src="https://necxsoft-booking.vercel.app/"
+          title="NECXSOFT Booking"
           loading="lazy"
           scrolling="no"
           tabindex="-1"
@@ -135,25 +111,145 @@
       <div class="portfolio-info">
 
         <span class="portfolio-tag">
-          Directory · Davao
+          Business · Booking
         </span>
 
         <h3>
-          Landmark Davao
+          NECXSOFT Booking
         </h3>
 
         <p>
-          A local landmark directory helping residents
-          and visitors discover Davao City.
+          An online booking system for managing
+          appointments, schedules, and customer
+          reservations.
         </p>
 
         <a
-          href="https://landmark-davao.vercel.app/"
+          href="https://necxsoft-booking.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           class="portfolio-link"
         >
-          View Project →
+          View Product →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- HR -->
+    <div class="portfolio-card tilt-card reveal">
+
+      <div class="portfolio-preview">
+
+        <div class="portfolio-chrome">
+
+          <span class="pc-dot"></span>
+          <span class="pc-dot"></span>
+          <span class="pc-dot"></span>
+
+          <span class="pc-url">
+            necxsoft-hr.vercel.app
+          </span>
+
+        </div>
+
+        <iframe
+          src="https://necxsoft-hr.vercel.app/"
+          title="NECXSOFT HR"
+          loading="lazy"
+          scrolling="no"
+          tabindex="-1"
+        ></iframe>
+
+        <div class="iframe-overlay"></div>
+
+      </div>
+
+
+      <div class="portfolio-info">
+
+        <span class="portfolio-tag">
+          Business · HR
+        </span>
+
+        <h3>
+          NECXSOFT HR
+        </h3>
+
+        <p>
+          A human resources management system for
+          organizing employees, records, and HR
+          operations.
+        </p>
+
+        <a
+          href="https://necxsoft-hr.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="portfolio-link"
+        >
+          View Product →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- Inventory -->
+    <div class="portfolio-card tilt-card reveal">
+
+      <div class="portfolio-preview">
+
+        <div class="portfolio-chrome">
+
+          <span class="pc-dot"></span>
+          <span class="pc-dot"></span>
+          <span class="pc-dot"></span>
+
+          <span class="pc-url">
+            nexa-inventory-lilac.vercel.app
+          </span>
+
+        </div>
+
+        <iframe
+          src="https://nexa-inventory-lilac.vercel.app/"
+          title="NEXA Inventory"
+          loading="lazy"
+          scrolling="no"
+          tabindex="-1"
+        ></iframe>
+
+        <div class="iframe-overlay"></div>
+
+      </div>
+
+
+      <div class="portfolio-info">
+
+        <span class="portfolio-tag">
+          Business · Inventory
+        </span>
+
+        <h3>
+          NEXA Inventory
+        </h3>
+
+        <p>
+          An inventory management system for tracking
+          products, stock levels, and business inventory.
+        </p>
+
+        <a
+          href="https://nexa-inventory-lilac.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="portfolio-link"
+        >
+          View Product →
         </a>
 
       </div>
@@ -165,13 +261,11 @@
 
   <p class="portfolio-note reveal">
 
-    More case studies coming soon as new projects launch.
+    Explore our business software products.
 
     <a href="#contact">
-      Get in touch
+      Build your system with us
     </a>
-
-    to work with us.
 
   </p>
 
