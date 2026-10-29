@@ -3,7 +3,22 @@
 
     <url>
         <loc>https://necxsoft.com/</loc>
-        <lastmod>2026-09-21</lastmod>
+        <lastmod>2026-10-29</lastmod>
+    </url>
+
+    <url>
+        <loc>https://necxsoft.com/booking/</loc>
+        <lastmod>2026-10-29</lastmod>
+    </url>
+
+    <url>
+        <loc>https://necxsoft.com/privacy</loc>
+        <lastmod>2026-10-29</lastmod>
+    </url>
+
+    <url>
+        <loc>https://necxsoft.com/terms</loc>
+        <lastmod>2026-10-29</lastmod>
     </url>
 
 </urlset>

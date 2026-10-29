@@ -1682,6 +1682,90 @@ p {
 .form-status.success { color: var(--mint); }
 .form-status.error { color: #ff8a8a; }
 
+.form-consent {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.form-consent a,
+.footer-bottom a {
+  color: var(--text-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-consent a:hover,
+.footer-bottom a:hover {
+  color: var(--mint);
+}
+
+/* ================================================================
+   LEGAL PAGES (privacy, terms)
+   ================================================================ */
+
+.legal {
+  padding: 140px 0 40px;
+}
+
+.legal-inner {
+  max-width: 760px;
+}
+
+.legal h1 {
+  margin-top: 18px;
+  font-size: clamp(36px, 6vw, 52px);
+}
+
+.legal-meta {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.legal h2 {
+  margin: 44px 0 14px;
+  font-size: 22px;
+}
+
+.legal p,
+.legal li {
+  color: var(--text-2);
+}
+
+.legal p + p,
+.legal ul + p {
+  margin-top: 14px;
+}
+
+.legal-meta + p {
+  margin-top: 32px;
+}
+
+.legal ul {
+  margin: 14px 0 0;
+  padding-left: 22px;
+  display: grid;
+  gap: 8px;
+}
+
+.legal b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.legal-inner a {
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal .legal-see-also {
+  margin-top: 44px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
 /* ================================================================
    CTA BAND
    ================================================================ */
