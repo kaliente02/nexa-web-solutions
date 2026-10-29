@@ -1,3713 +1,935 @@
-﻿<!DOCTYPE html>
-<html lang="en-PH" data-bs-theme="dark">
-
+<!DOCTYPE html>
+<html lang="en-PH" class="no-js">
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ======================================================
        PRIMARY SEO
        ====================================================== -->
-
-  <title>
-    NECXSOFT | Web3 & AI Development Company in Davao City, Philippines
-  </title>
-
-  <meta
-    name="description"
-    content="NECXSOFT is a Davao-based Web3 and AI development company in the Philippines, specializing in smart contracts, dApps, blockchain integrations, token/NFT systems, and AI-powered automation."
-  >
-
-  <meta
-    name="author"
-    content="NECXSOFT"
-  >
-
-  <meta
-    name="robots"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-  >
-
-  <link
-    rel="canonical"
-    href="https://necxsoft.com/"
-  >
-
-  <meta
-    name="theme-color"
-    content="#0A0A0A"
-  >
-
-  <meta
-    name="application-name"
-    content="NECXSOFT"
-  >
-
+  <title>NECXSOFT | Solana Development Studio — Programs, dApps, Tokens &amp; AI Agents</title>
+  <meta name="description" content="NECXSOFT is a Solana development studio based in Davao City, Philippines. We build Rust/Anchor programs, dApps, SPL &amp; Token-2022 tokens, NFTs, DeFi integrations, and AI agents for teams worldwide.">
+  <meta name="author" content="NECXSOFT">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://necxsoft.com/">
+  <meta name="theme-color" content="#050608">
+  <meta name="application-name" content="NECXSOFT">
 
   <!-- ======================================================
-       OPEN GRAPH
+       OPEN GRAPH / TWITTER
        ====================================================== -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_PH">
+  <meta property="og:site_name" content="NECXSOFT">
+  <meta property="og:title" content="NECXSOFT | Solana Development Studio">
+  <meta property="og:description" content="Rust/Anchor programs, dApps, tokens, NFTs, DeFi integrations, and AI agents, built on Solana by a founder-led team in the Philippines.">
+  <meta property="og:url" content="https://necxsoft.com/">
+  <meta property="og:image" content="https://necxsoft.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="NECXSOFT — Solana Development Studio">
 
-  <meta
-    property="og:type"
-    content="website"
-  >
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NECXSOFT | Solana Development Studio">
+  <meta name="twitter:description" content="Rust/Anchor programs, dApps, tokens, NFTs, DeFi integrations, and AI agents, built on Solana.">
+  <meta name="twitter:image" content="https://necxsoft.com/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="NECXSOFT — Solana Development Studio">
 
-  <meta
-    property="og:locale"
-    content="en_PH"
-  >
-
-  <meta
-    property="og:site_name"
-    content="NECXSOFT"
-  >
-
-  <meta
-    property="og:title"
-    content="NECXSOFT | Web3 & AI Development Company in the Philippines"
-  >
-
-  <meta
-    property="og:description"
-    content="NECXSOFT is a Davao-based Web3 and AI development company in the Philippines, specializing in smart contracts, dApps, blockchain integrations, token/NFT systems, and AI-powered automation."
-  >
-
-  <meta
-    property="og:url"
-    content="https://necxsoft.com/"
-  >
-
-  <meta
-    property="og:image"
-    content="https://necxsoft.com/images/og-image.jpg"
-  >
-
-  <meta
-    property="og:image:secure_url"
-    content="https://necxsoft.com/images/og-image.jpg"
-  >
-
-  <meta
-    property="og:image:type"
-    content="image/jpeg"
-  >
-
-  <meta
-    property="og:image:width"
-    content="1200"
-  >
-
-  <meta
-    property="og:image:height"
-    content="630"
-  >
-
-  <meta
-    property="og:image:alt"
-    content="NECXSOFT — Web3 & AI Development Company"
-  >
-
-
-  <!-- ======================================================
-       TWITTER / X
-       ====================================================== -->
-
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
-
-  <meta
-    name="twitter:title"
-    content="NECXSOFT | Web3 & AI Development Company in the Philippines"
-  >
-
-  <meta
-    name="twitter:description"
-    content="NECXSOFT builds smart contracts, dApps, blockchain integrations, token/NFT systems, and AI-powered automation for modern businesses and protocols."
-  >
-
-  <meta
-    name="twitter:image"
-    content="https://necxsoft.com/images/og-image.jpg"
-  >
-
-  <meta
-    name="twitter:image:alt"
-    content="NECXSOFT — Web3 & AI Development Company"
-  >
-
-  <meta
-    name="twitter:url"
-    content="https://necxsoft.com/"
-  >
-
-
-  <!-- ======================================================
-       FAVICON
-       ====================================================== -->
-
-  <link
-    rel="icon"
-    type="image/png"
-    href="/images/team/logo.png"
-  >
-
-  <link
-    rel="apple-touch-icon"
-    href="/images/team/logo.png"
-  >
-
+  <link rel="icon" type="image/png" href="/images/team/logo.png">
+  <link rel="apple-touch-icon" href="/images/team/logo.png">
 
   <!-- ======================================================
        STRUCTURED DATA
        ====================================================== -->
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
-
       {
         "@type": "Organization",
         "@id": "https://necxsoft.com/#organization",
-
         "name": "NECXSOFT",
-
-        "alternateName": [
-          "NecxSoft",
-          "NECXSOFT Philippines"
-        ],
-
+        "alternateName": ["NecxSoft", "NECXSOFT Philippines"],
         "url": "https://necxsoft.com/",
-
         "logo": {
           "@type": "ImageObject",
           "@id": "https://necxsoft.com/#logo",
           "url": "https://necxsoft.com/images/team/logo.png",
-          "contentUrl": "https://necxsoft.com/images/team/logo.png",
           "caption": "NECXSOFT logo"
         },
-
-        "image": {
-          "@type": "ImageObject",
-          "@id": "https://necxsoft.com/#image",
-          "url": "https://necxsoft.com/images/og-image.jpg",
-          "contentUrl": "https://necxsoft.com/images/og-image.jpg",
-          "caption": "NECXSOFT — Web3 & AI Development Company"
-        },
-
-        "description": "NECXSOFT is a Philippine Web3 and AI development company specializing in smart contracts, decentralized applications, blockchain integrations, token/NFT systems, and AI-powered automation.",
-
-        "brand": {
-          "@type": "Brand",
-          "@id": "https://necxsoft.com/#brand",
-          "name": "NECXSOFT",
-          "logo": "https://necxsoft.com/images/team/logo.png"
-        },
-
+        "description": "NECXSOFT is a Philippine Solana development studio building on-chain programs, decentralized applications, token and NFT systems, DeFi integrations, and AI agents.",
         "sameAs": [
           "https://www.facebook.com/necxsoft/",
           "https://www.linkedin.com/company/necxsoft"
         ],
-
         "areaServed": [
-          {
-            "@type": "Country",
-            "name": "Philippines"
-          },
-          {
-            "@type": "City",
-            "name": "Davao City"
-          }
+          { "@type": "Country", "name": "Philippines" },
+          { "@type": "City", "name": "Davao City" }
         ],
-
         "knowsAbout": [
-          "Web3 Development",
-          "Blockchain Development",
-          "Smart Contract Development",
+          "Solana",
+          "Solana Program Development",
+          "Rust",
+          "Anchor Framework",
+          "SPL Tokens",
+          "Token-2022",
+          "Metaplex",
+          "Compressed NFTs",
           "Decentralized Applications",
-          "Token Development",
-          "NFT Development",
           "DeFi Integrations",
-          "DAO / Governance Tooling",
-          "Smart Contract Audits",
-          "Artificial Intelligence",
-          "AI Automation",
+          "Solana Pay",
           "AI Agents",
-          "Large Language Model Integration",
-          "Digital Transformation"
+          "Large Language Model Integration"
         ],
-
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
           "email": "support@necxsoft.com",
           "url": "https://necxsoft.com/#contact",
-          "areaServed": "PH",
-          "availableLanguage": [
-            "English"
-          ]
+          "availableLanguage": ["English"]
         }
       },
-
-
       {
         "@type": "WebSite",
         "@id": "https://necxsoft.com/#website",
-
         "url": "https://necxsoft.com/",
-
         "name": "NECXSOFT",
-
-        "alternateName": "NecxSoft",
-
-        "description": "NECXSOFT — Web3 and AI development: smart contracts, dApps, blockchain integrations, token/NFT systems, and AI-powered automation.",
-
-        "publisher": {
-          "@id": "https://necxsoft.com/#organization"
-        },
-
+        "publisher": { "@id": "https://necxsoft.com/#organization" },
         "inLanguage": "en-PH"
       },
-
-
-      {
-        "@type": "WebPage",
-        "@id": "https://necxsoft.com/#webpage",
-
-        "url": "https://necxsoft.com/",
-
-        "name": "NECXSOFT | Web3 & AI Development Company in the Philippines",
-
-        "description": "NECXSOFT provides Web3 and AI development: smart contracts, decentralized applications, blockchain integrations, token/NFT systems, and AI-powered automation.",
-
-        "isPartOf": {
-          "@id": "https://necxsoft.com/#website"
-        },
-
-        "about": {
-          "@id": "https://necxsoft.com/#organization"
-        },
-
-        "publisher": {
-          "@id": "https://necxsoft.com/#organization"
-        },
-
-        "primaryImageOfPage": {
-          "@id": "https://necxsoft.com/#image"
-        },
-
-        "inLanguage": "en-PH"
-      },
-
-
       {
         "@type": "ProfessionalService",
         "@id": "https://necxsoft.com/#professional-service",
-
         "name": "NECXSOFT",
-
         "url": "https://necxsoft.com/",
-
-        "description": "NECXSOFT provides professional Web3 and AI development services including smart contracts, dApps, blockchain integrations, token/NFT systems, AI automation, and Web3 infrastructure consulting.",
-
-        "provider": {
-          "@id": "https://necxsoft.com/#organization"
-        },
-
-        "areaServed": [
-          {
-            "@type": "Country",
-            "name": "Philippines"
-          },
-          {
-            "@type": "City",
-            "name": "Davao City"
-          }
-        ],
-
-        "serviceType": [
-          "Smart Contract Development",
-          "Decentralized Application Development",
-          "Blockchain Integration",
-          "Token and NFT Development",
-          "AI Development and Automation",
-          "Web3 Infrastructure and Consulting"
-        ],
-
+        "description": "Solana development services: Rust/Anchor programs, dApps and wallet integration, SPL and Token-2022 tokens, NFTs, DeFi integrations, AI agents, and testing and security review.",
+        "provider": { "@id": "https://necxsoft.com/#organization" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "NECXSOFT Web3 & AI Development Services",
-
+          "name": "NECXSOFT Solana Development Services",
           "itemListElement": [
-
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Smart Contract Development",
-                "description": "Secure, audited smart contracts for EVM and other blockchain networks."
-              }
-            },
-
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Decentralized Application Development",
-                "description": "Full-stack dApp development, from wallet integration to on-chain logic."
-              }
-            },
-
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Blockchain Integration",
-                "description": "Wallet integration, on-chain data, and blockchain connectivity for products."
-              }
-            },
-
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Token and NFT Development",
-                "description": "Tokenomics, token launches, and NFT infrastructure."
-              }
-            },
-
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "AI Development and Automation",
-                "description": "AI-powered software, agents, LLM integrations, and business automation solutions."
-              }
-            },
-
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Web3 Infrastructure and Consulting",
-                "description": "Node infrastructure, smart contract audits, and Web3 strategy advisory."
-              }
-            }
-
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Solana Program Development", "description": "Rust and Anchor on-chain programs with PDAs, CPIs, and account validation." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Solana dApp Development", "description": "Web frontends with wallet connection, Solana Pay, and Actions & Blinks." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Token and NFT Development", "description": "SPL and Token-2022 tokens, Metaplex Core and compressed NFTs." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DeFi Integrations", "description": "Swap routing, oracle price feeds, staking, and vesting flows." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Agents on Solana", "description": "LLM agents that read on-chain data and act within defined limits." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Testing and Security Review", "description": "Unit, integration, and fuzz testing, internal review, and audit preparation." } }
           ]
         }
       }
-
     ]
   }
   </script>
 
-
   <!-- ======================================================
-       EXTERNAL RESOURCES
+       FONTS & STYLES
        ====================================================== -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  >
-
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
-
-  <link
-    rel="stylesheet"
-    href="/css/style.css"
-  >
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
 </head>
-
 
 <body>
 
-  <!-- ======================================================
-       GLOBAL BACKGROUND
-       ====================================================== -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div
-    class="scroll-progress"
-    id="scrollProgress"
-  ></div>
+  <!-- Reusable icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+      <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H5a2 2 0 0 1 0-4h13v4"/><path d="M3 5v14a2 2 0 0 0 2 2h15V7"/><path d="M16 14h.01"/></symbol>
+      <symbol id="i-coins" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4M16.71 13.88l.7.71-2.82 2.82"/></symbol>
+      <symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"/></symbol>
+      <symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="3"/><path d="M12 8V4M8 4h8M9 13v2M15 13v2"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+      <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-vote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><path d="M5 7V4h14v3M3 7h18v13H3z"/></symbol>
+      <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></symbol>
+    </defs>
+  </svg>
 
-  <div class="blur blur-1"></div>
-
-  <div class="blur blur-2"></div>
-
-  <div
-    class="bg-grid"
-    aria-hidden="true"
-  ></div>
-
+  <div class="atmosphere" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
 
   <!-- ======================================================
        NAVIGATION
        ====================================================== -->
-
-  <header class="navbar">
-
-    <div class="navbar-inner">
-
-      <a
-        href="#home"
-        class="logo"
-        aria-label="NECXSOFT home"
-      >
-
-        <img
-          data-brand-logo
-          src="/images/team/logo.png"
-          alt="NECXSOFT logo"
-          class="brand-logo"
-        >
-
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="NECXSOFT home">
+        <img src="/images/team/logo.png" alt="" width="34" height="34">
+        NECXSOFT
       </a>
 
-
-      <nav
-        id="navMenu"
-        aria-label="Main navigation"
-      >
-
-        <a href="#home">
-          Home
-        </a>
-
-        <a href="#services">
-          Services
-        </a>
-
-        <a href="#systems">
-          Solutions
-        </a>
-
-        <a href="#products">
-          Products
-        </a>
-
-        <a href="#process">
-          Process
-        </a>
-
-        <a href="#pricing">
-          Pricing
-        </a>
-
-        <a href="#faq">
-          FAQ
-        </a>
-
-        <a href="#contact">
-          Contact
-        </a>
-
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#products">Products</a>
+        <a href="#process">Process</a>
+        <a href="#team">Team</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
       </nav>
 
-
-      <button
-        id="menuBtn"
-        class="menu-btn"
-        type="button"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="navMenu"
-      >
-
-        <span class="menu-bar"></span>
-
-        <span class="menu-bar"></span>
-
-        <span class="menu-bar"></span>
-
-      </button>
-
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary btn-sm">Book a call</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-
   </header>
 
+  <main id="main">
 
-  <!-- ======================================================
-       HERO
-       ====================================================== -->
+    <!-- ======================================================
+         HERO
+         ====================================================== -->
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="pill reveal"><span class="pill-tag">Solana</span> Development studio · Davao City, PH</span>
 
-  <section
-    class="hero"
-    id="home"
-    aria-labelledby="hero-heading"
-  >
+          <h1 id="hero-heading" class="reveal" style="--d:.08s">
+            We build what<br>ships on <span class="grad-text">Solana.</span>
+          </h1>
 
-    <canvas
-      id="heroCanvas"
-      class="hero-canvas"
-      aria-hidden="true"
-    ></canvas>
+          <p class="hero-sub reveal" style="--d:.16s">
+            NECXSOFT designs, builds and launches Solana programs, dApps, token systems and
+            AI agents. We handle the work from the first spec through to mainnet, for founders
+            and teams worldwide.
+          </p>
 
+          <div class="hero-actions reveal" style="--d:.24s">
+            <a href="#contact" class="btn btn-primary">
+              Book a discovery call
+              <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a href="#services" class="btn btn-ghost">Explore services</a>
+          </div>
 
-    <div class="hero-content reveal">
+          <ul class="hero-facts reveal" style="--d:.32s">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Rust &amp; Anchor native</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Demo before commitment</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Direct line to the founder</li>
+          </ul>
+        </div>
 
-      <span class="badge">
-        FOUNDER-LED · DEMO-FIRST · REMOTE-FRIENDLY
-      </span>
+        <div class="hero-visual reveal" style="--d:.2s" aria-hidden="true">
+          <div class="code-window">
+            <div class="code-bar">
+              <i></i><i></i><i></i>
+              <span class="code-file">programs/vault/src/lib.rs</span>
+              <span class="code-badge">anchor build ✓</span>
+            </div>
+<pre class="code-body"><span class="ln"><span class="tk-k">use</span> anchor_lang::prelude::*;</span>
+<span class="ln"></span>
+<span class="ln"><span class="tk-m">#[program]</span></span>
+<span class="ln"><span class="tk-k">pub mod</span> <span class="tk-t">vault</span> {</span>
+<span class="ln">    <span class="tk-k">use super</span>::*;</span>
+<span class="ln"></span>
+<span class="ln">    <span class="tk-k">pub fn</span> <span class="tk-f">deposit</span>(ctx: <span class="tk-t">Context</span>&lt;<span class="tk-t">Deposit</span>&gt;, amount: <span class="tk-t">u64</span>) -&gt; <span class="tk-t">Result</span>&lt;()&gt; {</span>
+<span class="ln">        <span class="tk-m">require!</span>(amount &gt; <span class="tk-s">0</span>, <span class="tk-t">VaultError</span>::ZeroAmount);</span>
+<span class="ln">        <span class="tk-k">let</span> vault = &amp;<span class="tk-k">mut</span> ctx.accounts.vault;</span>
+<span class="ln">        vault.balance = vault.balance</span>
+<span class="ln">            .<span class="tk-f">checked_add</span>(amount)</span>
+<span class="ln">            .<span class="tk-f">ok_or</span>(<span class="tk-t">VaultError</span>::Overflow)?;</span>
+<span class="ln">        <span class="tk-t">Ok</span>(())</span>
+<span class="ln">    }</span>
+<span class="ln">}</span>
+<span class="ln"></span>
+<span class="ln"><span class="tk-m">#[derive(Accounts)]</span></span>
+<span class="ln"><span class="tk-k">pub struct</span> <span class="tk-t">Deposit</span>&lt;<span class="tk-s">'info</span>&gt; {</span>
+<span class="ln">    <span class="tk-m">#[account(mut, seeds = [b"vault", owner.key().as_ref()], bump)]</span></span>
+<span class="ln">    <span class="tk-k">pub</span> vault: <span class="tk-t">Account</span>&lt;<span class="tk-s">'info</span>, <span class="tk-t">Vault</span>&gt;,</span>
+<span class="ln">    <span class="tk-k">pub</span> owner: <span class="tk-t">Signer</span>&lt;<span class="tk-s">'info</span>&gt;,</span>
+<span class="ln">}</span></pre>
+          </div>
 
+          <div class="float-chip chip-a">
+            <span class="chip-dot"><svg><use href="#i-shield"/></svg></span>
+            <div><strong>Checked math · PDA seeds</strong><span>safety by default</span></div>
+          </div>
 
-      <h1 id="hero-heading">
-
-        <span class="visually-hidden">
-          NECXSOFT —
-        </span>
-
-        Web3 & AI Systems
-        Built for
-
-        <span
-          class="rotator"
-          id="heroRotator"
-          aria-live="off"
-        >
-
-          <span class="rotator-word is-active">
-            Trust
-          </span>
-
-          <span class="rotator-word">
-            Scale
-          </span>
-
-          <span class="rotator-word">
-            Security
-          </span>
-
-          <span class="rotator-word">
-            Intelligence
-          </span>
-
-        </span>
-
-      </h1>
-
-
-      <p>
-
-        NECXSOFT is a Davao-based Web3 and AI development company in the Philippines, building smart contracts, decentralized applications, blockchain integrations, and AI-powered systems.
-
-      </p>
-
-
-      <div class="hero-buttons">
-
-        <a href="#contact">
-
-          <button
-            class="primary-btn btn-3d"
-            type="button"
-          >
-            Book a Discovery Call
-          </button>
-
-        </a>
-
-
-        <a href="#systems">
-
-          <button
-            class="secondary-btn btn-3d"
-            type="button"
-          >
-            Explore Solutions
-          </button>
-
-        </a>
-
+          <div class="float-chip chip-b">
+            <span class="chip-dot violet"><svg><use href="#i-rocket"/></svg></span>
+            <div><strong>devnet → mainnet</strong><span>staged releases</span></div>
+          </div>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <!-- ======================================================
+         STACK MARQUEE
+         ====================================================== -->
+    <section class="stack" aria-label="Technologies we build with">
+      <p class="stack-label">Built with the Solana toolchain</p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>Rust</span><span>Anchor</span><span>Token-2022</span><span>Metaplex</span><span>Solana Pay</span><span>Actions &amp; Blinks</span><span>Wallet Adapter</span><span>@solana/kit</span><span>LiteSVM</span><span>Compressed NFTs</span><span>TypeScript</span><span>Next.js</span>
+          <span aria-hidden="true">Rust</span><span aria-hidden="true">Anchor</span><span aria-hidden="true">Token-2022</span><span aria-hidden="true">Metaplex</span><span aria-hidden="true">Solana Pay</span><span aria-hidden="true">Actions &amp; Blinks</span><span aria-hidden="true">Wallet Adapter</span><span aria-hidden="true">@solana/kit</span><span aria-hidden="true">LiteSVM</span><span aria-hidden="true">Compressed NFTs</span><span aria-hidden="true">TypeScript</span><span aria-hidden="true">Next.js</span>
+        </div>
+      </div>
+    </section>
 
-
-    <!-- HERO DASHBOARD -->
-
-    <div
-      class="hero-card reveal"
-      id="heroCardWrap"
-    >
-
-      <div
-        class="hero-3d-stage"
-        id="heroStage"
-      >
-
-        <div class="card-glow"></div>
-
-
-        <div
-          class="float-chip float-chip-1"
-          aria-hidden="true"
-        >
-
-          <svg viewBox="0 0 24 24">
-
-            <path
-              d="M4 17 L10 11 L14 15 L20 7"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-
-          </svg>
-
-          <span>
-            +18% growth
-          </span>
-
+    <!-- ======================================================
+         SERVICES
+         ====================================================== -->
+    <section class="section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-head-row">
+          <div class="section-head reveal">
+            <span class="eyebrow">What we build</span>
+            <h2 class="section-title" id="services-heading">Solana engineering, from the program to the product.</h2>
+          </div>
+          <p class="section-lead reveal" style="max-width:420px">
+            One team covers the on-chain logic, the interface people use and the automation
+            around it, so nothing gets lost between handoffs.
+          </p>
         </div>
 
-
-        <div
-          class="float-chip float-chip-2"
-          aria-hidden="true"
-        >
-
-          <svg viewBox="0 0 24 24">
-
-            <circle
-              cx="12"
-              cy="12"
-              r="9"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            />
-
-            <path
-              d="M12 7v5l3.5 2"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-
-          </svg>
-
-          <span>
-            Live sync
-          </span>
-
-        </div>
-
-
-        <div
-          class="float-ring"
-          aria-hidden="true"
-        ></div>
-
-
-        <div
-          class="dashboard"
-          id="dashboardCard"
-        >
-
-          <div class="dashboard-top">
-
-            <div class="dots">
-
-              <span></span>
-              <span></span>
-              <span></span>
-
-            </div>
-
-            <span class="dashboard-label">
-              On-Chain Activity — 6mo
-            </span>
-
-          </div>
-
-
-          <div class="chart-wrap">
-
-            <svg
-              class="chart-svg"
-              id="chartSvg"
-              viewBox="0 0 400 160"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-
-              <defs>
-
-                <linearGradient
-                  id="areaFill"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-
-                  <stop
-                    offset="0%"
-                    stop-color="#8FA99F"
-                    stop-opacity="0.45"
-                  />
-
-                  <stop
-                    offset="100%"
-                    stop-color="#8FA99F"
-                    stop-opacity="0"
-                  />
-
-                </linearGradient>
-
-
-                <linearGradient
-                  id="lineStroke"
-                  x1="0"
-                  y1="0"
-                  x2="1"
-                  y2="0"
-                >
-
-                  <stop
-                    offset="0%"
-                    stop-color="#176B5B"
-                  />
-
-                  <stop
-                    offset="100%"
-                    stop-color="#8FA99F"
-                  />
-
-                </linearGradient>
-
-              </defs>
-
-
-              <g class="chart-grid">
-
-                <line
-                  x1="0"
-                  y1="20"
-                  x2="400"
-                  y2="20"
-                />
-
-                <line
-                  x1="0"
-                  y1="60"
-                  x2="400"
-                  y2="60"
-                />
-
-                <line
-                  x1="0"
-                  y1="100"
-                  x2="400"
-                  y2="100"
-                />
-
-                <line
-                  x1="0"
-                  y1="140"
-                  x2="400"
-                  y2="140"
-                />
-
-              </g>
-
-
-              <path
-                class="chart-area"
-                d="M0,128 L36,120 L72,132 L108,104 L144,112 L180,80 L216,90 L252,58 L288,66 L324,34 L360,40 L400,14 L400,160 L0,160 Z"
-              />
-
-
-              <path
-                class="chart-line"
-                id="chartLine"
-                d="M0,128 L36,120 L72,132 L108,104 L144,112 L180,80 L216,90 L252,58 L288,66 L324,34 L360,40 L400,14"
-              />
-
-
-              <circle
-                class="chart-point"
-                cx="400"
-                cy="14"
-                r="5"
-              />
-
-              <circle
-                class="chart-point-pulse"
-                cx="400"
-                cy="14"
-                r="5"
-              />
-
-            </svg>
-
-
-            <div class="chart-labels">
-
-              <span>Jan</span>
-              <span>Feb</span>
-              <span>Mar</span>
-              <span>Apr</span>
-              <span>May</span>
-              <span>Jun</span>
-
-            </div>
-
-          </div>
-
-
-          <div class="chart-callout">
-
-            <span class="chart-callout-value">
-              Live
-            </span>
-
-            <span class="chart-callout-label">
-              example of an on-chain + AI analytics dashboard we build for clients
-            </span>
-
-          </div>
-
-
-          <div class="stats">
-
-            <div class="stat-box">
-
-              <h3>
-                Systems
-              </h3>
-
+        <div class="bento">
+          <article class="card service service-feature reveal">
+            <div class="service-copy">
+              <span class="icon-box"><svg aria-hidden="true"><use href="#i-code"/></svg></span>
+              <h3>Solana programs</h3>
               <p>
-                Not just sites
+                On-chain programs in Rust and Anchor. Clean account design, PDAs and CPIs, and
+                validation on every instruction. We write them to be readable, testable and
+                ready for an audit.
               </p>
-
+              <ul class="tags">
+                <li>Rust</li><li>Anchor</li><li>PDAs &amp; CPI</li><li>Upgrade authority</li>
+              </ul>
             </div>
+            <div class="mini-graph" aria-hidden="true">
+              <div class="acct"><b>owner</b><em class="ok">Signer</em></div>
+              <div class="acct-arrow">↓ seeds = ["vault", owner]</div>
+              <div class="acct"><b>vault PDA</b><em>Account&lt;Vault&gt;</em></div>
+              <div class="acct-arrow">↓ CPI</div>
+              <div class="acct"><b>token program</b><em class="ok">transfer_checked</em></div>
+            </div>
+          </article>
 
+          <article class="card service reveal" style="--d:.06s">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span>
+            <h3>dApps &amp; wallets</h3>
+            <p>Fast web frontends with wallet connection, transaction building and confirmation states that users can follow.</p>
+            <ul class="tags"><li>Wallet Adapter</li><li>Solana Pay</li><li>Blinks</li></ul>
+          </article>
 
-            <div class="stat-box">
+          <article class="card service reveal">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#i-coins"/></svg></span>
+            <h3>Tokens &amp; NFTs</h3>
+            <p>SPL and Token-2022 launches with transfer hooks, fees and on-chain metadata, plus Metaplex Core and compressed NFT collections.</p>
+            <ul class="tags"><li>Token-2022</li><li>Metaplex Core</li><li>cNFTs</li></ul>
+          </article>
 
-              <h3>
-                Demo-First
-              </h3>
+          <article class="card service reveal" style="--d:.06s">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#i-swap"/></svg></span>
+            <h3>DeFi integrations</h3>
+            <p>Swap routing, oracle price feeds, staking, escrow and vesting flows, wired into your product with clear failure handling.</p>
+            <ul class="tags"><li>Swaps</li><li>Oracles</li><li>Staking</li></ul>
+          </article>
 
+          <article class="card service reveal" style="--d:.12s">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#i-bot"/></svg></span>
+            <h3>AI agents on Solana</h3>
+            <p>LLM agents that read on-chain data, explain it and act on it. Spending limits and human approval come built in.</p>
+            <ul class="tags"><li>LLMs</li><li>On-chain data</li><li>Guardrails</li></ul>
+          </article>
+
+          <article class="card service service-feature service-wide reveal">
+            <div class="service-copy">
+              <span class="icon-box"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+              <h3>Testing &amp; security review</h3>
               <p>
-                See it before you pay
+                Every program ships with unit, integration and fuzz tests, plus an internal
+                review against common Solana issues. For mainnet launches that hold real value,
+                we prepare your code for an independent third-party audit.
               </p>
-
+              <ul class="tags">
+                <li>LiteSVM</li><li>Fuzzing</li><li>Audit prep</li>
+              </ul>
             </div>
+            <div class="mini-graph" aria-hidden="true">
+              <div class="acct"><b>missing signer check</b><em class="ok">covered</em></div>
+              <div class="acct"><b>account owner check</b><em class="ok">covered</em></div>
+              <div class="acct"><b>arithmetic overflow</b><em class="ok">covered</em></div>
+              <div class="acct"><b>PDA seed collision</b><em class="ok">covered</em></div>
+              <div class="acct"><b>closed-account reuse</b><em class="ok">covered</em></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <!-- ======================================================
+         PROJECTS
+         ====================================================== -->
+    <section class="section" id="projects" aria-labelledby="projects-heading" style="padding-top:0">
+      <div class="container">
+        <div class="section-head-row">
+          <div class="section-head reveal">
+            <span class="eyebrow">Our work</span>
+            <h2 class="section-title" id="projects-heading">Projects you can open and use.</h2>
           </div>
-
+          <p class="section-lead reveal">
+            We'd rather link to working products than describe them. Open the live
+            build and try it yourself.
+          </p>
         </div>
 
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       TECH STACK
-       ====================================================== -->
-
-  <div
-    class="tech-marquee reveal"
-    aria-label="NECXSOFT technology stack"
-  >
-
-    <div class="tech-track">
-
-      <span class="tech-badge">
-        Solidity
-      </span>
-
-      <span class="tech-badge">
-        Ethereum
-      </span>
-
-      <span class="tech-badge">
-        Hardhat
-      </span>
-
-      <span class="tech-badge">
-        LangChain
-      </span>
-
-      <span class="tech-badge">
-        OpenAI / LLMs
-      </span>
-
-      <span class="tech-badge">
-        IPFS
-      </span>
-
-
-      <span
-        class="tech-badge"
-        aria-hidden="true"
-      >
-        Solidity
-      </span>
-
-      <span
-        class="tech-badge"
-        aria-hidden="true"
-      >
-        Ethereum
-      </span>
-
-      <span
-        class="tech-badge"
-        aria-hidden="true"
-      >
-        Hardhat
-      </span>
-
-      <span
-        class="tech-badge"
-        aria-hidden="true"
-      >
-        LangChain
-      </span>
-
-      <span
-        class="tech-badge"
-        aria-hidden="true"
-      >
-        OpenAI / LLMs
-      </span>
-
-      <span
-        class="tech-badge"
-        aria-hidden="true"
-      >
-        IPFS
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <!-- ======================================================
-       PROBLEMS
-       ====================================================== -->
-
-  <section
-    class="problems"
-    id="problems"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        WHERE WE COME IN
-      </span>
-
-      <h2>
-        Your Business Doesn't Always Need Another Integration.
-        Sometimes It Needs an On-Chain System.
-      </h2>
-
-      <p class="section-subtitle">
-        We solve trust, verification, and scale problems with Web3 and AI — not just dashboards.
-      </p>
-
-    </div>
-
-
-    <div class="solution-grid reveal">
-
-      <div class="solution-card tilt-card">
-
-        <span class="solution-problem">
-          Problem
-        </span>
-
-        <p class="solution-problem-text">
-          Users have to trust a middleman instead of the system itself
-        </p>
-
-        <span class="solution-arrow">
-          ↓
-        </span>
-
-        <span class="solution-label">
-          Solution
-        </span>
-
-        <p class="solution-text">
-          Smart contracts that automate trust and verification on-chain.
-        </p>
-
-      </div>
-
-
-      <div class="solution-card tilt-card">
-
-        <span class="solution-problem">
-          Problem
-        </span>
-
-        <p class="solution-problem-text">
-          Ownership and payment records are easy to dispute
-        </p>
-
-        <span class="solution-arrow">
-          ↓
-        </span>
-
-        <span class="solution-label">
-          Solution
-        </span>
-
-        <p class="solution-text">
-          Blockchain-based ledgers and token-based ownership records.
-        </p>
-
-      </div>
-
-
-      <div class="solution-card tilt-card">
-
-        <span class="solution-problem">
-          Problem
-        </span>
-
-        <p class="solution-problem-text">
-          Manual community support can't scale 24/7
-        </p>
-
-        <span class="solution-arrow">
-          ↓
-        </span>
-
-        <span class="solution-label">
-          Solution
-        </span>
-
-        <p class="solution-text">
-          AI agents and chatbots that handle support and qualification around the clock.
-        </p>
-
-      </div>
-
-
-      <div class="solution-card tilt-card">
-
-        <span class="solution-problem">
-          Problem
-        </span>
-
-        <p class="solution-problem-text">
-          Your community has no way to hold tokens, NFTs, or governance rights
-        </p>
-
-        <span class="solution-arrow">
-          ↓
-        </span>
-
-        <span class="solution-label">
-          Solution
-        </span>
-
-        <p class="solution-text">
-          Token and NFT infrastructure with wallet integration.
-        </p>
-
-      </div>
-
-
-      <div class="solution-card tilt-card">
-
-        <span class="solution-problem">
-          Problem
-        </span>
-
-        <p class="solution-problem-text">
-          You're sitting on on-chain data but can't act on it
-        </p>
-
-        <span class="solution-arrow">
-          ↓
-        </span>
-
-        <span class="solution-label">
-          Solution
-        </span>
-
-        <p class="solution-text">
-          AI-powered analytics and automation that turn data into decisions.
-        </p>
-
-      </div>
-
-
-      <div class="solution-card tilt-card">
-
-        <span class="solution-problem">
-          Problem
-        </span>
-
-        <p class="solution-problem-text">
-          Launching a token or dApp without a security review is risky
-        </p>
-
-        <span class="solution-arrow">
-          ↓
-        </span>
-
-        <span class="solution-label">
-          Solution
-        </span>
-
-        <p class="solution-text">
-          Smart contract audits and Web3 security consulting.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       SERVICES
-       ====================================================== -->
-
-  <section
-    class="services"
-    id="services"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        OUR SERVICES
-      </span>
-
-      <h2>
-        Web3 & AI Development
-      </h2>
-
-      <p class="section-subtitle">
-        From smart contracts to AI-powered systems,
-        NECXSOFT builds decentralized and intelligent solutions around your goals.
-      </p>
-
-    </div>
-
-
-    <div class="service-grid">
-
-      <div class="service-card tilt-card reveal">
-
-        <div
-          class="service-icon"
-          aria-hidden="true"
-        >
-          ◈
-        </div>
-
-        <h3>
-          Smart Contract Development
-        </h3>
-
-        <p>
-          Secure, gas-efficient smart contracts for EVM
-          and other blockchain networks.
-        </p>
-
-      </div>
-
-
-      <div class="service-card tilt-card reveal">
-
-        <div
-          class="service-icon"
-          aria-hidden="true"
-        >
-          ◇
-        </div>
-
-        <h3>
-          Decentralized Applications
-        </h3>
-
-        <p>
-          Full-stack dApps — from wallet connect
-          to on-chain logic and frontend.
-        </p>
-
-      </div>
-
-
-      <div class="service-card tilt-card reveal">
-
-        <div
-          class="service-icon"
-          aria-hidden="true"
-        >
-          ▣
-        </div>
-
-        <h3>
-          Blockchain Integration
-        </h3>
-
-        <p>
-          Wallet integration, on-chain data, and blockchain
-          connectivity for existing products.
-        </p>
-
-      </div>
-
-
-      <div class="service-card tilt-card reveal">
-
-        <div
-          class="service-icon"
-          aria-hidden="true"
-        >
-          ◫
-        </div>
-
-        <h3>
-          Token & NFT Development
-        </h3>
-
-        <p>
-          Tokenomics, token launches, and NFT infrastructure
-          built for your community.
-        </p>
-
-      </div>
-
-
-      <div class="service-card tilt-card reveal">
-
-        <div
-          class="service-icon"
-          aria-hidden="true"
-        >
-          ↗
-        </div>
-
-        <h3>
-          AI Development & Automation
-        </h3>
-
-        <p>
-          AI agents, LLM integrations, and automation
-          that turn data into decisions.
-        </p>
-
-      </div>
-
-
-      <div class="service-card tilt-card reveal">
-
-        <div
-          class="service-icon"
-          aria-hidden="true"
-        >
-          ◉
-        </div>
-
-        <h3>
-          Web3 Infrastructure & Consulting
-        </h3>
-
-        <p>
-          Node infrastructure, smart contract audits,
-          and Web3 strategy advisory.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       SYSTEMS
-       ====================================================== -->
-
-  <section
-    class="systems"
-    id="systems"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        BEYOND SMART CONTRACTS
-      </span>
-
-      <h2>
-        Web3 Infrastructure & AI Systems
-      </h2>
-
-      <p class="section-subtitle">
-        Custom infrastructure built around your protocol or product —
-        replacing manual trust, scattered tools, and off-chain guesswork.
-      </p>
-
-    </div>
-
-
-    <div
-      class="systems-hub reveal"
-      id="systemsHub"
-    >
-
-      <svg
-        class="hub-lines"
-        viewBox="0 0 600 600"
-        preserveAspectRatio="xMidYMid meet"
-        aria-hidden="true"
-      >
-
-        <g
-          class="hub-line-group"
-          id="hubLineGroup"
-        ></g>
-
-      </svg>
-
-
-      <div class="hub-core">
-
-        <span class="hub-core-ring"></span>
-
-        <span class="hub-core-label">
-
-          NECXSOFT
-
-          <small>
-            Core
-          </small>
-
-        </span>
-
-      </div>
-
-
-      <div
-        class="hub-module"
-        data-desc="Wallet connect and onboarding for every major chain and wallet."
-        style="--angle:0deg;"
-      >
-        Wallets
-      </div>
-
-
-      <div
-        class="hub-module"
-        data-desc="Secure, audited smart contracts for your protocol or product."
-        style="--angle:51.4deg;"
-      >
-        Smart Contracts
-      </div>
-
-
-      <div
-        class="hub-module"
-        data-desc="Token and NFT infrastructure — from minting to vesting."
-        style="--angle:102.8deg;"
-      >
-        Token / NFT
-      </div>
-
-
-      <div
-        class="hub-module"
-        data-desc="Index and query on-chain data in real time."
-        style="--angle:154.2deg;"
-      >
-        On-Chain Data
-      </div>
-
-
-      <div
-        class="hub-module"
-        data-desc="AI agents that handle support, qualification, and workflows."
-        style="--angle:205.6deg;"
-      >
-        AI Agents
-      </div>
-
-
-      <div
-        class="hub-module"
-        data-desc="On-chain and AI-driven analytics on what's actually happening."
-        style="--angle:257deg;"
-      >
-        Analytics
-      </div>
-
-
-      <div
-        class="hub-module"
-        data-desc="Smart contract audits and ongoing security review."
-        style="--angle:308.4deg;"
-      >
-        Security Audits
-      </div>
-
-
-      <div
-        class="hub-tooltip"
-        id="hubTooltip"
-        role="status"
-        aria-live="polite"
-      ></div>
-
-    </div>
-
-
-    <p class="systems-hub-caption reveal">
-      We don't just write contracts. We build infrastructure.
-    </p>
-
-
-    <div class="systems-grid reveal">
-
-      <div class="system-chip">
-        Smart Contract Development
-      </div>
-
-      <div class="system-chip">
-        dApp Development
-      </div>
-
-      <div class="system-chip">
-        Wallet Integration
-      </div>
-
-      <div class="system-chip">
-        Token Development
-      </div>
-
-      <div class="system-chip">
-        NFT Marketplaces
-      </div>
-
-      <div class="system-chip">
-        DeFi Integrations
-      </div>
-
-      <div class="system-chip">
-        DAO / Governance Tools
-      </div>
-
-      <div class="system-chip">
-        On-Chain Analytics
-      </div>
-
-      <div class="system-chip">
-        Smart Contract Audits
-      </div>
-
-      <div class="system-chip">
-        AI Chatbots & Agents
-      </div>
-
-      <div class="system-chip">
-        LLM Integration
-      </div>
-
-      <div class="system-chip">
-        AI Workflow Automation
-      </div>
-
-      <div class="system-chip">
-        Blockchain Node Infrastructure
-      </div>
-
-      <div class="system-chip">
-        Cross-Chain Bridges
-      </div>
-
-      <div class="system-chip">
-        Custom Web3 Tooling
-      </div>
-
-    </div>
-
-
-    <p class="systems-note reveal">
-
-      Don't see what you need?
-      We build custom Web3 and AI infrastructure based on how your protocol actually runs.
-
-    </p>
-
-  </section>
-
-
-  <!-- ======================================================
-       LEAD GENERATION
-       ====================================================== -->
-
-  <section
-    class="leadgen"
-    id="leadgen"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        LAUNCH & GROW
-      </span>
-
-      <h2>
-        Your Protocol Shouldn't Just Launch.
-        It Should Grow a Community.
-      </h2>
-
-      <p class="section-subtitle">
-        We help Web3 projects and AI products build the infrastructure to
-        acquire users, onboard wallets, and convert visitors into
-        holders and active users.
-      </p>
-
-    </div>
-
-
-    <div
-      class="funnel reveal"
-      aria-hidden="true"
-    >
-
-      <div class="funnel-stage">
-        Visitor
-      </div>
-
-      <div class="funnel-arrow"></div>
-
-      <div class="funnel-stage">
-        Landing Page
-      </div>
-
-      <div class="funnel-arrow"></div>
-
-      <div class="funnel-stage">
-        Wallet Connect
-      </div>
-
-      <div class="funnel-arrow"></div>
-
-      <div class="funnel-stage">
-        On-Chain Action
-      </div>
-
-      <div class="funnel-arrow"></div>
-
-      <div class="funnel-stage">
-        Community
-      </div>
-
-      <div class="funnel-arrow"></div>
-
-      <div class="funnel-stage funnel-stage-end">
-        Holder / User
-      </div>
-
-    </div>
-
-
-    <div class="leadgen-grid reveal">
-
-      <div class="leadgen-item">
-        High-converting landing & mint pages
-      </div>
-
-      <div class="leadgen-item">
-        Wallet connect & onboarding flows
-      </div>
-
-      <div class="leadgen-item">
-        Whitelist / presale capture forms
-      </div>
-
-      <div class="leadgen-item">
-        AI-qualified lead scoring
-      </div>
-
-      <div class="leadgen-item">
-        Community automation (Discord / Telegram bots)
-      </div>
-
-      <div class="leadgen-item">
-        Automated AI follow-ups
-      </div>
-
-      <div class="leadgen-item">
-        Token launch funnels
-      </div>
-
-      <div class="leadgen-item">
-        On-chain analytics & conversion tracking
-      </div>
-
-      <div class="leadgen-item">
-        SEO-ready dApp structure
-      </div>
-
-      <div class="leadgen-item">
-        Campaign landing pages
-      </div>
-
-      <div class="leadgen-item">
-        Investor / DAO relations tooling
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       PRODUCTS
-       ====================================================== -->
-
-  <section
-    class="products"
-    id="products"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        NECXSOFT PRODUCTS
-      </span>
-
-      <h2>
-        Ready-to-Customize Web3 & AI Systems
-      </h2>
-
-      <p class="section-subtitle">
-        Not generic templates — starting points we tailor to your protocol or product.
-      </p>
-
-    </div>
-
-
-    <div class="products-grid reveal">
-
-      <div class="product-card tilt-card">
-
-        <div class="product-window">
-
-          <div class="pw-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="pw-body">
-            <div class="pw-row pw-row-a"></div>
-            <div class="pw-row pw-row-b"></div>
-            <div class="pw-bars">
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
+        <article class="card project reveal">
+          <div class="project-copy">
+            <div class="project-intro">
+              <div class="project-meta">
+                <span class="status-dot"></span>
+                <span>Live on Solana devnet</span>
+              </div>
+              <h3>Necxsoft Perps &amp; Predictions</h3>
+              <p>
+                A perpetual futures exchange on Solana, with Predict and Earn sections in the
+                same app. Traders post USDC collateral and go long or short on SOL-PERP with up to
+                50× leverage. Market orders fill at the oracle price against the pool, and limit
+                orders rest in a shared order book. The order panel shows take-profit and stop-loss,
+                the estimated liquidation price, open and borrow fees, and slippage before
+                anyone signs.
+              </p>
+            </div>
+            <div class="project-side">
+              <ul class="tags">
+                <li>Solana</li><li>Perpetual futures</li><li>Up to 50× leverage</li><li>Oracle pricing</li><li>Limit order book</li><li>USDC collateral</li><li>Prediction markets</li>
+              </ul>
+              <div class="project-actions">
+                <a href="/perps-and-predictions" class="btn btn-primary" target="_blank" rel="noopener">
+                  Open the live app
+                  <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+                <a href="#contact" class="link-arrow">Build something similar <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
             </div>
           </div>
 
-        </div>
-
-        <h3>
-          NECXSOFT Agent
-        </h3>
-
-        <p>
-          AI agent and chatbot platform for support and workflows.
-        </p>
-
-      </div>
-
-
-      <div class="product-card tilt-card">
-
-        <div class="product-window">
-
-          <div class="pw-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="pw-body">
-            <div class="pw-row pw-row-a"></div>
-            <div class="pw-grid-mini">
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
+          <a href="/perps-and-predictions" class="project-visual" target="_blank" rel="noopener" aria-label="Open Necxsoft Perps &amp; Predictions">
+            <div class="pv-window">
+              <div class="code-bar" aria-hidden="true">
+                <i></i><i></i><i></i>
+                <span class="code-file">necxsoft.com/perps-and-predictions</span>
+                <span class="code-badge">devnet</span>
+              </div>
+              <img src="/images/projects/perps-and-predictions.webp" width="1600" height="772" loading="lazy" alt="Necxsoft Perps trading screen: SOL-PERP price chart, order book, and a long/short order panel with leverage, collateral and fee details">
             </div>
-          </div>
-
-        </div>
-
-        <h3>
-          NECXSOFT Mint
-        </h3>
-
-        <p>
-          Token and NFT minting, metadata, and collection management.
-        </p>
-
+          </a>
+        </article>
       </div>
-
-
-      <div class="product-card tilt-card">
-
-        <div class="product-window">
-
-          <div class="pw-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="pw-body">
-            <div class="pw-calendar">
-              <i></i>
-              <i class="on"></i>
-              <i></i>
-              <i class="on"></i>
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-              <i class="on"></i>
-            </div>
-          </div>
-
-        </div>
-
-        <h3>
-          NECXSOFT Vest
-        </h3>
-
-        <p>
-          Token vesting schedules and release management.
-        </p>
-
-      </div>
-
-
-      <div class="product-card tilt-card">
-
-        <div class="product-window">
-
-          <div class="pw-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="pw-body">
-            <div class="pw-row pw-row-a"></div>
-            <div class="pw-row pw-row-b"></div>
-            <div class="pw-row pw-row-a"></div>
-          </div>
-
-        </div>
-
-        <h3>
-          NECXSOFT DAO
-        </h3>
-
-        <p>
-          Governance, proposals, and voting management.
-        </p>
-
-      </div>
-
-
-      <div class="product-card tilt-card">
-
-        <div class="product-window">
-
-          <div class="pw-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="pw-body">
-            <div class="pw-flow">
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-          </div>
-
-        </div>
-
-        <h3>
-          NECXSOFT Chain
-        </h3>
-
-        <p>
-          Smart contract deployment and management pipeline.
-        </p>
-
-      </div>
-
-
-      <div class="product-card tilt-card">
-
-        <div class="product-window">
-
-          <div class="pw-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="pw-body">
-
-            <svg
-              class="pw-chart"
-              viewBox="0 0 100 40"
-              preserveAspectRatio="none"
-            >
-
-              <polyline
-                points="0,32 20,24 40,28 60,12 80,18 100,4"
-                fill="none"
-                stroke="#176B5B"
-                stroke-width="2"
-              />
-
-            </svg>
-
-          </div>
-
-        </div>
-
-        <h3>
-          NECXSOFT Pulse
-        </h3>
-
-        <p>
-          On-chain and AI-driven analytics dashboards.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <p class="products-note reveal">
-      Need something different?
-      We can build a custom system around your protocol or product.
-    </p>
-
-  </section>
-
-
-  <!-- ======================================================
-       AI
-       ====================================================== -->
-
-  <section
-    class="comparison"
-    id="difference"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        THE NECXSOFT DIFFERENCE
-      </span>
-
-      <h2>
-        AI + Web3, Not a Gimmick
-      </h2>
-
-      <p class="section-subtitle">
-        Modern systems should do more than store information on-chain.
-        They should help you act on it.
-      </p>
-
-    </div>
-
-
-    <div class="ai-grid reveal">
-
-      <div class="ai-chip">
-        AI-assisted smart contract review
-      </div>
-
-      <div class="ai-chip">
-        AI chatbots & support agents
-      </div>
-
-      <div class="ai-chip">
-        On-chain data intelligence
-      </div>
-
-      <div class="ai-chip">
-        Automated community moderation
-      </div>
-
-      <div class="ai-chip">
-        AI-powered content & docs assistance
-      </div>
-
-      <div class="ai-chip">
-        Intelligent transaction monitoring
-      </div>
-
-      <div class="ai-chip">
-        Workflow automation for DAOs
-      </div>
-
-      <div class="ai-chip">
-        Document / data extraction
-      </div>
-
-      <div class="ai-chip">
-        AI-assisted on-chain reporting
-      </div>
-
-      <div class="ai-chip">
-        Automated wallet alerts & notifications
-      </div>
-
-      <div class="ai-chip">
-        Smart on-chain + off-chain dashboards
-      </div>
-
-    </div>
-
-
-    <div class="comparison-grid reveal">
-
-      <div class="comparison-col comparison-without">
-
-        <span class="comparison-label">
-          Without NECXSOFT
-        </span>
-
-        <ul>
-
-          <li>
-            Users can't verify what's happening on-chain,
-            so they default to trusting a middleman
-          </li>
-
-          <li>
-            Token or NFT launches handled manually,
-            with no audit or security review
-          </li>
-
-          <li>
-            Community questions and support pile up
-            with no one — or nothing — to answer
-          </li>
-
-          <li>
-            No visibility into on-chain activity
-            or user behavior
-          </li>
-
-          <li>
-            Every new feature means starting over
-            with a new vendor
-          </li>
-
-        </ul>
-
-      </div>
-
-
-      <div
-        class="comparison-divider"
-        aria-hidden="true"
-      >
-        →
-      </div>
-
-
-      <div class="comparison-col comparison-with">
-
-        <span class="comparison-label comparison-label-accent">
-          With NECXSOFT
-        </span>
-
-        <ul>
-
-          <li>
-            A transparent, audited smart contract layer
-            users can verify themselves
-          </li>
-
-          <li>
-            Token and NFT launches built, tested,
-            and reviewed before going live
-          </li>
-
-          <li>
-            AI agents that handle support and
-            community questions around the clock
-          </li>
-
-          <li>
-            Clear on-chain and AI-driven analytics
-            on what's actually happening
-          </li>
-
-          <li>
-            An architecture built to add chains,
-            agents, and features — not replace them
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       INDUSTRIES
-       ====================================================== -->
-
-  <section
-    class="industries"
-    id="industries"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        WHO WE BUILD FOR
-      </span>
-
-      <h2>
-        Industries We Serve
-      </h2>
-
-    </div>
-
-
-    <div class="industries-grid reveal">
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">💱</div>
-        <h3>DeFi Protocols</h3>
-        <p>
-          Complex contract logic and liquidity flows
-          that need rigorous security review.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">🖼️</div>
-        <h3>NFT Marketplaces</h3>
-        <p>
-          Minting, metadata, and royalties that need
-          to work flawlessly at launch.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">🎮</div>
-        <h3>GameFi / Web3 Gaming</h3>
-        <p>
-          In-game assets and economies that need
-          on-chain ownership players can trust.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">🏛️</div>
-        <h3>DAOs</h3>
-        <p>
-          Governance and treasury decisions with
-          no reliable voting or proposal system.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">🪪</div>
-        <h3>Wallets & Exchanges</h3>
-        <p>
-          User trust that lives or dies on security,
-          uptime, and transaction clarity.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">🏢</div>
-        <h3>RWA Tokenization</h3>
-        <p>
-          Real-world assets with no compliant,
-          verifiable on-chain representation.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">🤖</div>
-        <h3>AI SaaS Startups</h3>
-        <p>
-          Product ideas that need a real AI layer,
-          not a wrapper around a single prompt.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">⛓️</div>
-        <h3>L1 / L2 Infrastructure</h3>
-        <p>
-          Node operations and tooling that need
-          to stay reliable at scale.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">📢</div>
-        <h3>Web3 Communities</h3>
-        <p>
-          Growing communities with no automated way
-          to onboard, verify, or support members.
-        </p>
-      </div>
-
-
-      <div class="industry-card tilt-card">
-        <div class="industry-icon">💳</div>
-        <h3>AI-Powered Fintech</h3>
-        <p>
-          Financial products that need intelligent
-          automation without sacrificing trust.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       PROCESS
-       ====================================================== -->
-
-  <section
-    class="workflow"
-    id="process"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        OUR PROCESS
-      </span>
-
-      <h2>
-        How We Build
-      </h2>
-
-    </div>
-
-
-    <div class="workflow-grid">
-
-      <div class="workflow-step tilt-card reveal">
-        <div class="workflow-num">01</div>
-        <h3>Discovery</h3>
-        <p>
-          Understand the protocol, users,
-          token model, and goals.
-        </p>
-      </div>
-
-
-      <div class="workflow-step tilt-card reveal">
-        <div class="workflow-num">02</div>
-        <h3>Planning</h3>
-        <p>
-          Define scope, smart contract architecture,
-          AI model needs, and roadmap.
-        </p>
-      </div>
-
-
-      <div class="workflow-step tilt-card reveal">
-        <div class="workflow-num">03</div>
-        <h3>Design</h3>
-        <p>
-          Create the user experience, interface,
-          wireframes, and contract architecture.
-        </p>
-      </div>
-
-
-      <div class="workflow-step tilt-card reveal">
-        <div class="workflow-num">04</div>
-        <h3>Build</h3>
-        <p>
-          Develop the smart contracts, dApp,
-          or AI system in prioritized iterations.
-        </p>
-      </div>
-
-
-      <div class="workflow-step tilt-card reveal">
-        <div class="workflow-num">05</div>
-        <h3>Review & Test</h3>
-        <p>
-          Review functionality with you, run
-          security audits, and test usability.
-        </p>
-      </div>
-
-
-      <div class="workflow-step tilt-card reveal">
-        <div class="workflow-num">06</div>
-        <h3>Launch</h3>
-        <p>
-          Deploy contracts and AI systems,
-          and configure the production environment.
-        </p>
-      </div>
-
-
-      <div class="workflow-step tilt-card reveal">
-        <div class="workflow-num">07</div>
-        <h3>Improve</h3>
-        <p>
-          Continue improving based on on-chain data,
-          user feedback, and business needs.
-        </p>
-      </div>
-
-    </div>
-
-
-    <div class="timeline reveal">
-
-      <h3 class="timeline-title">
-        Typical Project Timeline
-      </h3>
-
-      <div class="timeline-grid">
-
-        <div class="timeline-item">
-          <span class="timeline-scope">
-            Landing / mint pages
-          </span>
-          <span class="timeline-length">
-            ~1–2 weeks
-          </span>
-        </div>
-
-
-        <div class="timeline-item">
-          <span class="timeline-scope">
-            Smart contracts & dApps
-          </span>
-          <span class="timeline-length">
-            ~2–6 weeks
-          </span>
-        </div>
-
-
-        <div class="timeline-item">
-          <span class="timeline-scope">
-            AI systems & integrations
-          </span>
-          <span class="timeline-length">
-            ~3–8 weeks
-          </span>
-        </div>
-
-
-        <div class="timeline-item">
-          <span class="timeline-scope">
-            Complex / multi-chain platforms
-          </span>
-          <span class="timeline-length">
-            Scoped during discovery
-          </span>
-        </div>
-
-      </div>
-
-      <p class="timeline-disclaimer">
-        Timelines depend on scope, integrations,
-        revisions, content readiness, and complexity.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       TEAM
-       ====================================================== -->
-
-  <section
-    class="team"
-    id="team"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        THE TEAM
-      </span>
-
-      <h2>
-        Who Builds Your Project
-      </h2>
-
-    </div>
-
-
-    <p class="team-intro reveal">
-      One founder as your point of contact,
-      backed by a small specialized team.
-    </p>
-
-
-    <div class="team-grid">
-
-      <div class="team-card team-card-founder tilt-card reveal">
-
-        <div
-          class="team-photo"
-          style="background-image:url('/images/team/team-1.png');"
-        >
-
-          <span class="team-badge">
-            Founder
-          </span>
-
-        </div>
-
-        <h3>
-          Engr. Kims Cyra Rayel M. Moring
-        </h3>
-
-        <span class="team-role">
-          Founder · Full-Stack & Blockchain Developer
-        </span>
-
-        <p>
-          Leads discovery, architecture,
-          and every client conversation end to end.
-        </p>
-
-      </div>
-
-
-      <div class="team-card tilt-card reveal">
-
-        <div
-          class="team-photo"
-          style="background-image:url('/images/team/team-2.jpg');"
-        ></div>
-
-        <h3>
-          Engr. John Lesther Dy
-        </h3>
-
-        <span class="team-role">
-          Frontend Developer
-        </span>
-
-        <p>
-          Builds the interfaces clients
-          and their customers actually interact with.
-        </p>
-
-      </div>
-
-
-      <div class="team-card tilt-card reveal">
-
-        <div
-          class="team-photo"
-          style="background-image:url('/images/team/team-3.jpg');"
-        ></div>
-
-        <h3>
-          Engr. Camila Kim Supremo
-        </h3>
-
-        <span class="team-role">
-          Quality Assurance
-        </span>
-
-        <p>
-          Tests every build and smart contract across
-          devices, browsers, and networks before launch.
-        </p>
-
-      </div>
-
-
-      <div class="team-card tilt-card reveal">
-
-        <div
-          class="team-photo"
-          style="background-image:url('/images/team/team-4.jpg');"
-        ></div>
-
-        <h3>
-          Engr. Crystle Wyne Piodos
-        </h3>
-
-        <span class="team-role">
-          UI/UX Designer
-        </span>
-
-        <p>
-          Shapes the look, feel, and usability
-          of every interface we ship.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       TRUST
-       ====================================================== -->
-
-  <section
-    class="trust"
-    id="trust"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        WHY TRUST NECXSOFT
-      </span>
-
-      <h2>
-        Built to Be Verified, Not Just Believed
-      </h2>
-
-      <p class="section-subtitle">
-        We're an early-stage, founder-led studio.
-        Instead of stats we can't back up,
-        here's what you can actually check.
-      </p>
-
-    </div>
-
-
-    <div class="trust-grid reveal">
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Live Case Studies
-        </h3>
-
-        <p>
-          Real, working projects you can open
-          and click through yourself.
-        </p>
-
-      </div>
-
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          A Transparent Process
-        </h3>
-
-        <p>
-          Every project follows the same seven-step
-          process, from discovery to launch.
-        </p>
-
-      </div>
-
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Direct Access to the Builder
-        </h3>
-
-        <p>
-          You work directly with the founder
-          and a small named team.
-        </p>
-
-      </div>
-
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Demo Before Commitment
-        </h3>
-
-        <p>
-          You see a working prototype before
-          finalizing payment.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       VISION / MISSION
-       ====================================================== -->
-
-  <section
-    class="trust"
-    id="vision-mission"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        WHO WE ARE
-      </span>
-
-      <h2>
-        Vision, Mission & Core Values
-      </h2>
-
-      <p class="section-subtitle">
-        The principles that guide NECXSOFT in creating
-        meaningful and reliable digital solutions.
-      </p>
-
-    </div>
-
-
-    <div class="trust-grid reveal">
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Our Vision
-        </h3>
-
-        <p>
-          To become a trusted technology partner
-          that transforms ideas into innovative,
-          reliable, and impactful digital solutions.
-        </p>
-
-      </div>
-
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Our Mission
-        </h3>
-
-        <p>
-          To provide practical and innovative
-          Web3 and AI solutions that help businesses
-          and protocols improve, grow, and achieve
-          their goals through technology.
-        </p>
-
-      </div>
-
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Our Core Values
-        </h3>
-
-        <p>
-          Innovation, Integrity, Quality,
-          Collaboration, Customer Focus,
-          and Continuous Improvement.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       TESTIMONIALS
-       ====================================================== -->
-
-  <section
-    class="trust"
-    id="testimonials"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        CLIENT FEEDBACK
-      </span>
-
-      <h2>
-        Testimonials
-      </h2>
-
-      <p class="section-subtitle">
-        What our clients say about working with NECXSOFT
-      </p>
-
-    </div>
-
-
-    <div class="trust-grid reveal">
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Excellent Service
-        </h3>
-
-        <p>
-          "NECXSOFT provided a professional and reliable
-          solution that matched our needs."
-        </p>
-
-        <strong>
-          — NECXSOFT Client
-        </strong>
-
-      </div>
-
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Professional Team
-        </h3>
-
-        <p>
-          "The team was easy to communicate with
-          and understood our requirements."
-        </p>
-
-        <strong>
-          — NECXSOFT Client
-        </strong>
-
-      </div>
-
-
-      <div class="trust-card tilt-card">
-
-        <h3>
-          Great Digital Solution
-        </h3>
-
-        <p>
-          "NECXSOFT helped turn our idea into
-          a practical digital solution."
-        </p>
-
-        <strong>
-          — NECXSOFT Client
-        </strong>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       PRICING
-       ====================================================== -->
-
-  <section
-    class="pricing"
-    id="pricing"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        INVESTMENT
-      </span>
-
-      <h2>
-        Starting From
-      </h2>
-
-    </div>
-
-
-    <p class="pricing-sub reveal">
-      Every quote is scoped to your project after a discovery call —
-      these are starting estimates, not final prices.
-    </p>
-
-
-    <div class="pricing-grid reveal">
-
-      <div class="pricing-card tilt-card">
-
-        <span class="pricing-tier">
-          Starter
-        </span>
-
-        <div class="pricing-amount">
-          <span class="pricing-currency">$</span>
-          5,000
-          <span class="pricing-suffix">+</span>
-        </div>
-
-        <div class="pricing-secondary">
-          ≈ ₱290,000+
-        </div>
-
-        <p class="pricing-desc">
-          For teams that need a single smart contract,
-          AI integration, or a focused Web3 solution.
-        </p>
-
-        <ul class="pricing-features">
-
-          <li>
-            Single smart contract or AI integration
-          </li>
-
-          <li>
-            Custom UI / dApp frontend
-          </li>
-
-          <li>
-            Wallet connect setup
-          </li>
-
-          <li>
-            Testnet + mainnet deployment
-          </li>
-
-          <li>
-            Security-reviewed contract code
-          </li>
-
-          <li>
-            Documentation & handoff
-          </li>
-
-        </ul>
-
-
-        <a href="#contact">
-
-          <button
-            class="secondary-btn pricing-btn btn-3d"
-            type="button"
-          >
-            Book a Discovery Call
-          </button>
-
-        </a>
-
-      </div>
-
-
-      <div class="pricing-card pricing-card-featured tilt-card">
-
-        <span class="pricing-badge">
-          Most Popular
-        </span>
-
-        <span class="pricing-tier">
-          Business
-        </span>
-
-        <div class="pricing-amount">
-          <span class="pricing-currency">$</span>
-          15,000
-          <span class="pricing-suffix">+</span>
-        </div>
-
-        <div class="pricing-secondary">
-          ≈ ₱870,000+
-        </div>
-
-        <p class="pricing-desc">
-          For projects that need advanced dApps,
-          token systems, AI agents, or multi-contract platforms.
-        </p>
-
-        <ul class="pricing-features">
-
-          <li>
-            Everything in Starter
-          </li>
-
-          <li>
-            Custom dApp / AI application features
-          </li>
-
-          <li>
-            Admin / on-chain dashboard
-          </li>
-
-          <li>
-            Token or NFT infrastructure
-          </li>
-
-          <li>
-            AI agent automation
-          </li>
-
-          <li>
-            Priority development
-          </li>
-
-        </ul>
-
-
-        <a href="#contact">
-
-          <button
-            class="primary-btn pricing-btn btn-3d"
-            type="button"
-          >
-            Book a Discovery Call
-          </button>
-
-        </a>
-
-      </div>
-
-
-      <div class="pricing-card tilt-card">
-
-        <span class="pricing-tier">
-          Custom
-        </span>
-
-        <div class="pricing-amount">
-          Custom Pricing
-        </div>
-
-        <p class="pricing-desc">
-          For complex protocols, multi-chain platforms,
-          enterprise AI systems, DAOs, and long-term
-          technology partnerships.
-        </p>
-
-        <ul class="pricing-features">
-
-          <li>
-            Everything in Business
-          </li>
-
-          <li>
-            Multi-chain / large-scale infrastructure
-          </li>
-
-          <li>
-            Custom AI model implementations
-          </li>
-
-          <li>
-            DAO / multi-role governance platforms
-          </li>
-
-        </ul>
-
-
-        <a href="#contact">
-
-          <button
-            class="secondary-btn pricing-btn btn-3d"
-            type="button"
-          >
-            Discuss Your Project
-          </button>
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <p class="pricing-disclaimer reveal">
-      Prices are starting estimates.
-      Final pricing depends on project scope,
-      functionality, integrations, design requirements,
-      and implementation complexity.
-    </p>
-
-  </section>
-
-
-  <!-- ======================================================
-       FAQ
-       ====================================================== -->
-
-  <section
-    class="faq"
-    id="faq"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        FAQ
-      </span>
-
-      <h2>
-        Common Questions
-      </h2>
-
-    </div>
-
-
-    <div class="faq-list">
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          type="button"
-          aria-expanded="false"
-        >
-          How long does a project take to build?
-
-          <span aria-hidden="true">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            It depends on scope — landing / mint pages typically
-            take 1–2 weeks, smart contracts & dApps 2–6 weeks,
-            and AI systems & integrations 3–8 weeks.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          type="button"
-          aria-expanded="false"
-        >
-          Do I need to pay before I see anything?
-
-          <span aria-hidden="true">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            No — we use a demo-first approach.
-            You'll see a working preview of your project
-            before any commitment is finalized.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          type="button"
-          aria-expanded="false"
-        >
-          Can you work with clients outside the Philippines?
-
-          <span aria-hidden="true">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            Yes. We work with US and international clients
-            entirely online.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          type="button"
-          aria-expanded="false"
-        >
-          Which blockchains do you build on?
-
-          <span aria-hidden="true">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            Primarily EVM-compatible chains (Ethereum, Base, Polygon,
-            and similar networks), with support for other ecosystems
-            scoped during discovery based on your needs.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          type="button"
-          aria-expanded="false"
-        >
-          Do you build custom AI models or integrate existing ones?
-
-          <span aria-hidden="true">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            Usually both — we integrate and fine-tune existing LLMs
-            and AI infrastructure, and build custom logic around
-            them where your use case needs it.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          type="button"
-          aria-expanded="false"
-        >
-          What happens after launch?
-
-          <span aria-hidden="true">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            We offer ongoing support and maintenance
-            so your system keeps running smoothly.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button
-          class="faq-question"
-          type="button"
-          aria-expanded="false"
-        >
-          How much does a project cost?
-
-          <span aria-hidden="true">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            Starter projects begin at $5,000,
-            Business projects at $15,000,
-            and complex platforms are custom-quoted.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ======================================================
-       CONTACT / BOOKING
-       ====================================================== -->
-
-  <section
-    class="contact"
-    id="contact"
-  >
-
-    <div class="contact-split">
-
-
-      <div class="contact-split-left reveal">
-
-        <span class="contact-eyebrow">
-          BOOK A DISCOVERY CALL
-        </span>
-
-        <h2 class="contact-headline">
-          Let's build something that works.
-        </h2>
-
-        <p class="section-subtitle contact-sub">
-          Serving US and international clients remotely ·
-          Based in Davao City, Philippines
-        </p>
-
-        <p class="capacity-note">
-          Taking on a limited number of new projects this quarter —
-          book a discovery call to check availability.
-        </p>
-
-      </div>
-
-
-      <div class="contact-split-right reveal">
-
-
-        <!-- ==================================================
-             BOOKING
-             ================================================== -->
-
-        <div
-          class="booking-widget"
-          id="bookingWidget"
-        >
-
-          <div class="booking-info">
-
-            <h3 class="booking-info-title">
-              NECXSOFT Discovery Call
-            </h3>
-
-            <p class="booking-info-desc">
-              A consultation to understand your protocol or product,
-              current challenges, goals, and the type of Web3 or AI
-              solution NECXSOFT can build for you — smart contracts,
-              dApps, token systems, or AI-powered automation.
+    </section>
+
+    <!-- ======================================================
+         WHY SOLANA
+         ====================================================== -->
+    <section class="section" style="padding-top:0" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="why reveal">
+          <div>
+            <span class="eyebrow">Why Solana</span>
+            <h2 class="section-title" id="why-heading">Built for products that need to feel instant.</h2>
+            <p class="section-lead">
+              Solana runs programs in parallel on one global state. Fast confirmations and
+              low fees make consumer-grade on-chain experiences possible. We build there
+              because that's where these products work best.
             </p>
-
-
-            <ul class="booking-info-meta">
-
-              <li>
-
-                <span class="booking-meta-label">
-                  Duration
-                </span>
-
-                <span>
-                  30 minutes
-                </span>
-
-              </li>
-
-
-              <li>
-
-                <span class="booking-meta-label">
-                  Meeting method
-                </span>
-
-                <span>
-                  Google Meet
-                </span>
-
-              </li>
-
-
-              <li>
-
-                <span class="booking-meta-label">
-                  Availability
-                </span>
-
-                <span>
-                  Real-time
-                </span>
-
-              </li>
-
-            </ul>
-
           </div>
-
-
-          <div
-            class="booking-embed"
-            id="bookingEmbed"
-          >
-
-            <iframe
-              id="bookingEmbedFrame"
-              title="NECXSOFT discovery call booking calendar"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
-
-          </div>
-
-
-          <div class="booking-action">
-
-            <button
-              type="button"
-              class="primary-btn booking-cta btn-3d"
-              id="bookingCtaBtn"
-              aria-describedby="bookingCtaHelp"
-            >
-              Open Booking Page in a New Tab
-            </button>
-
-            <p
-              class="booking-cta-help"
-              id="bookingCtaHelp"
-              role="status"
-              aria-live="polite"
-            ></p>
-
-          </div>
-
-        </div>
-
-
-        <p class="booking-disclaimer">
-
-          The calendar above shows NECXSOFT's genuinely available
-          dates and times, pulled directly from Google Calendar.
-
-        </p>
-
-
-        <!-- ==================================================
-             SECURE CONTACT FORM
-             ================================================== -->
-
-        <div class="inquiry-wrap">
-
-          <h3 class="inquiry-title">
-            Prefer to send a message first?
-          </h3>
-
-          <p class="inquiry-subtitle">
-            This form sends a general inquiry —
-            it does not book a discovery call.
-          </p>
-
-
-          <form
-            class="contact-form"
-            id="contactForm"
-            novalidate
-          >
-
-
-            <!-- HONEYPOT -->
-
-            <div
-              class="hp-field"
-              aria-hidden="true"
-            >
-
-              <label for="website">
-                Website
-              </label>
-
-              <input
-                type="text"
-                id="website"
-                name="website"
-                tabindex="-1"
-                autocomplete="off"
-              >
-
+          <div>
+            <div class="stats">
+              <div class="stat">
+                <div class="stat-value grad-text">~400ms</div>
+                <div class="stat-label">Target slot time</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value grad-text">&lt;$0.01</div>
+                <div class="stat-label">Typical transaction fee</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value grad-text">Parallel</div>
+                <div class="stat-label">Transaction execution</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value grad-text">1 state</div>
+                <div class="stat-label">Composable, no bridging between L2s</div>
+              </div>
             </div>
+            <p class="why-note">Network figures are approximate and vary with network conditions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-
-            <!-- NAME -->
-
-            <label
-              for="contactName"
-              class="sr-only"
-            >
-              Your Name
-            </label>
-
-            <input
-              type="text"
-              id="contactName"
-              name="name"
-              placeholder="Your Name"
-              maxlength="100"
-              autocomplete="name"
-              required
-            >
-
-
-            <!-- EMAIL -->
-
-            <label
-              for="contactEmail"
-              class="sr-only"
-            >
-              Your Email
-            </label>
-
-            <input
-              type="email"
-              id="contactEmail"
-              name="email"
-              placeholder="Your Email"
-              maxlength="254"
-              autocomplete="email"
-              required
-            >
-
-
-            <!-- COMPANY -->
-
-            <label
-              for="contactCompany"
-              class="sr-only"
-            >
-              Company
-            </label>
-
-            <input
-              type="text"
-              id="contactCompany"
-              name="company"
-              placeholder="Company (optional)"
-              maxlength="150"
-              autocomplete="organization"
-            >
-
-
-            <!-- PHONE -->
-
-            <label
-              for="contactPhone"
-              class="sr-only"
-            >
-              Your Phone
-            </label>
-
-            <input
-              type="tel"
-              id="contactPhone"
-              name="phone"
-              placeholder="Your Phone (optional)"
-              maxlength="30"
-              autocomplete="tel"
-            >
-
-
-            <!-- MESSAGE -->
-
-            <label
-              for="contactMessage"
-              class="sr-only"
-            >
-              Brief message
-            </label>
-
-            <textarea
-              id="contactMessage"
-              name="message"
-              placeholder="Brief message about your project (optional)"
-              maxlength="3000"
-            ></textarea>
-
-
-            <button
-              type="submit"
-              class="secondary-btn btn-3d"
-              id="submitBtn"
-            >
-              Send Inquiry
-            </button>
-
-
-            <p
-              id="formStatus"
-              class="form-status"
-              role="status"
-              aria-live="polite"
-            ></p>
-
-
-          </form>
-
+    <!-- ======================================================
+         PRODUCTS
+         ====================================================== -->
+    <section class="section" id="products" aria-labelledby="products-heading" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">NECXSOFT products</span>
+          <h2 class="section-title" id="products-heading">Proven starting points, tailored to your protocol.</h2>
+          <p class="section-lead">
+            Reusable foundations we customize for your product. You launch sooner without
+            settling for a template.
+          </p>
         </div>
 
+        <div class="products">
+          <article class="card product reveal">
+            <div class="product-top"><span class="icon-box"><svg aria-hidden="true"><use href="#i-image"/></svg></span><span class="product-code">01</span></div>
+            <h3>NECXSOFT <span>Mint</span></h3>
+            <p>Token and NFT minting with Token-2022 and Metaplex. Includes metadata, allowlists and collection management.</p>
+          </article>
+          <article class="card product reveal" style="--d:.06s">
+            <div class="product-top"><span class="icon-box"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><span class="product-code">02</span></div>
+            <h3>NECXSOFT <span>Vest</span></h3>
+            <p>On-chain vesting schedules with cliffs, linear unlocks and a claim dashboard for your token holders.</p>
+          </article>
+          <article class="card product reveal" style="--d:.12s">
+            <div class="product-top"><span class="icon-box"><svg aria-hidden="true"><use href="#i-vote"/></svg></span><span class="product-code">03</span></div>
+            <h3>NECXSOFT <span>DAO</span></h3>
+            <p>Governance, proposals, voting and multisig treasury flows for communities and protocol teams.</p>
+          </article>
+          <article class="card product reveal">
+            <div class="product-top"><span class="icon-box"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><span class="product-code">04</span></div>
+            <h3>NECXSOFT <span>Chain</span></h3>
+            <p>A program deployment pipeline covering builds, devnet staging, upgrade-authority handling and release notes.</p>
+          </article>
+          <article class="card product reveal" style="--d:.06s">
+            <div class="product-top"><span class="icon-box"><svg aria-hidden="true"><use href="#i-bot"/></svg></span><span class="product-code">05</span></div>
+            <h3>NECXSOFT <span>Agent</span></h3>
+            <p>AI agent and chatbot platform for support, onboarding and on-chain workflows.</p>
+          </article>
+          <article class="card product reveal" style="--d:.12s">
+            <div class="product-top"><span class="icon-box"><svg aria-hidden="true"><use href="#i-chart"/></svg></span><span class="product-code">06</span></div>
+            <h3>NECXSOFT <span>Pulse</span></h3>
+            <p>Dashboards for on-chain analytics, with AI summaries of holders, volume and program activity.</p>
+          </article>
+        </div>
+
+        <div class="products-foot reveal">
+          <span>Need something different? We'll design a custom system around your protocol.</span>
+          <a href="#contact" class="link-arrow">Talk to us <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <!-- ======================================================
+         PROCESS
+         ====================================================== -->
+    <section class="section" id="process" aria-labelledby="process-heading" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How we work</span>
+          <h2 class="section-title" id="process-heading">Seven steps from idea to mainnet.</h2>
+          <p class="section-lead">Every engagement follows the same process, so you always know what's next and what you'll see.</p>
+        </div>
 
-  </section>
+        <ol class="process">
+          <li class="step reveal"><span class="step-num">01</span><h3>Discovery</h3><p>Your users, token model, goals and constraints.</p></li>
+          <li class="step reveal" style="--d:.05s"><span class="step-num">02</span><h3>Planning</h3><p>Scope, account architecture and roadmap.</p></li>
+          <li class="step reveal" style="--d:.1s"><span class="step-num">03</span><h3>Design</h3><p>UX flows, interface and instruction design.</p></li>
+          <li class="step reveal" style="--d:.15s"><span class="step-num">04</span><h3>Build</h3><p>Programs and dApp, built in prioritized iterations.</p></li>
+          <li class="step reveal" style="--d:.2s"><span class="step-num">05</span><h3>Test</h3><p>Testing, internal review and devnet demos.</p></li>
+          <li class="step reveal" style="--d:.25s"><span class="step-num">06</span><h3>Launch</h3><p>Mainnet deployment and production setup.</p></li>
+          <li class="step reveal" style="--d:.3s"><span class="step-num">07</span><h3>Improve</h3><p>Iterate on on-chain data and user feedback.</p></li>
+        </ol>
 
+        <dl class="timeline reveal">
+          <div><dt>Mint &amp; landing pages</dt><dd>~1–2 weeks</dd></div>
+          <div><dt>Programs &amp; dApps</dt><dd>~2–6 weeks</dd></div>
+          <div><dt>AI agents &amp; integrations</dt><dd>~3–8 weeks</dd></div>
+          <div><dt>Complex protocols</dt><dd>Scoped in discovery</dd></div>
+        </dl>
+        <p class="fine">Timelines depend on scope, integrations, revisions, content readiness and complexity.</p>
+      </div>
+    </section>
 
-  <!-- ======================================================
-       STICKY CTA
-       ====================================================== -->
+    <!-- ======================================================
+         PRINCIPLES / ABOUT
+         ====================================================== -->
+    <section class="section" id="about" aria-labelledby="about-heading" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why teams choose us</span>
+          <h2 class="section-title" id="about-heading">Built to be verified, not just believed.</h2>
+          <p class="section-lead">
+            We're an early-stage, founder-led studio. We'd rather show you how we work than
+            quote numbers we can't back up.
+          </p>
+        </div>
 
-  <div
-    class="sticky-cta"
-    id="stickyCta"
-  >
+        <div class="principles">
+          <article class="card principle reveal">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#i-eye"/></svg></span>
+            <h3>Demo before commitment</h3>
+            <p>You see a working devnet prototype before final payment.</p>
+          </article>
+          <article class="card principle reveal" style="--d:.06s">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#i-user"/></svg></span>
+            <h3>Direct access to the builder</h3>
+            <p>You work with the founder and a small named team, with no account managers in between.</p>
+          </article>
+          <article class="card principle reveal" style="--d:.12s">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#i-route"/></svg></span>
+            <h3>Transparent process</h3>
+            <p>Seven defined steps with demos at each milestone, so progress is never a mystery.</p>
+          </article>
+          <article class="card principle reveal" style="--d:.18s">
+            <span class="icon-box"><svg aria-hidden="true"><use href="#i-lock"/></svg></span>
+            <h3>Security-first defaults</h3>
+            <p>Checked math, strict account validation and tests from the very first commit.</p>
+          </article>
+        </div>
 
-    <span>
-      Ready to talk?
-    </span>
+        <div class="mission">
+          <div class="card reveal">
+            <h4>Vision</h4>
+            <p>To become a trusted technology partner that turns ideas into reliable, impactful products on Solana.</p>
+          </div>
+          <div class="card reveal" style="--d:.06s">
+            <h4>Mission</h4>
+            <p>To deliver practical Solana and AI solutions that help businesses and protocols improve, grow and reach their goals.</p>
+          </div>
+          <div class="card reveal" style="--d:.12s">
+            <h4>Values</h4>
+            <p>Innovation, integrity, quality, collaboration, customer focus and continuous improvement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <a href="#contact">
+    <!-- ======================================================
+         TEAM
+         ====================================================== -->
+    <section class="section" id="team" aria-labelledby="team-heading" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The team</span>
+          <h2 class="section-title" id="team-heading">The people building your project.</h2>
+          <p class="section-lead">One founder as your point of contact, backed by a small specialized team.</p>
+        </div>
 
-      <button
-        class="primary-btn"
-        type="button"
-      >
-        Book a Call
-      </button>
+        <div class="team">
+          <article class="card member reveal">
+            <div class="member-photo">
+              <span class="member-badge">Founder</span>
+              <img src="/images/team/team-1.png" alt="Engr. Kims Cyra Rayel M. Moring" loading="lazy">
+            </div>
+            <div class="member-info">
+              <h3>Engr. Kims Cyra Rayel M. Moring</h3>
+              <div class="member-role">Full-Stack &amp; Blockchain Developer</div>
+              <p>Leads discovery, architecture and every client conversation, end to end.</p>
+            </div>
+          </article>
+          <article class="card member reveal" style="--d:.06s">
+            <div class="member-photo">
+              <img src="/images/team/team-2.jpg" alt="Engr. John Lesther Dy" loading="lazy">
+            </div>
+            <div class="member-info">
+              <h3>Engr. John Lesther Dy</h3>
+              <div class="member-role">Frontend Developer</div>
+              <p>Builds the interfaces your users interact with.</p>
+            </div>
+          </article>
+          <article class="card member reveal" style="--d:.12s">
+            <div class="member-photo">
+              <img src="/images/team/team-3.jpg" alt="Engr. Camila Kim Supremo" loading="lazy">
+            </div>
+            <div class="member-info">
+              <h3>Engr. Camila Kim Supremo</h3>
+              <div class="member-role">Quality Assurance</div>
+              <p>Tests every build and program across devices, wallets and clusters before launch.</p>
+            </div>
+          </article>
+          <article class="card member reveal" style="--d:.18s">
+            <div class="member-photo">
+              <img src="/images/team/team-4.jpg" alt="Engr. Crystle Wyne Piodos" loading="lazy">
+            </div>
+            <div class="member-info">
+              <h3>Engr. Crystle Wyne Piodos</h3>
+              <div class="member-role">UI/UX Designer</div>
+              <p>Shapes the look, feel and usability of every interface we ship.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    </a>
+    <!-- ======================================================
+         PRICING
+         ====================================================== -->
+    <section class="section" id="pricing" aria-labelledby="pricing-heading" style="padding-top:0">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Investment</span>
+          <h2 class="section-title" id="pricing-heading">Clear starting points.</h2>
+          <p class="section-lead">We scope every quote after a discovery call. These are starting estimates, not final prices.</p>
+        </div>
 
-  </div>
+        <div class="pricing">
+          <article class="card plan reveal">
+            <div class="plan-head"><span class="plan-name">Starter</span></div>
+            <div class="plan-price"><small>from</small>$5,000</div>
+            <div class="plan-php">≈ ₱290,000+</div>
+            <p class="plan-desc">A single Solana program, token launch or AI integration with a focused frontend.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>One Anchor program or AI integration</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Custom dApp frontend</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Wallet connection setup</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Devnet + mainnet deployment</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tested, reviewed program code</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Documentation &amp; handoff</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost btn-block">Book a discovery call</a>
+          </article>
 
+          <article class="card plan featured reveal" style="--d:.06s">
+            <div class="plan-head"><span class="plan-name">Business</span><span class="plan-flag">Most popular</span></div>
+            <div class="plan-price"><small>from</small>$15,000</div>
+            <div class="plan-php">≈ ₱870,000+</div>
+            <p class="plan-desc">Multi-program dApps, token systems and AI agents for products going to market.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Everything in Starter</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Multi-program architecture</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Admin &amp; on-chain dashboard</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Token-2022 or NFT infrastructure</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>AI agent automation</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Priority development</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-block">Book a discovery call</a>
+          </article>
 
-  <!-- ======================================================
-       BACK TO TOP
-       ====================================================== -->
+          <article class="card plan reveal" style="--d:.12s">
+            <div class="plan-head"><span class="plan-name">Custom</span></div>
+            <div class="plan-price">Let's talk</div>
+            <div class="plan-php">Scoped to your protocol</div>
+            <p class="plan-desc">DeFi protocols, enterprise AI systems, DAOs and long-term technology partnerships.</p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Everything in Business</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Protocol-scale architecture</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Custom AI implementations</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>DAO &amp; multisig governance</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Third-party audit coordination</li>
+            </ul>
+            <a href="#contact" class="btn btn-ghost btn-block">Discuss your project</a>
+          </article>
+        </div>
+        <p class="fine" style="text-align:center">Final pricing depends on scope, functionality, integrations, design requirements and complexity.</p>
+      </div>
+    </section>
 
-  <button
-    id="backToTop"
-    type="button"
-    aria-label="Back to top"
-  >
-    ↑
-  </button>
+    <!-- ======================================================
+         FAQ
+         ====================================================== -->
+    <section class="section" id="faq" aria-labelledby="faq-heading" style="padding-top:0">
+      <div class="container faq-wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title" id="faq-heading">Common questions.</h2>
+          <p class="section-lead">Can't find your answer? Email <a href="mailto:support@necxsoft.com" class="grad-text">support@necxsoft.com</a>.</p>
+        </div>
 
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>Why do you focus on Solana?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <p>Fast confirmations, low fees and one composable state make Solana the best fit for consumer and high-throughput products. Going deep on one ecosystem means sharper expertise in its programs, tooling and security patterns.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can you work with other chains?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <p>Solana is our focus. If your product also needs an EVM chain, for example to bridge or to support multiple chains, we scope that during discovery.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you audit smart contracts?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <p>Every program goes through thorough testing and an internal security review. For mainnet launches that will hold real value, we recommend an independent third-party audit. We prepare your codebase for it and help coordinate the audit.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How long does a project take?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <p>It depends on scope. Mint and landing pages typically take 1–2 weeks, programs and dApps 2–6 weeks, and AI agents and integrations 3–8 weeks.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need to pay before I see anything?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <p>No. We work demo-first, so you see a working devnet preview before any commitment is final.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you work with clients outside the Philippines?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <p>Yes. We work with US and international clients entirely online.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What happens after launch?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <p>We offer ongoing support and maintenance, including program upgrades, monitoring and new features as your product grows.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How much does a project cost?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <p>Starter projects begin at $5,000 and Business projects at $15,000. We quote complex protocols individually after discovery.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CONTACT / BOOKING
+         ====================================================== -->
+    <section class="section" id="contact" aria-labelledby="contact-heading" style="padding-top:0">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Let's build</span>
+          <h2 class="section-title" id="contact-heading">Have a Solana idea? Let's ship it.</h2>
+          <p class="section-lead">We serve clients worldwide from Davao City, Philippines, and take on a limited number of new projects each quarter.</p>
+        </div>
+
+        <div class="contact">
+          <div class="card contact-panel reveal">
+            <h3>What happens next</h3>
+            <p>A free discovery call to understand your product, your goals and the right Solana solution for it.</p>
+
+            <ol class="next-steps">
+              <li><span class="step-num">01</span><div><b>Send your brief</b><p>Tell us what you're building, your timeline and your budget.</p></div></li>
+              <li><span class="step-num">02</span><div><b>We reply by email</b><p>We'll ask any follow-up questions and agree a time for a call.</p></div></li>
+              <li><span class="step-num">03</span><div><b>Discovery call</b><p>About 30 minutes on Google Meet to scope the project together.</p></div></li>
+              <li><span class="step-num">04</span><div><b>Scope &amp; proposal</b><p>A clear plan with a timeline and a quote. No commitment until you've seen a demo.</p></div></li>
+            </ol>
+
+            <div class="contact-direct">
+              <span>Prefer email?</span>
+              <a href="mailto:support@necxsoft.com" class="link-arrow">support@necxsoft.com <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+
+          <div class="card contact-panel reveal" style="--d:.06s">
+            <h3>Tell us about your project</h3>
+            <p>We'll reply by email to set up your discovery call.</p>
+
+            <form class="form" id="contactForm" novalidate>
+              <input type="hidden" name="access_key" id="web3formsAccessKey" value="">
+              <input type="hidden" name="subject" value="New inquiry from necxsoft.com">
+              <input type="hidden" name="from_name" value="NECXSOFT Website">
+              <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="contactName">Name *</label>
+                  <input id="contactName" name="name" type="text" autocomplete="name" required minlength="2" maxlength="100" placeholder="Your name">
+                </div>
+                <div class="field">
+                  <label for="contactEmail">Email *</label>
+                  <input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@company.com">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="contactCompany">Company / project</label>
+                  <input id="contactCompany" name="company" type="text" autocomplete="organization" maxlength="150" placeholder="Optional">
+                </div>
+                <div class="field">
+                  <label for="contactPhone">Phone / Telegram</label>
+                  <input id="contactPhone" name="phone" type="text" autocomplete="tel" maxlength="30" placeholder="Optional">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="contactMessage">What are you building? *</label>
+                <textarea id="contactMessage" name="message" required maxlength="3000" placeholder="A few lines about your product, timeline and budget."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Send inquiry
+                <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+              </button>
+
+              <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CTA BAND
+         ====================================================== -->
+    <section class="section" style="padding-top:0" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-band reveal">
+          <span class="eyebrow">Ready when you are</span>
+          <h2 id="cta-heading" style="margin-top:18px">Your next launch on Solana starts with one call.</h2>
+          <p>Tell us what you're building. You'll leave the call with a clear scope, a timeline and the next steps.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book a discovery call <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="mailto:support@necxsoft.com" class="btn btn-ghost">support@necxsoft.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ======================================================
        FOOTER
        ====================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#home" class="brand" aria-label="NECXSOFT home">
+            <img src="/images/team/logo.png" alt="" width="34" height="34">
+            NECXSOFT
+          </a>
+          <p>A Solana development studio building programs, dApps, token systems and AI agents for teams worldwide. Based in Davao City, Philippines.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Solana programs</a></li>
+            <li><a href="#services">dApps &amp; wallets</a></li>
+            <li><a href="#services">Tokens &amp; NFTs</a></li>
+            <li><a href="#services">AI agents</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#pricing">Pricing</a></li>
 
-  <footer
-    class="footer"
-    id="footer"
-  >
-
-    <div class="footer-inner">
-
-
-      <div class="footer-brand">
-
-        <span class="footer-logo">
-
-          <img
-            data-brand-logo
-            src="/images/team/logo.png"
-            alt="NECXSOFT logo"
-            class="footer-brand-logo"
-          >
-
-        </span>
-
-        <p class="footer-tagline">
-          Smart contracts, dApps,
-          blockchain integrations, and AI automation
-          for growing businesses and protocols.
-        </p>
-
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:support@necxsoft.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/company/necxsoft" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://www.facebook.com/necxsoft/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
+        </div>
       </div>
-
-
-      <nav
-        class="footer-nav"
-        aria-label="Footer navigation"
-      >
-
-        <a href="#services">
-          Services
-        </a>
-
-        <a href="#systems">
-          Solutions
-        </a>
-
-        <a href="#products">
-          Products
-        </a>
-
-        <a href="#team">
-          About
-        </a>
-
-        <a href="#contact">
-          Contact
-        </a>
-
-      </nav>
-
-
-      <div class="footer-social">
-
-        <a
-          href="mailto:support@necxsoft.com"
-          aria-label="Email NECXSOFT"
-        >
-          Email Us
-        </a>
-
-
-        <a
-          href="https://www.facebook.com/necxsoft/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="NECXSOFT on Facebook"
-        >
-          Facebook
-        </a>
-
-
-        <a
-          href="https://www.linkedin.com/company/necxsoft"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="NECXSOFT on LinkedIn"
-        >
-          LinkedIn
-        </a>
-
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> NECXSOFT. All rights reserved.</span>
+        <span>NECXSOFT is an independent studio, not affiliated with the Solana Foundation.</span>
       </div>
-
     </div>
-
-
-    <div class="footer-bottom">
-
-      <p>
-        © 2026 NECXSOFT. All rights reserved.
-      </p>
-
-      <p class="footer-sub">
-        Web3 development, smart contracts,
-        blockchain integrations, and AI automation
-        for businesses and protocols in the
-        Philippines and worldwide.
-      </p>
-
-    </div>
-
   </footer>
 
-
-  <!-- ======================================================
-       JAVASCRIPT
-       ====================================================== -->
-
-  <script src="/js/script.js"></script>
-
+  <script src="/js/main.js" defer></script>
 </body>
-
 </html>
