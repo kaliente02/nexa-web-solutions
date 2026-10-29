@@ -11,22 +11,21 @@ const pb = new PocketBase(POCKETBASE_URL);
 
 const STEPS = ["Your details", "The project", "Timeline & budget", "Schedule", "Review"];
 
-const WEBSITE_TYPES = [
-  { id: "business", label: "Business Website", icon: "briefcase" },
-  { id: "portfolio", label: "Portfolio Website", icon: "image" },
-  { id: "ecommerce", label: "E-commerce Website", icon: "bag" },
-  { id: "landing", label: "Landing Page", icon: "file" },
-  { id: "blog", label: "Blog / News Website", icon: "news" },
-  { id: "school", label: "School / Organization Website", icon: "school" },
+const PROJECT_TYPES = [
+  { id: "smart-contract", label: "Smart Contract / dApp", icon: "file" },
+  { id: "token-nft", label: "Token / NFT Launch", icon: "image" },
+  { id: "ai-agent", label: "AI Agent / Chatbot", icon: "message" },
+  { id: "blockchain-integration", label: "Blockchain Integration", icon: "briefcase" },
+  { id: "web3-infra", label: "Web3 Infrastructure / Audit", icon: "news" },
   { id: "other", label: "Other", icon: "more" },
 ];
 
-const PAGE_COUNTS = ["1–3 pages", "4–6 pages", "7–10 pages", "More than 10 pages", "Not sure yet"];
+const PROJECT_SCOPES = ["Single contract / integration", "Full dApp / platform", "Multi-chain / multi-contract", "Enterprise-scale protocol", "Not sure yet"];
 
 const FEATURES = [
-  "Contact Form", "Online Booking", "Online Store", "Payment Integration",
-  "User Login", "Admin Dashboard", "Database", "Gallery",
-  "Blog", "Google Maps", "Social Media Integration", "Other",
+  "Wallet Connect", "Smart Contract Audit", "Token / NFT Minting", "AI Chatbot / Agent",
+  "On-Chain Analytics Dashboard", "Multi-Chain Support", "DAO / Governance Tools", "Admin Dashboard",
+  "LLM / API Integration", "Community Bot (Discord / Telegram)", "Payment Integration", "Other",
 ];
 
 const TIMELINES = [
@@ -34,7 +33,7 @@ const TIMELINES = [
   "Within 2–3 months", "Flexible / No specific deadline",
 ];
 
-const BUDGETS = ["Under ₱10,000", "₱10,000–₱20,000", "₱20,000–₱50,000", "₱50,000+", "Not sure yet"];
+const BUDGETS = ["Under ₱300,000", "₱300,000–₱800,000", "₱800,000–₱1,500,000", "₱1,500,000+", "Not sure yet"];
 
 const CONTACT_METHODS = [
   { id: "email", label: "Email", icon: "mail" },
@@ -91,7 +90,7 @@ async function fetchBookingsFromDB() {
     return records.map(r => ({
       id: r.id,
       business: r.businessName || r.fullName,
-      type: WEBSITE_TYPES.find(t => t.id === r.websiteType)?.label || "—",
+      type: PROJECT_TYPES.find(t => t.id === r.websiteType)?.label || "—",
       bookedOn: formatDateShort(new Date(r.created)),
       consultDate: r.date ? formatDateShort(new Date(r.date + "T00:00:00")) : "—",
       status: r.status || "Pending",
@@ -250,13 +249,13 @@ function renderStepProject() {
   const f = state.form;
   return `
     <div class="card">
-      <h2>Tell us about your website</h2>
+      <h2>Tell us about your project</h2>
       <p class="card-sub">The more detail, the better we can scope it.</p>
 
       <div class="field-block">
-        <label class="field-label">Website type<span class="req">*</span></label>
+        <label class="field-label">Project type<span class="req">*</span></label>
         <div class="pill-grid cols-3">
-          ${WEBSITE_TYPES.map(t => renderPill({
+          ${PROJECT_TYPES.map(t => renderPill({
             label: t.label,
             selected: f.websiteType === t.id,
             iconName: t.icon,
@@ -266,9 +265,9 @@ function renderStepProject() {
       </div>
 
       <div class="field-block">
-        <label class="field-label">Number of pages<span class="req">*</span></label>
+        <label class="field-label">Project scope<span class="req">*</span></label>
         <div class="pill-grid cols-5">
-          ${PAGE_COUNTS.map(p => renderPill({
+          ${PROJECT_SCOPES.map(p => renderPill({
             label: p,
             selected: f.pageCount === p,
             dataAttr: `data-select="pageCount" data-value="${esc(p)}"`,
@@ -289,7 +288,7 @@ function renderStepProject() {
 
       <div class="field-block">
         <label class="field-label">Project description</label>
-        <textarea data-field="description" rows="5" placeholder="Tell us about your website idea, business, preferred design, features, or anything else we should know.">${esc(f.description)}</textarea>
+        <textarea data-field="description" rows="5" placeholder="Tell us about your protocol, product, or AI use case, preferred chains, features, or anything else we should know.">${esc(f.description)}</textarea>
       </div>
     </div>`;
 }
@@ -302,7 +301,7 @@ function renderStepTimeline() {
       <p class="card-sub">Helps us plan the right scope for your schedule.</p>
 
       <div class="field-block">
-        <label class="field-label">When would you like your website completed?<span class="req">*</span></label>
+        <label class="field-label">When would you like your project completed?<span class="req">*</span></label>
         <div class="pill-grid">
           ${TIMELINES.map(t => renderPill({
             label: t,
@@ -363,11 +362,11 @@ function summaryRow(label, value) {
 
 function renderStepSummary() {
   const f = state.form;
-  const typeLabel = WEBSITE_TYPES.find(t => t.id === f.websiteType)?.label || "—";
+  const typeLabel = PROJECT_TYPES.find(t => t.id === f.websiteType)?.label || "—";
   const contactLabel = CONTACT_METHODS.find(c => c.id === f.contactMethod)?.label || "—";
   return `
     <div class="card">
-      <h2>${icon("sparkles")} Your website project</h2>
+      <h2>${icon("sparkles")} Your Web3 / AI project</h2>
       <p class="card-sub">Review the details below before you submit.</p>
 
       <div class="field-block">
@@ -376,8 +375,8 @@ function renderStepSummary() {
         ${summaryRow("Email", f.email)}
         ${summaryRow("Phone", f.phone)}
         ${summaryRow("Preferred contact", contactLabel)}
-        ${summaryRow("Website type", typeLabel)}
-        ${summaryRow("Pages", f.pageCount)}
+        ${summaryRow("Project type", typeLabel)}
+        ${summaryRow("Scope", f.pageCount)}
         ${summaryRow("Features", f.features.length ? f.features.join(", ") : "None selected")}
         ${summaryRow("Timeline", f.timeline)}
         ${summaryRow("Budget", f.budget || "Not specified")}
@@ -396,8 +395,8 @@ function renderFormView() {
 
   return `
     <div class="hero">
-      <h1>Book your website project</h1>
-      <p>Tell us about your website project and we'll get in touch with you.</p>
+      <h1>Book your Web3 / AI project</h1>
+      <p>Tell us about your Web3 or AI project and we'll get in touch with you.</p>
     </div>
 
     ${renderProgressRail()}
@@ -411,7 +410,7 @@ function renderFormView() {
         ${state.step > 0 ? `<button class="btn subtle" id="btn-back">${ICONS.arrowLeft} Back</button>` : ""}
       </div>
       ${isLast
-        ? `<button class="btn" id="btn-submit">Book website development</button>`
+        ? `<button class="btn" id="btn-submit">Book Web3 / AI development</button>`
         : `<button class="btn" id="btn-next">Continue ${ICONS.arrowRight}</button>`
       }
     </div>`;
@@ -422,7 +421,7 @@ function renderConfirmationView() {
     <div class="confirmation">
       <div class="check-badge">${ICONS.checkBig}</div>
       <h1>Booking submitted</h1>
-      <p class="lead">Thank you for choosing us for your website project. Your request has been successfully submitted.</p>
+      <p class="lead">Thank you for choosing us for your Web3 or AI project. Your request has been successfully submitted.</p>
 
       <div class="booking-id-box">
         <div class="bib-label">Booking ID</div>
@@ -443,7 +442,7 @@ function renderBookingsView() {
     return `
       <div class="bookings-header">
         <div>
-          <h1>My website bookings</h1>
+          <h1>My project bookings</h1>
           <p>Loading your bookings...</p>
         </div>
       </div>`;
@@ -452,7 +451,7 @@ function renderBookingsView() {
   return `
     <div class="bookings-header">
       <div>
-        <h1>My website bookings</h1>
+        <h1>My project bookings</h1>
         <p>Track the status of every project you've requested.</p>
       </div>
       <button class="back-link desktop" id="btn-back-desktop">${ICONS.arrowLeft} New booking</button>
