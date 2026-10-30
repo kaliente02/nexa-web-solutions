@@ -16,6 +16,9 @@ const LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // The wallet UI is client-only: prerender and hydrate with the placeholder,
+  // then load the Solana SDK.
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -23,6 +26,7 @@ export default function Nav() {
       if (event.key === "Escape") setOpen(false);
     };
 
+    setMounted(true);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("keydown", onKeyDown);
@@ -48,9 +52,13 @@ export default function Nav() {
         </nav>
 
         <div className="nav-cta">
-          <Suspense fallback={<WalletPlaceholder />}>
-            <WalletButton />
-          </Suspense>
+          {mounted ? (
+            <Suspense fallback={<WalletPlaceholder />}>
+              <WalletButton />
+            </Suspense>
+          ) : (
+            <WalletPlaceholder />
+          )}
           <a href="#contact" className="btn btn-primary btn-sm">Book a call</a>
           <button
             className="menu-btn"

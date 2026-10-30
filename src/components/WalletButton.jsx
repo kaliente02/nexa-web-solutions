@@ -59,21 +59,15 @@ function useDismiss(open, setOpen, ref) {
   }, [open, setOpen, ref]);
 }
 
-function WalletList({ onConnected }) {
+function WalletList() {
   const client = useClient();
   const wallets = useWallets(client);
-  const { dispatchAsync: connect, isRunning, error } = useConnect(client);
+  const { dispatch: connect, isRunning, error } = useConnect(client);
   const [pending, setPending] = useState(null);
 
-  async function handleConnect(wallet) {
+  function handleConnect(wallet) {
     setPending(wallet.name);
-    try {
-      await connect(wallet);
-      onConnected();
-    } catch {
-      // Surfaced below through `error`.
-    }
-    setPending(null);
+    connect(wallet);
   }
 
   if (wallets.length === 0) {
@@ -93,7 +87,7 @@ function WalletList({ onConnected }) {
             <button type="button" disabled={isRunning} onClick={() => handleConnect(wallet)}>
               {wallet.icon && <img src={wallet.icon} alt="" width="24" height="24" />}
               <span>{wallet.name}</span>
-              {pending === wallet.name && <em>Connecting…</em>}
+              {isRunning && pending === wallet.name && <em>Connecting…</em>}
             </button>
           </li>
         ))}
@@ -173,6 +167,12 @@ function WalletMenu() {
 
   useDismiss(open, setOpen, ref);
 
+  // Close the popover once a wallet connects (or switches account).
+  const connectedAddress = connected?.account.address;
+  useEffect(() => {
+    if (connectedAddress) setOpen(false);
+  }, [connectedAddress]);
+
   return (
     <div className="wallet" ref={ref}>
       <button
@@ -180,6 +180,7 @@ function WalletMenu() {
         className={`wallet-btn${connected ? " is-connected" : ""}`}
         aria-haspopup="dialog"
         aria-expanded={open}
+        title={connected ? connected.account.address : "Connect wallet"}
         onClick={() => setOpen((value) => !value)}
       >
         <WalletGlyph />
@@ -197,7 +198,7 @@ function WalletMenu() {
           {connected ? (
             <ConnectedPanel connected={connected} onDone={() => setOpen(false)} />
           ) : (
-            <WalletList onConnected={() => setOpen(false)} />
+            <WalletList />
           )}
         </div>
       )}

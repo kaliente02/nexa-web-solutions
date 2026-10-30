@@ -41,7 +41,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 88px;
   -webkit-text-size-adjust: 100%;
 }
@@ -2098,9 +2097,19 @@ p {
   transform: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+/* In-page link jumps: fade out, jump, fade back in (see useSectionJump). */
+main,
+.footer {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
 
+.section-jump main,
+.section-jump .footer {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -2327,7 +2336,7 @@ p {
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 1080px) {
   .wallet-btn {
     width: 44px;
     height: 44px;
@@ -2339,7 +2348,9 @@ p {
   .wallet-btn-label {
     display: none;
   }
+}
 
+@media (max-width: 520px) {
   .wallet-pop {
     position: fixed;
     top: 84px;

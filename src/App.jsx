@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useReveal } from "./hooks/useReveal.js";
+import { useSectionJump } from "./hooks/useSectionJump.js";
 import IconSprite from "./components/IconSprite.jsx";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
@@ -23,6 +24,7 @@ export default function App() {
   }, []);
 
   useReveal();
+  useSectionJump();
 
   return (
     <>
