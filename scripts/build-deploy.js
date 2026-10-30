@@ -6,7 +6,7 @@ const { execSync } = require("child_process");
 
 const root = path.resolve(__dirname, "..");
 
-const publicDir = path.join(root, "public");
+const distDir = path.join(root, "dist");
 const documentationDir = path.join(root, "documentation");
 const documentationBuild = path.join(documentationDir, "build");
 const deployDir = path.join(root, "deploy");
@@ -28,6 +28,14 @@ console.log(" NEXA DEPLOYMENT BUILD");
 console.log("==============================================");
 console.log("");
 
+console.log("Building React website...");
+
+execSync("npm run build:web", {
+    cwd: root,
+    stdio: "inherit"
+});
+
+console.log("");
 console.log("Installing Docusaurus dependencies...");
 
 execSync("npm install", {
@@ -51,7 +59,7 @@ if (!fs.existsSync(documentationBuild)) {
 console.log("");
 console.log("Copying NEXA website...");
 
-fs.cpSync(publicDir, deployDir, {
+fs.cpSync(distDir, deployDir, {
     recursive: true
 });
 

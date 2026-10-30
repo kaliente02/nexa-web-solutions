@@ -4,18 +4,28 @@
   "description": "NEXA secure website",
   "main": "server.js",
   "scripts": {
+    "dev": "vite",
+    "build:web": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "preview": "vite preview",
     "start": "node server.js",
-    "dev": "node server.js",
     "build": "node scripts/build-deploy.js",
     "deploy": "wrangler deploy"
   },
   "dependencies": {
+    "@solana/kit": "^8.6.0",
+    "@solana/kit-plugin-rpc": "^0.22.0",
+    "@solana/kit-plugin-wallet": "^0.22.0",
+    "@solana/react": "^8.6.0",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.1",
-    "helmet": "^8.1.0"
+    "helmet": "^8.1.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.5",
     "wrangler": "^4.131.1"
   }
 }

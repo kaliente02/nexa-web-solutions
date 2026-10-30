@@ -50,7 +50,8 @@ app.use(
 // FRONTEND
 // ============================================================
 
-const PUBLIC_DIR = path.join(__dirname, "public");
+// Built React site. Run "npm run build:web" first.
+const PUBLIC_DIR = path.join(__dirname, "dist");
 
 console.log("Frontend directory:");
 console.log(PUBLIC_DIR);
