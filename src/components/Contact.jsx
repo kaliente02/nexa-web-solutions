@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Card from "./Card.jsx";
 import Icon from "./Icon.jsx";
 import { BRAND_CONFIG, FORM_CONFIG } from "../config.js";
+import { PACKAGE_PARAM, PACKAGE_SELECT_EVENT, findPackage, packageMessage } from "../packages.js";
 
 const NEXT_STEPS = [
   ["Send your brief", "Tell us what you're building, your timeline and your budget."],
@@ -13,6 +14,38 @@ const NEXT_STEPS = [
 function ContactForm() {
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
+  const messageRef = useRef(null);
+  const prefillRef = useRef("");
+
+  // Prefill the message from ?package=<slug>, on load and whenever a
+  // "Book this package" button is clicked. The textarea stays uncontrolled.
+  useEffect(() => {
+    const prefill = (slug, focus) => {
+      const pkg = findPackage(slug);
+      const textarea = messageRef.current;
+      if (!pkg || !textarea) return;
+
+      const intro = packageMessage(pkg);
+      const current = textarea.value;
+      // Swap out an earlier package intro, but keep anything the visitor typed.
+      const rest = prefillRef.current && current.startsWith(prefillRef.current)
+        ? current.slice(prefillRef.current.length)
+        : current;
+      textarea.value = intro + rest;
+      prefillRef.current = intro;
+
+      if (focus) {
+        textarea.focus({ preventScroll: true });
+        textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+      }
+    };
+
+    prefill(new URLSearchParams(window.location.search).get(PACKAGE_PARAM), false);
+
+    const onSelect = (event) => prefill(event.detail, true);
+    window.addEventListener(PACKAGE_SELECT_EVENT, onSelect);
+    return () => window.removeEventListener(PACKAGE_SELECT_EVENT, onSelect);
+  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -41,6 +74,7 @@ function ContactForm() {
         message: "Message sent. This is an inquiry, not a booked call. We'll follow up by email."
       });
       form.reset();
+      prefillRef.current = "";
     } catch (error) {
       console.error("Web3Forms error:", error);
       setStatus({
@@ -83,7 +117,7 @@ function ContactForm() {
 
       <div className="field">
         <label htmlFor="contactMessage">What are you building? *</label>
-        <textarea id="contactMessage" name="message" required maxLength={3000} placeholder="A few lines about your product, timeline and budget." />
+        <textarea ref={messageRef} id="contactMessage" name="message" required maxLength={3000} placeholder="A few lines about your product, timeline and budget." />
       </div>
 
       <button type="submit" className="btn btn-primary btn-block" disabled={sending}>
