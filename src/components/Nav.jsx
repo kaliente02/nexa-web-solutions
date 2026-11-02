@@ -10,6 +10,7 @@ const LINKS = [
   ["#process", "Process"],
   ["#team", "Team"],
   ["#pricing", "Pricing"],
+  ["#packages", "Packages"],
   ["#faq", "FAQ"]
 ];
 
